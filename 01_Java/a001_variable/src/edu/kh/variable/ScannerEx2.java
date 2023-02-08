@@ -26,14 +26,8 @@ public class ScannerEx2 {
 		
 		System.out.printf("%s님은 %d세, 키 %.1fcm 입니다.", inputName, inputAge, inputHeight);
 		
-
-		
-		
-		
-		
-		
-		
-		
+		// 집에서 복습하고 나면?
+		// 주석
 	}
 	
 	
