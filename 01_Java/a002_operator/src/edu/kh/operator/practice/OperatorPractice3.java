@@ -17,7 +17,9 @@ public class OperatorPractice3 {
 					  : i > 0 ? "양수 입니다." : "음수 입니다.";
 		
 		System.out.println(result);
-
 		
+		// String result = i == 0 ? "0" : (i > 0 ? "양수" : "음수");
+		// System.out.println(result + " 입니다.");
+		// -> 더 간단하게 작성 가능
 	}
 }

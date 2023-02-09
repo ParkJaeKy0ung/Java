@@ -10,7 +10,6 @@ public class OperatorPractice4 {
 		Scanner sc = new Scanner(System.in);
 		
 		
-		
 		System.out.print("국어 : ");
 		int kor = sc.nextInt();
 		
@@ -20,24 +19,17 @@ public class OperatorPractice4 {
 		System.out.print("수학 : ");
 		int math = sc.nextInt();
 		
-		System.out.println();
+		// System.out.println();
 		
-		int result1 = kor + eng + math;
-		float result2 = (kor + eng + math) / 3 ;
-				
+		int sum = kor + eng + math;
+		double avg = (kor + eng + math) / 3 ;  // sum / 3.0;
+		String result3 = (kor >= 40 && eng >= 40 && math >= 40) && ((kor + eng + math) / 3) >= 60 ? // ((kor + eng + math) / 3) -> avg
+				"합격" : "불합격";		
 		
-		System.out.printf("합계 : %d", result1);
-		System.out.println();
-		System.out.printf("합계 : %.1f", result2);
-		
-		System.out.println();
-		String result3 = (kor >= 40 && eng >= 40 && math >= 40) && ((kor + eng + math) / 3) >= 60 ?
-				"합격" : "불합격";
-		
+		System.out.printf("\n합계 : %d", sum); // println("합계 : " + sum) !!!
+		// System.out.println(); 
+		System.out.printf("\n평균 : %.1f", avg); // println("평균 : " + avg) !!!
+
 		System.out.println(result3);
-		
-		
-		
-		
 	}
 }

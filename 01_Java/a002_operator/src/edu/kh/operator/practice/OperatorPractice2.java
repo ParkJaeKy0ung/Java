@@ -16,24 +16,19 @@ public class OperatorPractice2 {
 		int grade = sc.nextInt();
 		
 		System.out.print("반 : ");
-		int classes = sc.nextInt();
+		int classRoom = sc.nextInt();
 		
 		System.out.print("번호 : ");
 		int number = sc.nextInt();
 		
 		System.out.print("성별 : ");
-		String sex = sc.next();
+		String gender = sc.next();
 		
 		System.out.print("성적 : ");
-		float score = sc.nextFloat();
+		double score = sc.nextDouble();  // double도 마찬가지로 %f로 표시할 수 있음.
 		
-		System.out.println();
+		// System.out.println();
 		
-		System.out.printf("%d학년 %d반 %d번 %s %s의 성적은 %.2f점 입니다.", grade, classes, number, name, sex, score);
-		
-		
-		
-		
-		
+		System.out.printf("\n%d학년 %d반 %d번 %s %s의 성적은 %.2f점 입니다.", grade, classRoom, number, name, gender, score);
 	}
 }
