@@ -209,6 +209,20 @@ public class ConditionPractice {
 		Fail [출석 횟수 부족 (10/20)]
 		*/
 		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("중간 고사 점수 : ");
+		int mid = sc.nextInt();
+		
+		System.out.print("기말 고사 점수 : ");
+		int fin = sc.nextInt();
+		
+		System.out.print("과제 점수 : ");
+		int task = sc.nextInt();
+		
+		System.out.print("출석 횟수 : ");
+		int att = sc.nextInt();
+		
 	}
 	
 }
