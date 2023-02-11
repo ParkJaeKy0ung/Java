@@ -21,7 +21,7 @@ public class ConditionPractice {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("숫자1를 한 개 입력하세요 : ");
+		System.out.print("숫자를 한 개 입력하세요 : ");
 		int n = sc.nextInt();
 		String result;
 		
@@ -53,14 +53,13 @@ public class ConditionPractice {
 		국어점수 : 88   국어점수 : 88
 		수학점수 : 50   수학점수 : 50
 		영어점수 : 40   영어점수 : 45
-		불합격입니다.   국어 : 88
-						수학 : 50
-						영어 : 45
-						합계 : 183
-						평균 : 61.0
-						축하합니다, 합격입니다!
+		불합격입니다.    국어 : 88
+					  수학 : 50
+					  영어 : 45
+					  합계 : 183
+					  평균 : 61.0
+					  축하합니다, 합격입니다!
 		*/
-		
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -73,20 +72,19 @@ public class ConditionPractice {
 		System.out.print("영어점수 : ");
 		int eng = sc.nextInt();
 		
-		
 		int sum = kor + math + eng;
 		double avg = (kor + math + eng) / 3;
 		
-		
 		if(kor >= 40 && math >= 40 && eng >= 40 && avg >= 60) {
-			System.out.println();
-			
-			
+			System.out.printf("국어 : %d\n", kor);
+			System.out.printf("수학 : %d\n", math);
+			System.out.printf("영어 : %d\n", eng);
+			System.out.printf("합계 : %d\n", sum);
+			System.out.printf("평균 : %.1f\n", avg);
 			System.out.println("축하합니다, 합격입니다!");
 		}else {
 			System.out.println("불합격입니다.");
 		}
-		
 	}
 	
 	
@@ -104,12 +102,27 @@ public class ConditionPractice {
 		99월은 잘못 입력된 달입니다.
 		*/
 		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("1~12 사이의 정수 입력 : ");
+		int month = sc.nextInt();
+		
+		int date = 0;
+		
+		switch(month) {
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12: date=31; break;
+		case 4: case 6: case 9: case 11: date=30; break;
+		case 2: date=28; break;
+		default: date=-1;
+		}
+		if(1<=month && month<=12) {
+			System.out.printf("%d월은 %d일까지 있습니다.", month, date);
+		}else
+			System.out.printf("%d월은 잘못 입력된 달입니다.", month);
 	}
 	
 	
-	
 	public void practice4() {
-		
 		/*
 		키, 몸무게를 double로 입력 받고 BMI지수를 계산하여 계산 결과에 따라
 		저체중/정상체중/과체중/비만을 출력하세요.
@@ -126,6 +139,30 @@ public class ConditionPractice {
 		정상체중
 		*/
 		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("키(m)를 입력해 주세요 : ");
+		double height = sc.nextDouble();
+		
+		System.out.printf("몸무게(kg)를 입력해 주세요 : ");
+		double weight = sc.nextDouble();
+		
+		double bmi = weight/(height*height);
+		String result;
+		
+		if(bmi<18.5) {
+			result = "저체중";
+		}else if(bmi<23) {
+			result = "정상체중";
+		}else if(bmi<25) {
+			result = "과체중";
+		}else if(bmi<30) {
+			result = "비만";
+		}else {
+			result = "고도 비만";
+		}
+		System.out.printf("BMI 지수 : %f\n", bmi);
+		System.out.println(result);
 	}
 	
 	

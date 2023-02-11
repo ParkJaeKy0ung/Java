@@ -114,14 +114,14 @@ public class ForPractice {
 		System.out.print("두 번째 숫자 : ");
 		int num2 = sc.nextInt();
 		
-		if(num1 < 1 || num2 < 1) {  // 1 미만의 숫자 입력
+		if(num1<1 || num2<1) {  // 1 미만의 숫자 입력
 			System.out.println("1 이상의 숫자를 입력해주세요"); // “1 이상의 숫자를 입력해주세요“ 출력
 		}else if(num1<num2) {       // 첫 번째 숫자 < 두 번째 숫자
 			for(int i=num1; i<=num2; i++) {
 				System.out.print(i + " ");  // 사이 숫자 모두 출력
 			}
-		}else {       //8      //4
-			for(int i=num2; i>=num1; i--) {
+		}else {       //4      //8
+			for(int i=num2; i<=num1; i++) {
 				System.out.print(i + " ");
 			}
 		}
@@ -288,7 +288,6 @@ public class ForPractice {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		
-		
 		for(int i=1; i<input*2; i++) {
 			if(i<=input) {
 				for(int j=1; j<=i; j++)
@@ -315,7 +314,7 @@ public class ForPractice {
 	}
 	
 	
-	public void practice12() {
+	public void practice12() {  // *****               ***** ...?
 		/*
 		정수 입력 : 5
 		*****
@@ -330,8 +329,17 @@ public class ForPractice {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		
-		
-		
+		for(int i=1; i<=input; i++) {
+			for(int j=1; j<=input; j++) {
+				if(i==1) {
+					System.out.print("*");
+				}else if(i==input) {
+					System.out.print("*");
+				}else {
+					System.out.print(" ");
+				}
+			}
+		}
 	}
 	
 	
@@ -349,6 +357,25 @@ public class ForPractice {
 		2 3 4 6 8 9 10 12 14 15
 		count : 2
 		*/
-	}
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("자연수 하나를 입력하세요 : ");
+		int input = sc.nextInt();
 
+		int result = 0;
+		
+		for(int i=1; i<=input; i++) {
+			if(i%2==0 || i%3==0) {
+				System.out.print(i +" ");
+			}
+		}
+		System.out.println();
+		System.out.printf("count : %d"+ result);  // result = (i%2==0 && i%3==0)
+	}
+	
+	
+	
+	
+	
 }
