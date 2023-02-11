@@ -43,16 +43,12 @@ public class SwitchEx {
 		
 //		if(input == 1) {
 //			res = "RED";
-//			
 //		}else if(input == 2) {
 //			res = "ORANGE";
-//			
 //		}else if(input == 3) {
 //			res = "YELLOW";
-//			
 //		}else if(input == 4) {
 //			res = "GREEN";
-//			
 //		}else {
 //			res = "BLUE";
 //		}
@@ -66,11 +62,8 @@ public class SwitchEx {
 		case 3 : res = "YELLOW"; break; // input이 3인 경우
 		case 4 : res = "GREEN"; break; // input이 4인 경우
 		default : res = "BLUE"; 
-		
 		}
-		
 		System.out.println(res);
-
 	}
 	
 	
@@ -111,10 +104,10 @@ public class SwitchEx {
 	// switch 예시 3 : 식의 결과가 "문자열" (Stirng)
 	public void ex3() {
 		
-		//‘scan’ →  ctrl + spacebar + enter
+		// ‘scan’ →  ctrl + spacebar + enter
 		Scanner sc = new Scanner(System.in);
 		
-		//메뉴를 입력 받아서 가격이 얼마인지 출력하기
+		// 메뉴를 입력 받아서 가격이 얼마인지 출력하기
 		
 		System.out.print("메뉴를 입력하세요 (김밥/라면/샌드위치/떡볶이) : ");
 		
@@ -223,13 +216,6 @@ public class SwitchEx {
 		case 9 : case 10 : result = "가을"; break;
 		default : result = "잘못 입력하셨습니다.";
 		}
-		
 		System.out.println(result);
 	}
-	
-	
-	
-	
-	
-	
 }

@@ -26,7 +26,7 @@ public class ConditionEx {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		
-		if(input > 0 /*조건식*/) {
+		if(input > 0 ) {
 			// 조건식이 true인 경우에만 if문 {} 내부 코드가 수행됨
 			System.out.println("양수 입니다.");
 			System.out.println("ex1() 종료");
@@ -67,7 +67,7 @@ public class ConditionEx {
 	// if 예시 3번 (if - else if - else)
 	public void ex3() {
 		Scanner sc = new Scanner(System.in);
-		
+	
 		System.out.println("[홀짝 판별기]");
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
@@ -80,7 +80,7 @@ public class ConditionEx {
 			System.out.println("홀수 입니다.");
 		}else {                               // 짝수
 			System.out.println("짝수 입니다.");
-		}	
+		}
 	}
 	
 	
@@ -169,7 +169,6 @@ public class ConditionEx {
 		// 나이 입력 : 120
 		// 키 입력 : 185.5
 		// 잘못 입력하셨습니다.
-		
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("나이 입력 : ");
