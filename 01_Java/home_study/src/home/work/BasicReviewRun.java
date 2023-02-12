@@ -16,9 +16,25 @@ public class BasicReviewRun {
 		// basic.ex6();
 		
 		// Math.random()
-		 basic.ex7();
+		// basic.ex7();
 		
-		
-		
+		// condition _for문
+		// basic.ex8();
+		// basic.ex9();
+		// basic.ex10();
+		// basic.ex11();
+		// for문 응용 사용법
+		// basic.ex12();
+		// basic.ex13();
+		// basic.ex14();
+		// basic.ex15();
+		// basic.ex16();
+		// 중첩 for문 
+		// basic.ex17();
+		// basic.ex18();
+		// basic.ex19();
+		// basic.ex20();
+		// basic.ex21();
+		 basic.ex22();
 	}
 }
