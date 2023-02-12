@@ -262,13 +262,14 @@ public class ForPractice {
 		
 		for(int i=input; i>=1; i--) {
 			for(int j=1; j<=input; j++) {
-				
-				System.out.print("*");
+				if(i>j) {
+					System.out.print(" ");
+				}else {
+					System.out.print("*");
+				}
 			}
-			System.out.println
-			();
+			System.out.println();
 		}
-		
 	}
 	
 	
@@ -305,12 +306,26 @@ public class ForPractice {
 	public void practice11() {
 		/*
 		정수 입력 : 4
-		   *
-		  ***
-		 *****
-		*******
+		   *      -> 3(input(4)-i(1)) + 1(i(1)*2-1)
+		  ***     -> 2(input(4)-i(2)) + 3(i(2)*2-1)
+		 *****    -> 1(input(4)-i(3)) + 5(i(3)*2-1)
+		*******   -> 0(input(4)-i(4)) + 7(i(4)*2-1)
 		
 		*/
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		
+		for(int i=1; i<=input; i++) {
+			for(int j=1; j<=input-i; j++) {
+				System.out.print(" ");
+			}
+			for(int j=1; j<=i*2-1; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
 	}
 	
 	
@@ -339,6 +354,7 @@ public class ForPractice {
 					System.out.print(" ");
 				}
 			}
+			System.out.println();
 		}
 	}
 	

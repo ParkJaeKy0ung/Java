@@ -223,6 +223,18 @@ public class ConditionPractice {
 		System.out.print("출석 횟수 : ");
 		int att = sc.nextInt();
 		
+		String result;
+		
+		System.out.println("================= 결과 =================");
+		// 평가 비율은 중간고사 20%, 기말고사 30%, 과제 30%, 출석 20%로 이루어져 있고
+		// 이 때, 출석 횟수는 총 강의 횟수 20회 중에서 출석한 날만 따진 값으로 계산하세요.
+		// 70점 이상일 경우 Pass, 70점 미만이거나 전체 강의에 30% 이상 결석 시 Fail을 출력하세요.
+		
+		if(att<=10) {
+			System.out.printf("Fail [출석 횟수 부족 (%d/20)]", att);
+		}
+		
+		
 	}
 	
 }
