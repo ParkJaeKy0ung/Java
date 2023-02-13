@@ -289,7 +289,8 @@ public class ForPractice {
 		System.out.print("정수 입력 : ");
 		int input = sc.nextInt();
 		
-		for(int i=1; i<input*2; i++) {
+		/*
+		for(int i=1; i<=input*2-1; i++) {
 			if(i<=input) {
 				for(int j=1; j<=i; j++)
 					System.out.print("*");
@@ -297,6 +298,20 @@ public class ForPractice {
 				for(int j=input-1; j>=1; j--) {
 					System.out.print("*");
 				}
+			}
+			System.out.println();
+		}
+		*/
+		
+		for(int i=1; i<=input; i++) {
+			for(int j=1; j<=i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(int i=0; i<input; i++) {
+			for(int j=input-1; j>i; j--) {
+				System.out.print("*");
 			}
 			System.out.println();
 		}
@@ -326,6 +341,29 @@ public class ForPractice {
 			}
 			System.out.println();
 		}
+		
+		/* for문 사용
+		for(int i=1; i<=input; i++) {
+			for(int j=input-i; j>=1; j--) {
+				System.out.print(" ");
+			}
+			for(int j=1; j<=i*2-1; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		*/
+		
+		/* for문 1개, if-else 1개 (생각하기 어려움)
+		for문 1개, if-else 1개
+		for(int i=1; i<=input+j-1; i++) {
+			
+			if(input-j>=i) {
+				System.out.print("");
+			}else {
+				System.out.print("*");
+			}
+		*/
 	}
 	
 	
@@ -346,9 +384,7 @@ public class ForPractice {
 		
 		for(int i=1; i<=input; i++) {
 			for(int j=1; j<=input; j++) {
-				if(i==1) {
-					System.out.print("*");
-				}else if(i==input) {
+				if(i==1 || i==input || j==1 || j==input) {
 					System.out.print("*");
 				}else {
 					System.out.print(" ");
@@ -356,6 +392,27 @@ public class ForPractice {
 			}
 			System.out.println();
 		}
+		
+		/*
+		for(int i=1; i<=input; i++) {
+			for(int j=1; j<=input; j++) {
+				if(i==1) {
+					System.out.print("*");
+				}else if(i==input) {
+					System.out.print("*");
+				}else {
+					if(j==1) {
+						System.out.print("*");
+					}else if(j==i) {
+						System.out.print("*");
+					}else{
+						System.out.print(" ");
+					}
+				}
+			}
+			System.out.println();
+		}
+		*/
 	}
 	
 	
