@@ -42,7 +42,7 @@ public class WhileEx {
 	
 	
 	// while 기초 사용법 2 (키오스크)
-	public void ex2() {  // 다시!
+	public void ex2() {  // 다시!!!
 		
 		// 분식집 주문 프로그램
 		

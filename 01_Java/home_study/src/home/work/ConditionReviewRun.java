@@ -1,9 +1,9 @@
 package home.work;
 
-public class BasicReviewRun {
+public class ConditionReviewRun {
 	public static void main(String[] args) {
 		
-		BasicReview basic = new BasicReview();
+		ConditionReview basic = new ConditionReview();
 		// condition _if문
 		// basic.ex1();
 		// basic.ex2();

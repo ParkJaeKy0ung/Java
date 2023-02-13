@@ -2,7 +2,7 @@ package home.work;
 
 import java.util.Scanner;
 
-public class BasicWrongAnswerNote {
+public class ConditionWrongAnswerNote {
 	
 	// Condition, For문 ex() 오답
 	public void ex1() {

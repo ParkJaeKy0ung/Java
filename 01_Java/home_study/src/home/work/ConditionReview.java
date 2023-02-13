@@ -2,7 +2,7 @@ package home.work;
 
 import java.util.Scanner;
 
-public class BasicReview {
+public class ConditionReview {
 	
 	// condition _if문
 	public void ex1() {

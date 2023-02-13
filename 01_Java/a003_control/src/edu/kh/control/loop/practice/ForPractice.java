@@ -309,8 +309,8 @@ public class ForPractice {
 			}
 			System.out.println();
 		}
-		for(int i=0; i<input; i++) {
-			for(int j=input-1; j>i; j--) {
+		for(int i=input+1; i<input*2-1; i++) {
+			for(int j=input-1; j>i-1; j--) {
 				System.out.print("*");
 			}
 			System.out.println();
@@ -436,15 +436,18 @@ public class ForPractice {
 		System.out.print("자연수 하나를 입력하세요 : ");
 		int input = sc.nextInt();
 
-		int result = 0;
+		int count = 0;
 		
 		for(int i=1; i<=input; i++) {
 			if(i%2==0 || i%3==0) {
 				System.out.print(i +" ");
 			}
+			if(i%2==0 && i%3==0) {
+				count++;
+			}
 		}
 		System.out.println();
-		System.out.printf("count : %d"+ result);  // result = (i%2==0 && i%3==0)
+		System.out.printf("count : %d", count);
 	}
 	
 	

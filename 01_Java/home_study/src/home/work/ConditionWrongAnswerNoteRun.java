@@ -1,9 +1,9 @@
 package home.work;
 
-public class BasicWrongAnswerNoteRun {
+public class ConditionWrongAnswerNoteRun {
 	public static void main(String[] args) {
 		
-		BasicWrongAnswerNoteRun wan = new BasicWrongAnswerNoteRun();
+		ConditionWrongAnswerNoteRun wan = new ConditionWrongAnswerNoteRun();
 		
 		// Condition, For문 ex() 오답
 		// wan.ex1();
