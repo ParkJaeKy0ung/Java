@@ -35,6 +35,12 @@ public class ConditionReviewRun {
 		// basic.ex19();
 		// basic.ex20();
 		// basic.ex21();
-		 basic.ex22();
+		
+		// while문
+		// basic.ex22();
+		// basic.ex23();
+		// basic.ex24();
+		// basic.ex25();
+		// basic.ex26();
 	}
 }

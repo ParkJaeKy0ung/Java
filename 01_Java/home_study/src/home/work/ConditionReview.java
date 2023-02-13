@@ -530,4 +530,123 @@ public class ConditionReview {
 			System.out.println();
 		}
 	}
+	
+	
+	
+	/* while문 */
+	// while 기초 사용법 1 (계산기)
+	public void ex23() {
+		// 0이 입력 될 때 까지의 
+		// 입력된 모든 정수의 합 출력하기
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int input = -1;
+		int sum = 0;
+		
+		while(input!=0) {
+			System.out.print("정수 입력 : ");
+			input = sc.nextInt();
+			
+			sum += input;
+			System.out.println("현재 합계 : " + sum);
+		}
+		System.out.printf("최종 합계 : %d", sum);
+	}
+	
+	
+	// while 기초 사용법 2 (키오스크)
+	public void ex24() {
+		// 분식집 주문 프로그램
+		
+		// --- 메뉴 ---
+		// 1. 떡볶이(5000원)
+		// 2. 김밥(3000원)
+		// 3. 라면(4000원)
+		// 9. 주문 완료
+		// 메뉴 선택 >> 1
+		//
+		// --- 메뉴 ---
+		// 1. 떡볶이(5000원)
+		// 2. 김밥(3000원)
+		// 3. 라면(4000원)
+		// 9. 주문 완료
+		// 메뉴 선택 >> 2
+		//
+		// --- 메뉴 ---
+		// 1. 떡볶이(5000원)
+		// 2. 김밥(3000원)
+		// 3. 라면(4000원)
+		// 9. 주문 완료
+		// 메뉴 선택 >> 9
+		//
+		// 떡볶이 김밥을 주문하셨습니다.
+		// 총 가격은 8000원 입니다.
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int input = 0;
+		String menu = "";
+		int sum = 0;
+		
+		while(input!=9) {
+			System.out.println("--- 메뉴 ---");
+			System.out.println("1. 떡볶이(5000원)");
+			System.out.println("2. 김밥(3000원)");
+			System.out.println("3. 라면(4000원)");
+			System.out.println("9. 주문 완료");
+			
+			System.out.print("메뉴 선택 >> ");
+			input = sc.nextInt();
+			
+			switch(input) {
+			case 1: menu += "떡볶이 "; sum += 5000; break;
+			case 2: menu += "김밥 "; sum += 3000; break;
+			case 3: menu += "라면 "; sum += 4000; break;
+			case 9: break; 
+			default: System.out.println("잘못 입력하셨습니다.");
+			}
+		}
+		System.out.println(menu + " 을/를 주문하셨습니다.");
+		System.out.println("총 가격은 " + sum + "원 입니다.");
+	}
+	
+	
+	// do ~ while문 기초 사용법
+	public void ex25() {
+		// 계산기
+		Scanner sc = new Scanner(System.in);
+		
+		int input = 0; 
+		int sum = 0;
+		
+		do {
+			System.out.print("정수 입력 : ");
+			input = sc.nextInt();
+			
+			sum += input;
+			System.out.println("현재 합계 : " + sum);
+			
+		} while(input != 0);
+		System.out.println("최종 합계 : " + sum);
+	}
+	
+	
+	// while문을 for문처럼 사용하기
+	public void ex26() {
+		// 1부터 10까지 반복해서 출력
+		// 1 2 3 4 5 6 7 8 9 10
+		
+		// for문
+		for(int i=1; i<=10; i++) {   // 1 -> 2 -> 4
+			System.out.print(i + " ");   // 3 ->
+		}
+		System.out.println("\n====================");
+		
+		int i=1;
+		while(i<=10) {
+			System.out.print(i + " ");
+			i++;
+		}
+	}
 }
