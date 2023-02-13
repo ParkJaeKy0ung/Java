@@ -188,14 +188,14 @@ public class BranchEx {
 		int start = sc.nextInt();
 		
 		System.out.print("종료 : ");
-		int finish = sc.nextInt();
+		int end = sc.nextInt();
 		
 		System.out.print("변경할 배수 : ");
 		int input = sc.nextInt();
 		
-		for(int i=start; i<=finish; i++) {
+		for(int i=start; i<=end; i++) {
 			if(i%input==0) {
-				System.out.print("[" + i + "] ");
+				System.out.printf("[%d] ", i);
 			}else {
 				System.out.print(i+" ");
 			}
