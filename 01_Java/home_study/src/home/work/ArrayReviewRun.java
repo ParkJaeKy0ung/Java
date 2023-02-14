@@ -8,7 +8,7 @@ public class ArrayReviewRun {
 		// ar.ex1();
 		// ar.ex2();
 		// ar.ex3();
-		 ar.ex4();
+		// ar.ex4();
 		// ar.ex5();
 		// ar.ex6();
 		// ar.ex7();

@@ -7,9 +7,8 @@ public class ArrayRun2 {
 		
 		// ae2.ex1();
 		// ae2.ex2();
-		 ae2.ex3();
-		// ae2.ex4();
-		// ae2.ex5();
+		// ae2.ex3();
+
 
 		
 		

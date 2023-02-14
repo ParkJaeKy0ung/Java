@@ -158,19 +158,4 @@ public class ArrayEx2 {
 			System.out.println();
 		}
 	}
-	
-	
-	
-	public void ex4() {
-		
-	}
-	
-	
-	
-	public void ex5() {
-		
-	}
-	
-	
-
 }

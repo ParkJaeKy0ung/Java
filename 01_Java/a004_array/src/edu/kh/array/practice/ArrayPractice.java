@@ -1,5 +1,7 @@
 package edu.kh.array.practice;
 
+import java.util.Scanner;
+
 public class ArrayPractice {
 	
 	public void practice1() {
@@ -12,6 +14,19 @@ public class ArrayPractice {
 		1 2 3 4 5 6 7 8 9
 		짝수 번째 인덱스 합 : 25
 		*/
+		
+		int arr[] = new int[9];
+		int sum = 0;
+		
+		for(int i=0; i<arr.length; i++) {
+			arr[i]=i+1;  // i=0, 1/ i=1, 2/ i=3, 2 ...
+			System.out.print(arr[i] + " ");
+			
+			if(i%2==0) {
+				sum += arr[i];
+			}
+		}
+		System.out.printf("\n짝수 번째 인덱스 합 : %d", sum);
 	}
 	
 	
@@ -26,6 +41,19 @@ public class ArrayPractice {
 		9 8 7 6 5 4 3 2 1
 		홀수 번째 인덱스 합 : 20
 		 */
+		
+		int[] arr = new int[9];
+		int sum = 0;
+		
+		for(int i=arr.length-1; i>=0; i--) {
+			arr[i]=i+1;  // i=8, 9/ i=7, 8/ i=6, 7 ...
+			System.out.print(arr[i] + " ");
+			
+			if(i%2==1) {
+				sum += arr[i];
+			}
+		}
+		System.out.println("\n홀수 번째 인덱스 합 : " + sum);
 	}
 	
 	
@@ -43,6 +71,18 @@ public class ArrayPractice {
 		양의 정수 : 8
 		1 2 3 4 5 6 7 8
 		 */
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("양의 정수 : ");
+		int input = sc.nextInt();
+		
+		int[] arr = new int[input];
+		
+		for(int i=0; i<input; i++) {
+			arr[i]=i+1; // 1~input  // i=0, 1/ i=1, 2/ i=2, 3 ...
+			System.out.print(arr[i] + " ");
+		}
 	}
 	
 	
@@ -71,6 +111,29 @@ public class ArrayPractice {
 		검색할 값 : 1
 		일치하는 값이 존재하지 않습니다.
 		*/
+		Scanner sc = new Scanner(System.in);
+		
+		int[] num = new int[5];
+		
+		for(int i=0; i<num.length; i++) {
+			System.out.printf("입력 %d : ", i);
+			num[i] = sc.nextInt();
+		}
+
+		
+		System.out.print("검색할 값 : ");
+		int search = sc.nextInt();
+		
+		for(int i=0; i<num.length; i++) {
+			
+			if(search!=num[i]) {
+				System.out.println("일치하는 값이 존재하지 않습니다.");
+			}
+			
+			if(search==num[i]) {
+				System.out.println("일치");
+			}
+		}
 	}
 	
 	
@@ -149,6 +212,16 @@ public class ArrayPractice {
 		[실행 화면]
 		발생한 난수 : 9 7 6 2 5 10 7 2 9 6
 		*/
+		int[] arr = new int[10];
+		
+		System.out.print("발생한 난수 : ");
+		
+		for(int i=0; i<arr.length; i++) {
+			int random = (int)(Math.random() * 10 + 1);
+			arr[i] = random;
+			
+			System.out.print(arr[i] + " ");
+		}
 	}
 	
 	
@@ -164,6 +237,32 @@ public class ArrayPractice {
 		최대값 : 10
 		최소값 : 2
 		 * */
+		int[] arr = new int[10];
+		
+		System.out.print("발생한 난수 : ");
+		
+		for(int i=0; i<arr.length; i++) {
+			int random = (int)(Math.random() * 10 + 1);
+			arr[i] = random;
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+		
+		int max = arr[0];
+		int min = arr[0];
+		
+		for(int i=0; i<arr.length; i++) {
+			
+			if(max<arr[i]) {
+				max=arr[i];
+			}
+			if(min>arr[i]) {
+				min=arr[i];
+			}
+		}
+		System.out.print("최대값 : " + max);
+		System.out.println();
+		System.out.print("최소값 : " + min);
 	}
 	
 	
