@@ -1,5 +1,6 @@
 package edu.kh.array.ex;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayEx1 {
@@ -137,6 +138,7 @@ public class ArrayEx1 {
 		
 		double[] heightArray = new double[3]; // 0.0  0.0  0.0
 		
+		// 1,2,3번 키 입력받기
 		for(int i=0; i<heightArray.length; i++) {
 			       // 3
 			System.out.printf("%d번 키 입력 : ", i+1); // 1 2 3
@@ -145,6 +147,8 @@ public class ArrayEx1 {
 		}
 		
 		System.out.println();
+		
+		// 입력 받은 키 나열, 평균 키 계산 위한 합계
 		System.out.print("입력 받은 키 : ");
 		
 		double sum = 0.0; // 키 합계 저장용 변수
@@ -176,7 +180,7 @@ public class ArrayEx1 {
 	public void ex5() {
 		
 		// 배열의 범위를 넘어선 index를 참조하는 경우
-		int[] arr = {10, 30, 50, 70, 90};  // 0,1,2,3,4
+		int[] arr = {10, 30, 50, 70, 90};  // index : 0,1,2,3,4
 		
 		// arr에 저장된 값 모두 출력
 		for(int i=0; i<=arr.length; i++) {  // i = 0,1,2,3,4,5
@@ -195,5 +199,220 @@ public class ArrayEx1 {
 			// 해결방법 : 조건식을 i < arr.length로 수정하여
 			// 			  i가 배열의 index 범위를 초과하지 않도록 함.
 		}
+	}
+	
+	
+	// 배열 사용법 6
+	public void ex6() {  // 다시 !!!
+		// 인원 수를 입력 받아 그 크기만큼의 정수 배열을 선언 및 할당하고
+		// 각 배열 요소에 점수 를 입력 받아 저장
+		// 입력이 완료되면 합계, 평균, 최고점, 최저점을 출력
+		
+        // ex)
+        // 입력 받을 인원 수 : 4
+        // 1번 점수 입력 : 100
+        // 2번 점수 입력 : 80
+        // 3번 점수 입력 : 50
+        // 4번 점수 입력 : 60
+        
+        // 합계 : 290
+        // 평균 : 72.5
+        // 최고점 : 100
+        // 최저점 : 50
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("입력 받을 인원 수 : ");
+		int input = sc.nextInt();
+		
+		int[] scoreArr = new int[input]; // 입력 받은 정수의 길이를 갖는 배열
+		
+		int sum = 0; // 합계 저장용 변수
+		
+		// 반복하면서 입력
+		for(int i=0; i<input; i++) {
+			
+			System.out.printf("%d번 점수 입력 : ", i+1);
+			scoreArr[i] = sc.nextInt();
+			
+			sum += scoreArr[i]; // nextInt 입력하지 않게 주의해야 함. 입력X
+			
+		}
+		System.out.println();
+		
+		
+		// 최대/최소 구하기
+		int max = scoreArr[0]; // 1) 매우 작은 수
+		                       // 2) 배열의 0번 인덱스 값
+		
+		int min = scoreArr[0]; // 1) 매우 큰 수
+                               // 2) 배열의 0번 인덱스 값
+		
+		
+		// 최대/최소점 인덱스 저장용 변수
+		int maxIndex = 0; // 0번 인덱스
+		int minIndex = 0;
+		
+		for(int i=0; i<scoreArr.length; i++) {
+			
+			// scoreArr[0] > scoreArr[1]
+			// 0번 1번 index 중 큰 값 > scoreArr[2]  --> 0번 1번 중 큰 값 기억하는 법 : 메모리에 저장 = 변수 생성
+			
+			if(scoreArr[i] > max) {
+				// 기존 max(최대값)보다 현재 배열 요소의 값이 더 큰 경우
+				max = scoreArr[i];
+				maxIndex = i; // 최고점 인덱스
+			}
+			
+			if(scoreArr[i] < min) {
+				// 기존 min(최소값)보다 현재 배열 요소의 값이 더 작은 경우
+				min = scoreArr[i];
+				minIndex = i; // 최저점 인덱스
+			}
+		}
+		System.out.println("합계 : " + sum);
+		System.out.printf("평균 : %.2f \n", ((double)sum/scoreArr.length));
+		                                           // == input
+		System.out.printf("최고점 : %d (%d번 학생) \n", max, maxIndex+1);
+		System.out.printf("최저점 : %d (%d번 학생) \n", min, minIndex+1);
+	}
+	
+	
+	// 배열 사용법 7 : 배열 내 데이터 검색
+	public void ex7() {
+		
+		// 입력 받은 정수가 배열에 존재하면 몇 번 인덱스에 있는지 출력
+		// 없으면 "존재하지 않습니다" 출력
+		
+		int[] arr = {100, 200, 300, 400, 500, 600, 700, 800, 900, 1000};
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 입력 : ");
+		int input = sc.nextInt();
+		
+		
+		// 1) 초기값을 인덱스 범위에 포함되지 않은 값을 작성
+//		int index = -1; 
+//		
+//		for(int i=0; i<arr.length; i++) {
+//			
+//			// 입력값과 현재 인덱스 값이 같으면
+//			if(input == arr[i]) {
+//				index = i;
+//			}
+//		}
+//		
+//		if(index < 0) { // 일치하는 결과가 없음
+//			System.out.println("존재하지 않습니다.");
+//		}else {
+//			System.out.println(index);
+//		}
+		
+		
+		// 2) flag 변수를 이용하는 방법
+		int index = 0; // -> 인덱스 범위에 포함되지 않은 숫자(2000) 입력 시 index 출력했을 때 0 출력됨. index[0] = 100. 2000 != 100
+		
+		boolean flag = true; // 신호 용도의 변수
+		// 검색 for문 종료 후
+		// flag가 true : 검색 결과 없음
+		// flag가 false : 검색 결과 존재
+		
+		for(int i=0; i<arr.length; i++) { 
+			
+			if(input == arr[i]) { // 입력값과 일치하는 값이 존재하는 경우
+				index = i;
+				flag = false;
+				break; // 일치하는 값을 찾은 경우
+				       // 더 이상 반복하지 않음 (성능 개선)
+			}
+		}
+		
+		if(flag) {  // -> true
+			System.out.println("존재하지 않습니다.");
+		}else {  // -> false
+			System.out.println(index);
+		}
+	}
+	
+	
+	
+	// 얕은 복사 / 깊은 복사
+	public void ex8() {
+		
+		// 얕은 복사
+		// - 참조하는 배열/객체의 주소만을 복사하여 
+		// 서로 다른 참조변수가 하나의 배열/객체를 참조함. (공유하는 개념)
+		
+		// 깊은 복사
+		// - 원본과 같은 자료형, 크기는 같거나 더 큰 배열을 만들어 
+		//   원본의 데이터를 모두 복사하는 방법 (복제의 개념)
+		
+		
+		// 얕은 복사 확인
+		int[] arr1 = {10,20,30,40,50};
+		
+		int[] copyArr1 = arr1; // arr1에 저장된 배열 주소값을 복사
+							   // arr1, copyArr1이 같은 배열 참조
+		
+		// 1) 참조하는 주소가 같은가?
+		System.out.println("arr1 : " + arr1);
+		System.out.println("copyArr1 : " + copyArr1);
+		// arr1 : [I@6f2b958e
+		// copyArr1 : [I@6f2b958e
+		// (같음)
+		
+		// 2) 복사본의 값을 변경할 경우 원본이 변하는가?
+		copyArr1[0] = 9999;  // arr1과 copyArr1은 같은 배열을 참조하고 있기 때문에 같이 변경됨.
+		
+		// toString() : 저장된 값을 하나의 문자열로 만든다
+		System.out.println("arr1 : " + Arrays.toString(arr1));  
+		System.out.println("copyArr1 : " + Arrays.toString(copyArr1));
+		// arr1 : [9999, 20, 30, 40, 50]
+		// copyArr1 : [9999, 20, 30, 40, 50]
+		// 같이 바뀜
+		
+		
+		System.out.println("------------------------");
+		
+		
+		// 깊은 복사 확인
+		int[] arr2 = {5,6,7,8};
+		
+		// 깊은 복사를 진행할 arr2 배열과 같은 크기의 배열을 준비
+		int[] copyArr2 = new int[arr2.length];
+		
+		// for문을 이용해서 깊은 복사  --> 이걸 주로 사용함
+//		for(int i=0; i<arr2.length; i++) {
+//			copyArr2[i] = arr2[i];
+//		}
+		
+		// System.arraycopy()를 이용한 깊은 복사  --> 참고 정도로만 알고 있으면 됨. 
+		// 설명 보고 싶으면, Shift + f2
+		
+		// System.arraycopy(원본 배열명, 
+					//		원본 배열 복사 시작 인덱스, 
+					//		복사 배열명, 
+					//		복사 배열의 삽입 시작 인덱스, 
+					//		복사 길이)
+		System.arraycopy(arr2, 0, copyArr2, 0, arr2.length);
+		
+		
+		// 1) 참조하는 주소가 같은가?
+		System.out.println("arr2 : " + arr2);
+		System.out.println("copyArr2 : " + copyArr2);
+		// arr2 : [I@5e91993f
+		// copyArr2 : [I@1c4af82c
+		// (다름)
+		
+		
+		// 2) 복사본의 값을 변경할 경우 원본이 변하는가?
+		copyArr2[0] = 9999;
+		
+		System.out.println("arr2 : " + Arrays.toString(arr2));
+		System.out.println("copyArr2 : " + Arrays.toString(copyArr2));
+		// arr2 : [5, 6, 7, 8]
+		// copyArr2 : [9999, 6, 7, 8]
+		// 별도로 존재
 	}
 }
