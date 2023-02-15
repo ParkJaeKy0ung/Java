@@ -23,7 +23,7 @@ public class Member {   // 클래스 : 객체의 속성, 기능을 정의한 것
 	
 	// 인스턴스 초기화 블럭 : 인스턴스 변수를 초기화 하는 블럭
 	{
-		// memberId = "mem1";
+		// memberId = "mem1";  // 명시적 초기화에서 이미 초기화 됨.
 		memberPw = "1234";
 		memberName = "고길동";
 		memberAge = 40;

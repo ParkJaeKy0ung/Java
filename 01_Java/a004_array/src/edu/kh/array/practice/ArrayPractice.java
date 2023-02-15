@@ -174,6 +174,26 @@ public class ArrayPractice {
 		4 -4 3 -3 2
 		총 합 : 2
 		*/
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("정수 : ");
+		int input = sc.nextInt();
+		
+		int[] arr = new int[input];
+		int sum = 0;
+		
+		for(int i=0; i<input; i++) {
+			System.out.printf("배열 %d번째 인덱스에 넣을 값 : ", i);
+			arr[i] = sc.nextInt();
+			sum += arr[i];
+		}
+		
+		for(int i=0; i<input; i++) {
+			System.out.print(arr[i] + " ");   // arr[i] 값을 어떻게 기억하지..?
+		}
+		
+		System.out.println("\n총 합 : " + sum);
 	}
 	
 	
@@ -283,13 +303,13 @@ public class ArrayPractice {
 		 * */
 		int arr[] = new int[10];
 		
-		for(int i=0; i<arr.length; i++) {
-			arr[i] = (int)(Math.random() * 10 + 1);  // *** random 값을 for문 밖에 쓰면 난수 하나만 발생, 한 숫자만 반복 출력됨!! 
+		for(int i=0; i<arr.length; i++) { 
 			
-			for(int j=0; j<1; j++) {
-				if(arr[i]==arr[j]) {
-					i--;
-				}
+			for(int j=0; j<i; j++) {
+				arr[i] = (int)(Math.random() * 10 + 1);  // *** random 값을 for문 밖에 쓰면 난수 하나만 발생, 한 숫자만 반복 출력됨!!
+					if(arr[i]==arr[j]) {
+						i--;
+					}
 			}
 			System.out.print(arr[i] + " ");
 		}
@@ -340,6 +360,15 @@ public class ArrayPractice {
 		(1, 0)(1, 1)(1, 2)
 		(2, 0)(2, 1)(2, 2)
 		 * */
+		
+		int[][] arr = new int[3][3];
+		
+		for(int row=0; row<arr.length; row++) {
+			for(int col=0; col<arr[0].length; col++) {
+				System.out.printf("(%d, %d)", row, col);
+			}
+			System.out.println();
+		}
 	}
 	
 	
@@ -356,6 +385,18 @@ public class ArrayPractice {
 		9 10 11 12
 		13 14 15 16
 		 * */
+		
+		int[][] arr = new int[4][4];
+		
+		int num = 1;
+		
+		for(int row=0; row<arr.length; row++) {
+			for(int col=0; col<arr[0].length; col++) {
+				arr[row][col] = num++;
+				System.out.print(arr[row][col] + " ");
+			}
+			System.out.println();
+		}
 	}
 	
 	
@@ -372,6 +413,18 @@ public class ArrayPractice {
 		8 7 6 5
 		4 3 2 1
 		 * */
+		
+		int[][] arr = new int[4][4];
+		
+		int num = 16;
+		
+		for(int row=0; row<arr.length; row++) {
+			for(int col=0; col<arr[0].length; col++) {
+				arr[row][col] = num--;
+				System.out.print(arr[row][col] + " ");
+			}
+			System.out.println();
+		}
 	}
 	
 	
