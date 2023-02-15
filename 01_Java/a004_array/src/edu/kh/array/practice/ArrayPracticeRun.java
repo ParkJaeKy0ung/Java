@@ -9,13 +9,13 @@ public class ArrayPracticeRun {
 		// ap.practice2();  //o
 		// ap.practice3();  //o
 		// ap.practice4();  //x 검색 이후부터
-		// ap.practice5();
+		// ap.practice5(); //x
 		// ap.practice6();
 		// ap.practice7();
 		// ap.practice8();
 		// ap.practice9();  //o
 		// ap.practice10(); //o
-		// ap.practice11();
+		 ap.practice11(); //중복 없애기
 		// ap.practice12();
 		// ap.practice13();
 		// ap.practice14();

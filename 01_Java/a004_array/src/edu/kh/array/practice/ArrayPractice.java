@@ -148,6 +148,12 @@ public class ArrayPractice {
 		application에 i가 존재하는 위치(인덱스) : 4 8
 		i 개수 : 2
 		*/
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("문자열 : ");
+		String word = sc.next();
+		
+		
 	}
 	
 	
@@ -275,6 +281,13 @@ public class ArrayPractice {
 		[실행 화면]
 		4 1 3 6 9 5 8 10 7 2
 		 * */
+		int arr[] = new int[10];
+		
+		for(int i=0; i<arr.length; i++) {
+			int random = (int)(Math.random() * 10 + 1);  // *** random 값을 for문 밖에 쓰면 난수 하나만 발생, 한 숫자만 반복 출력됨!! 
+			arr[i] = random;
+			System.out.print(arr[i] + " ");
+		}
 	}
 	
 	
