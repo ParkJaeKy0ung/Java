@@ -284,8 +284,13 @@ public class ArrayPractice {
 		int arr[] = new int[10];
 		
 		for(int i=0; i<arr.length; i++) {
-			int random = (int)(Math.random() * 10 + 1);  // *** random 값을 for문 밖에 쓰면 난수 하나만 발생, 한 숫자만 반복 출력됨!! 
-			arr[i] = random;
+			arr[i] = (int)(Math.random() * 10 + 1);  // *** random 값을 for문 밖에 쓰면 난수 하나만 발생, 한 숫자만 반복 출력됨!! 
+			
+			for(int j=0; j<1; j++) {
+				if(arr[i]==arr[j]) {
+					i--;
+				}
+			}
 			System.out.print(arr[i] + " ");
 		}
 	}
@@ -294,7 +299,7 @@ public class ArrayPractice {
 	
 	public void practice12() {
 		/*
-		로또 번호 자동 생성기 프로그램을 만들기.
+		로또 번호 자동 생성기 프로그램을 만들기
 		(중복 값 없이 오름차순으로 정렬하여 출력하세요.)
 		
 		[실행 화면]

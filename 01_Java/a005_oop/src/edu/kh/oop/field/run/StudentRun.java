@@ -46,7 +46,7 @@ public class StudentRun {
 		System.out.println(s2.grade);
 		System.out.println(s2.SchoolName);
 		
-		// 학교 이름 변경
+		/* 학교 이름 변경 */
 		// s1.SchoolName = "KH국민학교"; // s1, s2 참조변수를 사용하지 않고 클래스명.필드명 으로 사용하는게 정석 방법
 		// s2.SchoolName = "KH국민학교";  -> s1의 값만 변경해도 static이기 때문에 s2도 같이 변경됨.
 		
@@ -63,6 +63,11 @@ public class StudentRun {
 		System.out.println("s2 학교명 : " + s2.SchoolName);
 		
 		
+		// public static final
+		// : 어디서든 공유할 수 있는 상수
+		System.out.println(Math.PI);
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(Integer.MIN_VALUE);
+	
 	}
-
 }

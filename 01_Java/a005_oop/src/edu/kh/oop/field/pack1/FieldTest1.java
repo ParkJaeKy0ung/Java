@@ -14,7 +14,7 @@ public class FieldTest1 {
 	public    int v1 = 10;
 	protected int v2 = 20;
 			  int v3 = 30;
-	private   int v4 = 40;
+	private   int v4 = 40;  // private은 다른 클래스에서 보이지 않음. 별도의 기능 필요!
 	
 	
 	// 접근제한자 확인
