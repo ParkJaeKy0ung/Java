@@ -16,6 +16,7 @@ public class Student {
 	public static String SchoolName = "KH초등학교";
 	
 	
+	// 메서드(기능)
 	public void study() {
 		System.out.println("열심히 공부합니다.");
 	}
