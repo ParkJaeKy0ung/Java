@@ -9,7 +9,7 @@ public class ArrayPracticeRun {
 		// ap.practice2();  //o
 		// ap.practice3();  //o
 		// ap.practice4();  //x 검색 이후부터
-		// ap.practice5();  //x
+		 ap.practice5();  //x
 		// ap.practice6();  //o   // arr[i] 값을 어떻게 기억하지..?
 		// ap.practice7();
 		// ap.practice8();

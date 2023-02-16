@@ -73,7 +73,6 @@ public class User {
 		this.userId = userId;
 	}
 	
-
 	public void setUserPw(String userPw) {
 		this.userPw = userPw;
 	}
@@ -82,12 +81,7 @@ public class User {
 		this.userName = userName;
 	}
 
-	public void setUserId(char userGender) {
+	public void setUserGender(char userGender) {
 		this.userGender = userGender;
 	}
-	
-	
-	
-	
-	
 }

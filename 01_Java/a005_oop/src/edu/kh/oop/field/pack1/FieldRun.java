@@ -8,7 +8,7 @@ public class FieldRun extends FieldTest3{  // FieldTest3에 대한 상속구문 
 		
 		// 클래스를 이용해서 객체(인스턴스) 생성
 		
-		// FieldTest2 은 FieldRun과 같은 패키지
+		// FieldTest1 은 FieldRun과 같은 패키지
 		// -> import 없이 사용 가능
 		FieldTest1 f1 = new FieldTest1();
 		
@@ -37,6 +37,9 @@ public class FieldRun extends FieldTest3{  // FieldTest3에 대한 상속구문 
 		// System.out.println(f2.v4); // private  
 		// 패키지가 다른 FieldTest2는
 		// public만 접근 가능하고 나머지는 불가능
+		
+		
+		
 	}
 	
 	public void ex() {

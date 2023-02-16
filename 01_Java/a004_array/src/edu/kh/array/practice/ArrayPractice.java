@@ -41,19 +41,21 @@ public class ArrayPractice {
 		9 8 7 6 5 4 3 2 1
 		홀수 번째 인덱스 합 : 20
 		 */
-		
 		int[] arr = new int[9];
+		
+		int num = 9;
 		int sum = 0;
 		
-		for(int i=arr.length-1; i>=0; i--) {
-			arr[i]=i+1;  // i=8, 9/ i=7, 8/ i=6, 7 ...
-			System.out.print(arr[i] + " ");
+		for(int i=0; i<arr.length; i++) {
+			
+			arr[i] = num--;	
+			System.out.print(arr[i] + " ");	
 			
 			if(i%2==1) {
 				sum += arr[i];
-			}
+			}		
 		}
-		System.out.println("\n홀수 번째 인덱스 합 : " + sum);
+		System.out.printf("\n홀수 번째 인덱스 합 : %d", sum);
 	}
 	
 	
@@ -148,10 +150,19 @@ public class ArrayPractice {
 		application에 i가 존재하는 위치(인덱스) : 4 8
 		i 개수 : 2
 		*/
+		// char 문자열.charAt(인덱스)
+		// - 문자열에서 지정된 인덱스번째 문자 하나(char)를 반환
+		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("문자열 : ");
 		String word = sc.next();
+		
+		int[] arr = new int[word.length()];
+		
+		for(int i=0; i<word.length(); i++) {
+			
+		}
 		
 		
 	}

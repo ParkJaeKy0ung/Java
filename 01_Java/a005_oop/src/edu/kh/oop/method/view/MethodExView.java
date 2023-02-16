@@ -146,17 +146,4 @@ public class MethodExView {
 		System.out.println(result);
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

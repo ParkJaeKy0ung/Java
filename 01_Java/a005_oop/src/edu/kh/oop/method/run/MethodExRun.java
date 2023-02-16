@@ -18,9 +18,5 @@ public class MethodExRun {
 		// displayMenu() 메서드를 호출하겠다.
 		
 		// .(점 연산자) : 참조하는 객체의 필드/메서드에 접근
-
-		
-		
-		
 	}
 }
