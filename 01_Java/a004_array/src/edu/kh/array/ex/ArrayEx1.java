@@ -312,7 +312,9 @@ public class ArrayEx1 {
 		
 		
 		// 2) flag 변수를 이용하는 방법
-		int index = 0; // -> 인덱스 범위에 포함되지 않은 숫자(2000) 입력 시 index 출력했을 때 0 출력됨. index[0] = 100. 2000 != 100
+		int index = 0; 
+		// -> 인덱스 범위에 포함되지 않은 숫자(2000) 입력 시 index 출력했을 때 0 출력됨. 
+		// index[0] = 100. 2000 != 100
 		
 		boolean flag = true; // 신호 용도의 변수
 		// 검색 for문 종료 후
