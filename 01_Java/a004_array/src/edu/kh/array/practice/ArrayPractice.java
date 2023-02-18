@@ -567,10 +567,25 @@ public class ArrayPractice {
 		H B I X
 		G F X I
 		 * */
+		Scanner sc = new Scanner(System.in);
 		
-
+		System.out.print("행 크기 : ");
+		int row = sc.nextInt();
+		System.out.print("열 크기 : ");
+		int col = sc.nextInt();
 		
-
+		char[][] arr = new char[row][col];
+		char ch = 'A';  // 
+		ch = (char)(Math.random()*26+1);
+		
+		for(int i=0; i<row; i++) {  // 왜 row 자리에 arr.length 안 되고
+			for(int j=0; j<col; j++) {  // 왜 col 자리에 arr[row].length 안 되지
+				arr[i][j] = ch;
+				
+				System.out.print(arr[i][j] + " ");
+			}
+			System.out.println();
+		}			
 	}
 	
 	
@@ -596,29 +611,38 @@ public class ArrayPractice {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("행의 크기 : ");
-		int input = sc.nextInt();
+		int input = sc.nextInt(); // 행의 크기 입력
 		
-		char[][] arr = new char[input][];
+		char ch = 'a'; // 문자형 초기화
+		char[][] arr = new char[input][]; // 가변배열 생성
 		
-		for(int i=0; i<input; i++) {
-			System.out.printf("%d열의 크기 : ", i);
-			int scale = sc.nextInt();
+		for(int i=0; i<input; i++) { // i가 input까지 커질 때
+			System.out.printf("%d열의 크기 : ", i); 
+			int scale = sc.nextInt(); // 열의 크기 입력받음
 			
-			arr[0] = new char[scale];
-		}
-		
-		char ch = 'a';
-		
-		for(int row=0; row<arr.length; row++) {
-			for(int col=0; col<arr[scale].length; col++) {
-				arr[row][col] = ch++;
-				
-				System.out.print(arr[row][col] + " ");
+			arr[i] = new char[scale]; // 열의 크기는 입력받은 숫자만큼
+			
+			for(int row=0; row<input; row++) {
+				for(int col=0; col<scale; col++) {
+					arr[row][col] = ch;
+					ch++;
+					
+					System.out.print(arr[row][col] + " ");
+				}
+				System.out.println();
 			}
-			System.out.println();
+//			--> 0열의 크기와 0열 값만 출력하고 끝남.
 		}
 		
-		
+//		for(int row=0; row<input; row++) { // 배열 행 숫자 범위
+//			for(int col=0; col<scale; col++) { // 배열 열 숫자 범위
+//				arr[row][col] = ch;
+//				ch++;
+//				
+//				System.out.print(arr[row][col] + " ");
+//			}
+//			System.out.println();
+//		}
 	}
 	
 	
@@ -641,6 +665,32 @@ public class ArrayPractice {
 		진재주 차천축
 		피풍표 홍하하
 		 * */
+		
+		String[] students = {"강건강", "남나나", "도대담", "류라라", "문미미", "박보배",
+				"송성실", "윤예의", "진재주", "차천축", "피풍표", "홍하하"};
+		
+		String[][] arr1 = new String[3][2];
+		String[][] arr2 = new String[3][2];
+				
+		int row = 0;
+		int col = 0;
+		
+		System.out.println("== 1분단 ==");
+		for(int i=0; i<students.length; i++) {
+			if(0<=i && i<students.length/2) {
+				arr1[row][col] = students[i];
+			}
+			System.out.print(arr1[row][col] + " ");
+		}	
+		System.out.println();
+		
+		System.out.println("== 2분단 ==");
+		for(int i=0; i<students.length; i++) {
+			if(students.length<=i && i<students.length) {
+				arr2[row][col] = students[i];
+			}
+			System.out.print(arr2[row][col] + " ");
+		}
 	}
 	
 	
