@@ -285,21 +285,33 @@ public class ArrayPractice {
 		정수 : 5
 		1, 2, 3, 2, 1
 		*/
-		
 		Scanner sc = new Scanner(System.in);
-//		
-//		int input = 0;
-//		int[] num = new num[];
-//		
-//		for(int i=0; i<) {
-//			
-//		}
+		
+		int num = 1;
+		int input = 0;
 
-		
-		
-		
-		
-		
+		do {
+			System.out.printf("정수 : ");
+			input = sc.nextInt(); // 입력 받은 값이
+			
+			if(input>=3 && input%2==1) { // 만약 3이상인 홀수라면
+				int[] arr = new int[input]; // input 길이의 배열에
+				for(int i=0; i<input; i++) { // input까지 
+					if(i<input/2) { // 앞쪽이면
+						arr[i] = num; // 1부터 1씩 증가
+						num++;
+						System.out.print(arr[i] + " ");
+					}else { // 뒤쪽이면
+						arr[i] = num; // input/2부터 1씩 감소
+						num--;
+						System.out.print(arr[i] + " ");
+					}
+				}
+				System.out.println();
+			}else {
+				System.out.println("다시 입력하세요.");
+			}
+		} while(input != 0);
 	}
 	
 	
@@ -403,6 +415,24 @@ public class ArrayPractice {
 		[실행 화면]
 		3 4 15 17 28 40
 		 * */
+		
+		int[] lotto = new int[6];
+		
+		for(int i=0; i<lotto.length; i++) {
+			lotto[i] = (int)(Math.random()*45);
+			
+			for(int j=0; j<i; j++) {
+				if(lotto[i]==lotto[j]) {
+					i--;
+					if(lotto[i]>lotto[i+1]) {
+						continue;
+					}
+				}
+			}
+		}
+		for(int i=0; i<lotto.length; i++) {
+			System.out.print(lotto[i] + " ");
+		}
 	}
 	
 	
@@ -417,18 +447,28 @@ public class ArrayPractice {
 		문자열에 있는 문자 : a, p, l, i, c, t, o, n
 		문자 개수 : 8
 		 * */
-		
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.print("문자열 : ");
 		String word = sc.next();
+		System.out.print("문자열에 있는 문자 : ");
 		
-	
+		int count = 0;
+		char[] arr = new char[word.length()];
 		
+		for(int i=0; i<word.length(); i++) {
+			arr[i] = word.charAt(i);
+			for(int j=0; j<i; j++) {
+				if(arr[i]==arr[j]) {
+					i++;
+					continue;
+				}
+			}
+			count++;
+			System.out.print(arr[i] + " ");
+		}
 		
-		
-		
-		
+		System.out.printf("\n문자 개수 : %d", count);
 	}
 	
 	
@@ -544,9 +584,6 @@ public class ArrayPractice {
 			}
 			System.out.println();
 		}
-		
-
-		
 	}
 	
 	
@@ -575,12 +612,10 @@ public class ArrayPractice {
 		int col = sc.nextInt();
 		
 		char[][] arr = new char[row][col];
-		char ch = 'A';  // 
-		ch = (char)(Math.random()*26+1);
 		
 		for(int i=0; i<row; i++) {  // 왜 row 자리에 arr.length 안 되고
 			for(int j=0; j<col; j++) {  // 왜 col 자리에 arr[row].length 안 되지
-				arr[i][j] = ch;
+				arr[i][j] = (char)(Math.random()*('Z'-'A'+1)+'A');
 				
 				System.out.print(arr[i][j] + " ");
 			}
