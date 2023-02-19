@@ -22,13 +22,13 @@ public class ArrayPracticeRun {
 		// ap.practice15(); //search ok
 		// ap.practice16(); //o
 		// ap.practice17(); //o
-		// ap.practice18(); //x 행과 열의 합계
-		// ap.practice19(); //△  //주석??, 알파벳 입력 : (char)(Math.random()*('Z'-'A'+1)+'A') (깃헙 ok
-		 ap.practice20(); //x scale 어디에 입력..?
-		// ap.practice21(); //x 1차원 배열 값 2차원 배열에 넣기
-		// ap.practice22(); //x 1차원 배열 값 2차원 배열에 넣기
-		// ap.practice23();
-		// ap.practice24();
+		 ap.practice18(); //x 행과 열의 합계
+		// ap.practice19(); //△  //주석??, 알파벳 입력 : (char)(Math.random()*('Z'-'A'+1)+'A') (깃헙 ok)
+		// ap.practice20(); //x scale 어디에 입력..?
+		// ap.practice21(); //△  // 깃헙 ok
+		// ap.practice22(); //△  // 깃헙 ok
+		// ap.practice23(); //x ...?
+		// ap.practice24(); //x ...?
 	}
 
 }
