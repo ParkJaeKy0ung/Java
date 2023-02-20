@@ -12,11 +12,14 @@ public class MethodExView {
 	
 	// 필드(==멤버변수)
 	private Scanner sc = new Scanner(System.in);
-	// 클래스 내 어디서든 사용 가능한 Scanner 객체 생성
+	// 클래스 내 어디서든 사용 가능한 Scanner 객체 생성  
+	// 코드 길이 감소, 중복 제거 
 	
 	
 	private MethodExService service = new MethodExService();
 	// 클래스 내 어디서든 사용 가능한 MethodExService 객체 생성
+	// view 클래스에서 service 기능을 가져다 사용하기 위한 객체 생성임.
+	// 객체만 생성한 거!
 	
 	
 
@@ -41,7 +44,7 @@ public class MethodExView {
 			
 			switch(input) {
 			case 1: menu1(); break;  // 1 입력 시 menu1() 메서드 호출
-			
+									 // case 1 실행하고 나면 break; 실행되어 while(input != 0);으로 넘어감.
 			case 2: menu2(); break;
 			
 			case 3: menu3(); break;
@@ -52,7 +55,8 @@ public class MethodExView {
 			default: System.out.println("잘못 입력 하셨습니다.");
 			}
 			
-		} while(input != 0);
+		} while(input != 0);  
+		// input에 0 입력 -> 0!=0 -> false 되면서 밖으로 나와 프로그램 종료
 		
 	} // displayMenu() 끝
 	
@@ -69,8 +73,8 @@ public class MethodExView {
 	}
 	
 	
-	// 2. 매개 변수 O, 반환 값 X
-	private void menu2() {
+	// 2. 매개 변수 O, 반환 값 X --> service(기능 제공) 클래스 필요함!!!
+	private void menu2() {  // private! public 아님!
 		System.out.println("*** menu2() 실행 ***");
 		
 		System.out.println("[정수 3개를 입력 받아 합계, 평균을 출력]");
@@ -86,7 +90,7 @@ public class MethodExView {
 		
 		// service에서 제공하는 기능
 		// threeNumbersSumAndAverage(정수1, 정수2, 정수3); 호출 시 
-		// 정수 1,2,3에 각각 num1,2,3 를 전달함
+		// 정수 1,2,3에 각각 num1,2,3(sc로 입력된 값 ex)10, 20, 30) 를 전달함
 		service.threeNumbersSumAndAverage(num1, num2, num3);
 	}
 	
@@ -97,7 +101,9 @@ public class MethodExView {
 		
 		System.out.println("[1부터 10 사이의 난수 5개를 저장한 배열을 반환받아 출력]");
 		
-		int[] numbers = service.fiveRandomNumbers();  
+		int[] numbers = service.fiveRandomNumbers();  // 3)
+		// ex) 0x10  <-  0x10 (주소)  
+		// 서로 다른 두개의 변수가 하나의 배열이나 객체를 참조 ==> 얕은 복사
 		
 		// 1. 호출 -> 2. 로직 처리 완료 -> 3. return 돌아가기
 		// 1. 호출 -> 2. service로 이동 -> fiveRandomNumbers()에서 난수 발생 (로직 처리 완료) -> 3. return : 다시 호출한 곳으로 돌아감
@@ -116,7 +122,10 @@ public class MethodExView {
 		System.out.println(); // 개행
 		
 		// 메서드 재사용
+		// 메서드 목적 : 한 번 만들어서 여러 군데에서 사용할 수 있게 하는 것
+		//			  특정한 객체가 가지고 있는 기능이자 여러 곳에서 다 사용 가능한 것
 		service.threeNumbersSumAndAverage(numbers[0], numbers[1], numbers[2]);
+				// 2번 메서드				// 난수로 생성된 번호 세개를 보냄.
 	}
 	
 	

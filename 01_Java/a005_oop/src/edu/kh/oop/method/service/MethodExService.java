@@ -1,7 +1,7 @@
 package edu.kh.oop.method.service;
 
 // 기능 제공용 객체를 만들기 위한 클래스
-// -> 비즈니스 로직 작성 
+// -> 비즈니스 로직 작성 ex) if, for문 등
 public class MethodExService {
 
 	// 2. 매개 변수 O, 반환 값 X
@@ -16,6 +16,7 @@ public class MethodExService {
 		// 전달 받은 세 정수의 평균
 		double avg = sum / 3.0;
 		
+		// 반환 값 없기 때문에 작성함
 		System.out.println("a : " + a);
 		System.out.println("b : " + b);
 		System.out.println("c : " + c);
@@ -27,7 +28,7 @@ public class MethodExService {
 	// 3. 매개 변수 X, 반환 값 O
 	// [1부터 10 사이의 난수 5개를 저장한 배열을 반환받아 출력]
 	public int[] fiveRandomNumbers() {  // public void 입력하면 반환 값이 없으므로 return에서 오류 발생
-		// -> !!! 반환하는 자료형을 작성 !!!!
+		// -> *** !!! 반환하는 자료형을 작성 !!!! ***
 		
 		int[] arr = new int[5];
 		
@@ -42,8 +43,9 @@ public class MethodExService {
 		// -> 돌아갈 때 가져갈 값이 있으면
 		// 	  return 옆에 작성
 		return arr;
+		//        * 주 의 * 2)
 		//     -> 반환된 int[]은 실제 배열이 아닌
-		//        int[] 의 '주소값'이다.
+		//        int[] 의 '주소값'이다. 얕은 복사 !! 개념 적용
 		//        arr[i]에 저장된 '값'이 아님.
 	}
 	
@@ -62,7 +64,7 @@ public class MethodExService {
 		// 오류 발생 : "0으로 나눌 수 없습니다."
 		
 		String result = null;
-		// String은 참조형 == 주소를 저장
+		// String은 참조형 == '주소'를 저장
 		// null : 참조하는 게 없다(==주소를 저장하고 있지 않다)
 		// null == 비어있다 (false)
 		
@@ -76,7 +78,7 @@ public class MethodExService {
 		// -> 대부분 같지 않다로 판별됨
 		
 		// 해결방법 : 참조형의 값 자체를 비교하는 equals() 사용
-		// boolean a.equals(b)
+		// boolean   a.equals(b)
 		// -> a와 b가 참조하는 객체의 
 		//    값이 같다면 true, 아니면 false를 반환하는 메서드
 		//    --> boolean이 반환되는 
