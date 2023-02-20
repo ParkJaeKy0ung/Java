@@ -623,43 +623,99 @@ public class ArrayPractice {
 		18 19 26 	63 
 		
 		 * */
-		
-		int[][] arr = new int[4][4];
-		
-		int total = 0;		
-		
-		for(int row=0; row<arr.length-1; row++) {
-			for(int col=0; col<arr[row].length-1; col++) {
-				int random = (int)(Math.random()*10+1);
-				arr[row][col] = random;
-				System.out.print(arr[row][col] + " ");
+		int[][] array = new int[4][4];
+		int total = 0;
+
+		for(int i=0; i<array.length; i++) {
+			for(int j=0; j<array[i].length; j++) {
 				
-				total += arr[row][col];
+				if(i<array.length-1 && j<array[i].length-1){
+					array[i][j] = (int)(Math.random()*10)+1;
+					
+					total += array[i][j];
+				}
+			}
+		}
+		
+		
+		array[3][3] = total;
+		
+		
+		for(int i=0; i<array.length-1; i++) {
+			
+			int sum=0;
+			
+			for(int j=0; j<array[i].length; j++) {
+				
+				sum += array[i][j];
+				
+				if(j==array[i].length-1) {
+					array[i][j] = sum;
+				}
+			}
+		}
+		
+		for(int i=0; i<array.length-1; i++) {
+			
+			int sum = 0;
+			
+			for(int j=0; j<array[i].length; j++) {
+				
+				sum += array[j][i];
+				
+				if(j==array[i].length-1) {
+					array[j][i] = sum;
+				}
+			}
+		}
+
+		
+		for(int[] i : array) {
+			for(int j : i) {
+				System.out.printf("%4d", j);
 			}
 			System.out.println();
 		}
-		arr[3][3] = total;
 		
-		for(int row=0; row<arr.length-1; row++) {
-			int sum = 0;
-			for(int col=0; col<arr[row].length-1; col++) {
-				sum += arr[row][col];
-				if(col==arr[row][col]-1) {
-					arr[row][col] = sum;
-				}
-				System.out.print(sum + " ");
-			}
-		}
-		for(int row=0; row<arr.length-1; row++) {
-			int sum = 0;
-			for(int col=0; col<arr[row].length-1; col++) {
-				sum += arr[row][col];
-				if(row==arr[row][col]-1) {
-					arr[row][col] = sum;
-				}
-				System.out.print(sum + " ");
-			}
-		}
+		
+		
+		
+//		int[][] arr = new int[4][4];
+//		
+//		int total = 0;		
+//		
+//		for(int row=0; row<arr.length-1; row++) {
+//			for(int col=0; col<arr[row].length-1; col++) {
+//				int random = (int)(Math.random()*10+1);
+//				arr[row][col] = random;
+//				System.out.print(arr[row][col] + " ");
+//				
+//				total += arr[row][col];
+//			}
+//			System.out.println();
+//		}
+//		arr[3][3] = total;
+//		
+//		for(int row=0; row<arr.length-1; row++) {
+//			int sum = 0;
+//			for(int col=0; col<arr[row].length-1; col++) {
+//				sum += arr[row][col];
+//				if(col==arr[row][col]-1) {
+//					arr[row][col] = sum;
+//				}
+//				System.out.print(sum + " ");
+//			}
+//		}
+//		for(int row=0; row<arr.length-1; row++) {
+//			int sum = 0;
+//			for(int col=0; col<arr[row].length-1; col++) {
+//				sum += arr[row][col];
+//				if(row==arr[row][col]-1) {
+//					arr[row][col] = sum;
+//				}
+//				System.out.print(sum + " ");
+//			}
+//		}
 	}
 	
 	
@@ -718,32 +774,64 @@ public class ArrayPractice {
 		i j k
 		l m n o p
 		 * */
-		
 		Scanner sc = new Scanner(System.in);
 		
+		int rowSize;
+		int colSize;
+		char[][] array;
+		char index = 'a';
+		
 		System.out.print("행의 크기 : ");
-		int input = sc.nextInt(); // 행의 크기 입력
+		rowSize = sc.nextInt();
+	
+		array = new char[rowSize][];
 		
-		char ch = 'a'; // 문자형 초기화
-		char[][] arr = new char[input][]; // 가변배열 생성
-		
-		for(int i=0; i<input; i++) { // i가 input까지 커질 때
-			System.out.printf("%d열의 크기 : ", i); 
-			int scale = sc.nextInt(); // 열의 크기 입력받음
-			
-			arr[i] = new char[scale]; // 열의 크기는 입력받은 숫자만큼
-			
-			for(int row=0; row<input; row++) {
-				for(int col=0; col<scale; col++) {
-					arr[row][col] = ch;
-					ch++;
-					
-					System.out.print(arr[row][col] + " ");
-				}
-				System.out.println();
-			}
-//			--> 0열의 크기와 0열 값만 출력하고 끝남.
+		for(int i=0; i<array.length; i++) {
+			System.out.printf("%d열의 크기 : ", i);
+			colSize = sc.nextInt();
+			array[i] = new char[colSize];
 		}
+		
+		for(int i=0; i<array.length; i++) {
+			for(int j=0; j<array[i].length; j++) {
+				array[i][j] = index++;
+				System.out.print(array[i][j] + " ");
+			}
+			
+			System.out.println();
+		}
+		
+		
+		
+		
+//		Scanner sc = new Scanner(System.in);
+//		
+//		System.out.print("행의 크기 : ");
+//		int input = sc.nextInt(); // 행의 크기 입력
+//		
+//		char ch = 'a'; // 문자형 초기화
+//		char[][] arr = new char[input][]; // 가변배열 생성
+//		
+//		for(int i=0; i<input; i++) { // i가 input까지 커질 때
+//			System.out.printf("%d열의 크기 : ", i); 
+//			int scale = sc.nextInt(); // 열의 크기 입력받음
+//			
+//			arr[i] = new char[scale]; // 열의 크기는 입력받은 숫자만큼
+//			
+//			for(int row=0; row<input; row++) {
+//				for(int col=0; col<scale; col++) {
+//					arr[row][col] = ch;
+//					ch++;
+//					
+//					System.out.print(arr[row][col] + " ");
+//				}
+//				System.out.println();
+//			}
+////			--> 0열의 크기와 0열 값만 출력하고 끝남.
+//		}
+		
+		
+		
 		
 //		for(int row=0; row<input; row++) { // 배열 행 숫자 범위
 //			for(int col=0; col<scale; col++) { // 배열 열 숫자 범위
@@ -917,32 +1005,66 @@ public class ArrayPractice {
 		4     X
 		 * */
 		Scanner sc = new Scanner(System.in);
-		System.out.print("행 인덱스 입력 : ");
-		int num1 = sc.nextInt();
-		System.out.print("열 인덱스 입력 : ");
-		int num2 = sc.nextInt();
+//		System.out.print("행 인덱스 입력 : ");
+//		int num1 = sc.nextInt();
+//		System.out.print("열 인덱스 입력 : ");
+//		int num2 = sc.nextInt();
+//		
+//		String[][] arr = new String[6][6];
+//		int index1 = 0;
+//		int index2 = 0;
+//		
+//		for(int i=0; i<arr.length; i++) {
+//			for(int j=0; j<arr[i].length; j++) {
+//				if(i==0 && j>0) {
+//					arr[i][j] = Integer.toString(index1);
+//					System.out.print(index1 + " ");
+//					index1++;
+//				}else if(j==0 && i>0) {
+//					arr[i][j] = Integer.toString(index2);
+//					System.out.println(index2 + " ");
+//					index2++;
+//				}else {
+//					arr[i][j] = " ";
+//				}
+//			}
+//		}
+//		arr[num1][num2] = "X";
+//		System.out.print(arr[num1][num2]);
+		String[][] array = new String[6][6];
+		int index1=0;
+		int index2=0;
+		int rowIndex;
+		int colIndex;
 		
-		String[][] arr = new String[6][6];
-		int index1 = 0;
-		int index2 = 0;
-		
-		for(int i=0; i<arr.length; i++) {
-			for(int j=0; j<arr[i].length; j++) {
+		for(int i=0; i<array.length; i++) {
+			for(int j=0; j<array[i].length; j++) {
+				
 				if(i==0 && j>0) {
-					arr[i][j] = Integer.toString(index1);
-					System.out.print(index1 + " ");
-					index1++;
+					array[i][j] = Integer.toString(index1++);
 				}else if(j==0 && i>0) {
-					arr[i][j] = Integer.toString(index2);
-					System.out.println(index2 + " ");
-					index2++;
+					array[i][j] = Integer.toString(index2++);
 				}else {
-					arr[i][j] = " ";
+					array[i][j] = " ";
 				}
 			}
 		}
-		arr[num1][num2] = "X";
-		System.out.print(arr[num1][num2]);
+		
+		System.out.print("행 인덱스 입력 : ");
+		rowIndex = sc.nextInt();
+		
+		System.out.print("열 인덱스 입력 : ");
+		colIndex = sc.nextInt();
+		
+		array[rowIndex+1][colIndex+1] = "X";
+		
+		for(String[] i : array) {
+			for(String j : i) {
+				System.out.printf(" %s ", j);
+			}
+			System.out.println();
+		}
+		
 	}
 	
 	

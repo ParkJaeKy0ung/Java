@@ -22,7 +22,7 @@ public class ArrayPracticeRun {
 		// ap.practice15(); //search ok
 		// ap.practice16(); //o
 		// ap.practice17(); //o
-		 ap.practice18(); //x 행과 열의 합계
+		// ap.practice18(); //x 행과 열의 합계
 		// ap.practice19(); //△  //주석??, 알파벳 입력 : (char)(Math.random()*('Z'-'A'+1)+'A') (깃헙 ok)
 		// ap.practice20(); //x scale 어디에 입력..?
 		// ap.practice21(); //△  // 깃헙 ok
