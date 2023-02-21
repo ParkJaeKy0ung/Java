@@ -31,7 +31,7 @@ public class Student {
 	public int getGrade() { // public 반환형 get필드명
 		return grade;
 	}
-	public void setgGrade(int grade) { // public 반환형 set필드명
+	public void setGrade(int grade) { // public 반환형 set필드명
 		this.grade = grade;
 	}
 	
