@@ -476,6 +476,60 @@ public class ArrayPractice {
 	public void practice14() {
 		/*
 		 * */
+		
+		Scanner sc = new Scanner(System.in);
+		
+//		스캐너 사용법
+//
+//		1) next() : 한 단어 (띄어쓰기, 엔터를 만나면 입력 종료)  —> hello
+//		   nextLine() : 한 문장 (엔터를 만나면 입력 종료) —> hello world
+//
+//		2) 스캐너 입력 버퍼와 nextXXX의 의미
+//		   입력 -> 입력 버퍼에 저장 -> nextXXX() 통해 버퍼 내용을 읽어옴
+		
+		//				입력 버퍼			 nextXXX()			  후처리
+		// nextLine() : hello world(엔터) -> hello world(엔터) -> 엔터 제거
+		// (다음 엔터)
+		
+		// nextInt() :     100(엔터) 	  -> 	    100		 
+		// (다음 정수)
+		// ** next(), nextDouble(), nextInt() 등
+		// 	  모두 입력 버퍼에서 (엔터)를 제외하고 내용만 읽어옴 **
+		
+		System.out.println("----------------------------------------");
+		
+		System.out.print("nextInt() : ");  // 입력버퍼 : [ 100 (엔터) ]
+		int a = sc.nextInt();
+		// 100			// 입력버퍼 : [  (엔터)  ]
+		
+		// !문제 해결!
+		sc.nextLine(); // 입력버퍼 : [    ]
+		
+		
+		System.out.println("nextLine() : ");  // 입력버퍼 : [ a b c (엔터) ]
+		String s = sc.nextLine();
+		// a b c		// 입력버퍼 : [    ]
+		
+		System.out.println("종료");
+		
+		// [문제점]
+		// nextInt() 이후 입력버퍼에 남아있는 (엔터(개행문자)) 때문에
+		// 다음 nextLine() 수행 시 버퍼에 남아있는 (엔터)를 읽어버리기 때문에
+		// 추가적인 입력을 시도하지 못 하고 다음 코드로 넘어가는 문제 발생.
+		
+		// [해결방법]
+		// 입력을 위한 nextLine() 수행 전
+		// 입력버퍼에서 (엔터)를 제거
+		// -> 빈 공간에 sc.nextLine() 구문을 한번 작성하면 (엔터)가 제거됨.
+		
+		
+		
+		
+		
+		
+		
+		
+		
 //		String[] array=null;
 //		String[] newArray=null;
 //		int size;

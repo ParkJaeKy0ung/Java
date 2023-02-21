@@ -27,11 +27,11 @@ public class UserView {
 	
 	
 	// 기본 생성자  --> 원활한 테스트를 위한 것임. 필수적인 것X
-	public UserView() {
-		// 기본 생성자로 객체 생성 시 
-		// signUpUser에 객체 주소 대입하기
-		signUpUser = new User("user01", "user11", "테스트", 'F');
-	}
+//	public UserView() {
+//		// 기본 생성자로 객체 생성 시 
+//		// signUpUser에 객체 주소 대입하기
+//		signUpUser = new User("user01", "user11", "테스트", 'F');
+//	}
 	
 	
 	
