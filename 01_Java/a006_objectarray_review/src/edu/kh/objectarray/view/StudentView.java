@@ -113,7 +113,7 @@ public class StudentView {
 		
 		if(resultArr != null) {
 			for(Student s : resultArr) {
-				if(s==null) break; // ???
+				if(s==null) break; /* 설명 필요 */
 				System.out.println(s.toString());
 			}
 		}else {
@@ -125,12 +125,37 @@ public class StudentView {
 	/** 5. 학생 정보 수정(인덱스) */
 	private void updateStudent() {
 		
+		System.out.println("[학생 정보 수정(인덱스)]");
+		
+		System.out.print("인덱스 : ");
+		int index = sc.nextInt();
+		
+		System.out.print("국어 : ");
+		int kor = sc.nextInt();
+		
+		System.out.print("영어 : ");
+		int eng = sc.nextInt();
+		
+		System.out.print("수학 : ");
+		int math = sc.nextInt();
+		
+		boolean result = service.updateStudent(index, kor, eng, math);
+		
+		if(result) System.out.println("수정되었습니다.");
+		else System.out.println("해당 인덱스에 학생이 존재하지 않습니다.");
 		
 	}
 
 	/** 6. 점수 합계, 평균, 최고점, 최저점 조회 */
 	private void sumAvgMaxMin() {
+		System.out.println("[점수 합계, 평균, 최고점, 최저점]");
 		
+		int[] arr = service.sumAvgMaxMin();
+		
+		System.out.println("합계 : " + arr[0]);
+		System.out.println("평균 : " + arr[1]);
+		System.out.println("최고점 : " + arr[2]);
+		System.out.println("최저점 : " + arr[3]);
 		
 	}
 

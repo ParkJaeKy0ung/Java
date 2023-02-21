@@ -81,6 +81,64 @@ public class StudentService {
 	}
 	
 	
+	/** 5. 학생 정보 수정(인덱스)
+	 * @param index:int
+	 * @param kor:int
+	 * @param eng:int
+	 * @param math:int
+	 * 
+	 * @return 수정 성공 시 true / 실패 시 false
+	 * */
+	public boolean updateStudent(int index, int kor, int eng, int math) {
+		if((index<0 || index>=studentArr.length) || studentArr[index]==null) {
+			return false;
+		}
+		
+		studentArr[index].setKor(kor);  /* 설명 필요 */
+		studentArr[index].setEng(eng);
+		studentArr[index].setMath(math);
+		return true;
+	}
+	
+	
+	/** 6. 학생 총점 점수 합계, 평균, 최고점, 최저점 
+	 * @return arr : int[] (인덱스 순서대로 합계, 평균, 최고점, 최저점)
+	 *  */
+	public int[] sumAvgMaxMin() {
+		int[] arr = new int[4];
+		
+		int size = 0;
+		
+		for(int i=0; i<studentArr.length; i++) {
+			if(studentArr[i] == null) break;
+			else size++;
+		}
+		
+		int[] sumArr = new int[size];
+		
+		for(int i=0; i<sumArr.length; i++) {
+			sumArr[i] = studentArr[i].getKor() + studentArr[i].getEng() + studentArr[i].getMath();
+			arr[0] += sumArr[i];
+		}
+		
+		arr[1] = arr[0] /size;
+		
+		int max = sumArr[0];
+		int min = sumArr[0];
+		
+		for(int s : sumArr) {
+			if(s>max) max=s;
+			if(s<min) min=s;
+		}
+		arr[2] = max;
+		arr[3] = min;
+		
+		return arr;
+	}
+	
+	
+	
+	
 	
 	
 	
