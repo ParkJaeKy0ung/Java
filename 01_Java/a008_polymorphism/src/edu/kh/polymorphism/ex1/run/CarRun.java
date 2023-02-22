@@ -8,9 +8,9 @@ public class CarRun {
 		CarService service = new CarService();
 		
 //		service.ex2();
-//		service.ex3();
+		service.ex3();
 //		service.ex4();
-		service.ex5();
+//		service.ex5();
 	
 	}
 

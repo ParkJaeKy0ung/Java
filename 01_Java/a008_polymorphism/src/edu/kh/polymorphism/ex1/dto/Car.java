@@ -53,7 +53,4 @@ public class Car extends Object{
 	public String toString() {
 		return String.format("%d / %d / %s", wheel, seat, fuel);
 	}
-	
-
-	
 }
