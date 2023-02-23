@@ -36,11 +36,16 @@ public class PJKCalculator implements Calculator, KH{
 
 	@Override
 	public int square(int a, int x) {
-		// 재귀 호출
-		if(x==1) {
-			return a;
+		int result = 1;
+		for(int i=1; i<=x; i++) {
+			result *= a;
 		}
-		return a * square(a, x-1);
+		return result;
+//		// 재귀 호출
+//		if(x==1) {
+//			return a;
+//		}
+//		return a * square(a, x-1);
 	}
 
 	@Override
