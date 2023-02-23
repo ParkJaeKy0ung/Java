@@ -1,7 +1,7 @@
 package edu.kh.polymorphism.ex2.dto;
 
 // 각자 계산기 구현하기
-public class PJKCalculator implements Calculator{
+public class PJKCalculator implements Calculator, KH{
 
 	@Override
 	public int plus(int a, int b) {
@@ -41,5 +41,11 @@ public class PJKCalculator implements Calculator{
 			return a;
 		}
 		return a * square(a, x-1);
+	}
+
+	@Override
+	public void lesson() {
+		// TODO Auto-generated method stub
+		
 	}
 }

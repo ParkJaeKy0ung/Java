@@ -78,10 +78,10 @@ public class TestService {
 		int b = 4;
 		System.out.println("a = 7, b = 4");
 		
-		System.out.println("합 : " + cal.plus(0, 0));
-		System.out.println("차 : " + cal.minus(0, 0));
-		System.out.println("곱 : " + cal.multiple(0, 0));
-		System.out.println("몫 : " + cal.divide(0, 0));
+		System.out.println("합 : " + cal.plus(a, b));
+		System.out.println("차 : " + cal.minus(a, b));
+		System.out.println("곱 : " + cal.multiple(a, b));
+		System.out.println("몫 : " + cal.divide(a, b));
 		
 		System.out.println("나누기 결과(실수) : " + cal.divide2(a, b));
 
@@ -95,18 +95,7 @@ public class TestService {
 
 		int num = 2;
 		int x = 9;
-		System.out.println("");
-		
-		
+		System.out.println(num + "의 " + x + "제곱");
+		System.out.println("결과 : " + cal.square(num, x));
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
