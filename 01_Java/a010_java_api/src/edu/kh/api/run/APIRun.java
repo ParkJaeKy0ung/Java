@@ -1,12 +1,14 @@
 package edu.kh.api.run;
 
-import edu.kh.api.service.APIService;
+import edu.kh.api.view.APIView;
 
 public class APIRun {
 
 	public static void main(String[] args) {
 		
-		APIService service = new APIService();
+		APIView view = new APIView();
+		
+		view.dispalyMenu();
 		
 	}
 }
