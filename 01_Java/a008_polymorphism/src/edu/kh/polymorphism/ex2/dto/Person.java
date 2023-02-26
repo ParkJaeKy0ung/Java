@@ -52,14 +52,4 @@ public class Person extends Animal {
 	public void breath() {
 		System.out.println("코와 입으로 숨을 쉰다.");
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

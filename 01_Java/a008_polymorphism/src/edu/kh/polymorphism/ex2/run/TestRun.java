@@ -7,9 +7,9 @@ public class TestRun {
 		
 		TestService service = new TestService();
 		
-//		service.ex1();
-//		service.ex2();
-		service.ex3();
+		service.ex1();  // 추상클래스 (Animal)
+//		service.ex2();  // 인터페이스 (KH)
+//		service.ex3();  // 인터페이스 (Calculator)
 		
 	}
 
