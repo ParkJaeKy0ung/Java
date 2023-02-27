@@ -57,7 +57,6 @@ public class Student {
 	// -> 현재 객체와 다른 객체가 동등(필드 값이 같은지) 비교
 	// -> 필드를 가지고 있는 자식 클래스가
 	//	  알맞은 형태로 재정의(오버라이딩) 필요
-	
 	@Override
 	public boolean equals(Object obj) {
 		

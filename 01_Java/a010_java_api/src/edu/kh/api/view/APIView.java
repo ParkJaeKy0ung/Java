@@ -103,7 +103,7 @@ public class APIView {
 	
 	
 	public void ex2() {
-		// 이름을 여러 명을 한 줄로 입력 받아
+		// 여러 명의 이름을 한 줄로 입력 받아
 		// 학생 배열에 같은 이름의 학생이 있다면 출력
 		System.out.println("\n--- 학생 검색 ---\n");
 		
@@ -196,7 +196,7 @@ public class APIView {
 		System.out.println("def 추가 후 주소 : " + System.identityHashCode(sb));  // 주소 : 157627094
 		// -> 새 객체가 생성되는 것이 아니라 기존 객체가 수정되므로 딜레이 덜 함
 		
-		// 새로운 문자열이 추가되어도 
+		// 새 로운 문자열이 추가되어도 
 		// 객체의 주소는 변하지 않음 == 가변성(mutable)
 		// -> 문자열 수정 시 새로운 객체를 생성하지 않아
 		//	  메모리 소비를 절약할 수 있다. (무분별한 String 추가 X)
