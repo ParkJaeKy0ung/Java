@@ -17,6 +17,8 @@ import edu.kh.collection.list.dto.Student;
 public class StudentService {
 	
 	private List<Student> studentList = new ArrayList<Student>();
+//	private List<Student> studentList = new LinkedList<Student>();
+										// List 구현 클래스마다 장/단점
 	
 	public StudentService() {
 		
