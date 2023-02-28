@@ -1,6 +1,7 @@
 package edu.kh.collection.list.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import edu.kh.collection.list.dto.Student;
@@ -70,6 +71,122 @@ public class StudentService {
 		//							있으면 제거하고 true / 없으면 false 반환
 		
 		return studentList.remove(index); // 1번 방법
+	}
+
+
+	/** 학생 이름 검색 서비스
+	 * @param name
+	 * @return list:List<Student> 이름이 일치하는 학생 리스트
+	 */
+	public List<Student> selectName(String name) {
+		
+		// 1) 검색 결과를 저장할 List<Student> 생성
+		List<Student> list = new ArrayList<Student>(); // 부모, 자식
+		
+		// 2) StudentList의 모든 요소를 순차 접근하면서 이름이 일치하는 학생을
+		// 	  list에서 추가
+		
+		for(Student s : studentList) {
+			
+			if(s.getName().equals(name)) list.add(s);
+		
+		}
+		
+		// 3) 검색 결과 반환
+		return list;
+	}
+
+
+	/** 학생 주소 검색 서비스
+	 * @param input
+	 * @return list:List<Student> 검색어가 주소에 포함된 학생 리스트
+	 */
+	public List<Student> selectAddress(String input) {
+		
+		List<Student> list = new ArrayList<Student>();
+		
+		for(Student s : studentList) {
+			
+			// String.contains("문자열") : String에 "문자열"이 포함되어 있으면 true 반환
+			if(s.getAddress().contains(input)) list.add(s);
+		}
+		
+		return list;
+	}
+
+
+	/** 학년별 조회 서비스
+	 * @param input
+	 * @return list:List<Student> inputGrade와 학년이 같은 학생 리스트
+	 */
+	public List<Student> selectGrade(int inputGrade) {
+		
+		List<Student> list = new ArrayList<>();
+										// <(Student)> 제네릭의 타입 추론
+		// - 생성되는 컬렉션 객체의 제네릭(타입 제한)을 별도 작성하지 않아도
+		//	 참조 변수의 제네릭을 통해 제한되는 타입을 유추(추론)
+		// List<> list = new ArrayList<Student>(); 는 안됨!
+		
+		for(Student s : studentList) {
+			
+			if(s.getGrade() == inputGrade) list.add(s);
+										// 결과 저장할 list에 s 추가!
+		}
+		return list;
+	}
+
+
+	/** 성별 조회 서비스
+	 * @param input
+	 * @return list:List<Student> inputGender와 성별이 같은 학생 리스트
+	 */
+	public List<Student> selectGender(char inputGender) {
+		
+		List<Student> list = new ArrayList<>();
+		
+		for(Student s : studentList) {
+			if(s.getGender() == inputGender) list.add(s);
+		}
+		
+		return list;
+	}
+
+
+	/**
+	 * 성적 순서 조회 서비스
+	 * @return studentList
+	 */
+	public List<Student> sortScore() {
+		
+		// studentList 정렬 (score 내림차순)
+		// - Collections 클래스 : 컬렉션에 도움되는 유용한 기능을 모은 클래스
+		
+		// - Comparable<T> 인터페이스
+		//  -> 객체의 기본 정렬 기준을 제공하는 인터페이스
+		
+		
+		// <?> : 어떤게 작성될지 모름 == 아무거나 작성 가능
+		// <?> void Collections.sort(List<?> list)
+		
+		Collections.sort(studentList);
+		// studentList에 저장된 객체 Student의
+		// 오버라이딩된 compareTo() 메서드를 이용해서 정렬
+		// -> 현재 큰 숫자가 오른쪽으로 이동하도록 오버라이딩 되어있음
+		/*
+		compareTo() 메서드에서 
+		반환되는 값이 
+		0 이하 : 순서를 그대로 유지
+		0 초과(양수) : 큰 값이 오른쪽(끝쪽)으로 이동
+		=> return this.score - o.score;
+		*/
+		// -> 오름차순 정렬
+		
+		// void Collections.reverse(List<?> list)
+		// - list 순서를 반대로 뒤집음
+		// -> 오름차순 --> 내림차순
+//		* Collections.reverse(studentList);
+		
+		return studentList;
 	}
 
 	
