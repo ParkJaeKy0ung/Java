@@ -214,8 +214,8 @@ public class CarService {
 	
 	public Car createCar(int num) {
 		
-		switch(num) {
-		case 1:  return new Truck();
+		switch(num) { // break; 없이 return 사용하여 새로운 객체 생성
+		case 1:  return new Truck(); 
 		case 2:  return new LightCar();
 		case 3:  return new Car();
 		}

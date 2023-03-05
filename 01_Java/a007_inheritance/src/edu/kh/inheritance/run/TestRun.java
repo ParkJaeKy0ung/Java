@@ -29,7 +29,7 @@ public class TestRun {
 		System.out.println(c2.getLastName());
 		// -> 부모의 메서드 상속 확인
 		
-//		System.out.println(c1.money);
+//		System.out.println(c1.money); // -> getMoney!!!
 		// -> 부모의 private 접근 제한자는 상속을 받아도 직접 접근 불가능
 		//  -> private 필드/메서드는 상속이 되어 있음
 		//    단, 자식도 접근만 못할 뿐이다 (private은 같은 클래스만 접근 가능)
