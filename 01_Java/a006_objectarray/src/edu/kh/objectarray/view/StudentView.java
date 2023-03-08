@@ -231,9 +231,4 @@ public class StudentView {
 		System.out.println("최고점 : " + arr[2]);
 		System.out.println("최저점 : " + arr[3]);
 	}
-	
-	
-	
-	
-	
 }
