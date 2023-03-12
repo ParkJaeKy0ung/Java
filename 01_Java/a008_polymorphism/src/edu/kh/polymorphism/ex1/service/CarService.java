@@ -219,7 +219,6 @@ public class CarService {
 		case 2:  return new LightCar();
 		case 3:  return new Car();
 		}
-		
 		return null;
 	}
 }
