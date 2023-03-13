@@ -280,13 +280,25 @@ SELECT * FROM EMP_M01;
 COMMIT;
 
 -- EMPLOYEE2 테이블에서 '장채현'사원 정보 조회
+SELECT * FROM EMPLOYEE2
+WHERE EMP_NAME = '장채현';
 
 -- EMPLOYEE2 테이블에서 이름이 '장채현'인 사원 정보 삭제
+DELETE FROM EMPLOYEE2
+WHERE EMP_NAME = '장채현';
 
 -- 삭제 확인
+SELECT * FROM EMPLOYEE2
+WHERE EMP_NAME = '장채현';
+
+ROLLBACK;
 
 -- EMPLOYEE2 테이블 전체 삭제
+DELETE FROM EMPLOYEE2; -- 24행 삭제
 
+SELECT * FROM EMPLOYEE2;
+
+ROLLBACK;
 
 ---------------------------------------------------------------------------------------------
 
