@@ -202,7 +202,7 @@ public class CarService {
 		// 반환형의 다형성(업캐스팅) 적용
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("생성할 자동차 종류를 선택하세요");
+		System.out.println("생성할 자동차 종류를 선택하세요~~~~~~~");
 		System.out.println("1. 트럭");
 		System.out.println("2. 경차");
 		System.out.println("3. 자동차");
