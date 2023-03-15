@@ -11,6 +11,8 @@
 
 --------------------------------------------------------------------------------
 -- 1. 제약조건 추가 / 삭제
+-- ** 제약조건은 수정 불가능! **
+--> 수정이 필요하면 삭제 -> 다시 추가
 
 -- * 작성법 중 [] 대괄호 : 생략할 수 도, 안할 수 도 있다.
 
@@ -22,27 +24,46 @@
 
 
 -- 서브쿼리를 이용해서 DEPARTMENT 테이블 복사 --> NOT NULL 제약조건만 복사됨
+CREATE TABLE DEPT_COPY
+AS SELECT * FROM DEPARTMENT;
+
+SELECT * FROM DEPT_COPY;
+--> DEPT_ID, LOCATION_ID에만 NOT NULL 제약조건 설정됨
+
 
 -- DEPT_COPY 테이블에 PK 추가
+ALTER TABLE DEPT_COPY 
+ADD CONSTRAINT PK_DEPT_COPY PRIMARY KEY (DEPT_ID);
 
 -- DEPT_COPY 테이블의 DEPT_TITLE 컬럼에 UNIQUE 제약조건 추가
-
+ALTER TABLE DEPT_COPY 
+ADD CONSTRAINT UK_DEPT_COPY UNIQUE(DEPT_TITLE);
 
 -- DEPT_COPY 테이블의 LOCATION_ID 컬럼에 CHECK 제약조건 추가
 -- 컬럼에 작성할 수 있는 값은 L1, L2, L3, L4, L5 
 -- 제약조건명 : LOCATION_ID_CHK
-
+ALTER TABLE DEPT_COPY 
+ADD CONSTRAINT CHK_DEPT_COPY CHECK(LOCATION_ID IN ('L1', 'L2', 'L3', 'L4', 'L5'));
 
 -- DEPT_COPY 테이블의 DEPT_TITLE 컬럼에 NOT NULL 제약조건 추가
 -- * NOT NULL 제약조건은 다루는 방법이 다름
 -->  NOT NULL을 제외한 제약 조건은 추가적인 조건으로 인식됨.(ADD/DROP)
 -->  NOT NULL은 기존 컬럼의 성질을 변경하는 것으로 인식됨.(MODIFY)
+ALTER TABLE DEPT_COPY 
+MODIFY DEPT_TITLE NOT NULL; -- NULL 관련 설정만 MODIFY 사용! (기억!)
 
 ---------------------------
 
 -- DEPT_COPY에 추가한 제약조건 중 PK 빼고 모두 삭제
+ALTER TABLE DEPT_COPY DROP CONSTRAINT CHK_DEPT_COPY;
+ALTER TABLE DEPT_COPY DROP CONSTRAINT UK_DEPT_COPY;
+
+ALTER TABLE DEPT_COPY DROP CONSTRAINT SYS_C007525; -- NOT NULL
+--> NOT NULL 제약조건 ADD는 안 되는데 DROP은 가능
 
 -- NOT NULL 제거 시 MODIFY 사용
+ALTER TABLE DEPT_COPY 
+MODIFY DEPT_TITLE CONSTRAINT SYS_C007525 /*NOT*/ NULL;
 
 
 ---------------------------------------------------------------------------------
@@ -68,45 +89,86 @@
 -- (추가)
 -- DEPT_COPY 컬럼에 CNAME VARCHAR2(20) 컬럼 추가
 -- ALTER TABLE 테이블명 ADD(컬럼명 데이터타입 [DEFAULT '값']);
+ALTER TABLE DEPT_COPY
+ADD (CNAME VARCHAR2(20));
 
+SELECT * FROM DEPT_COPY;
 
 -- (추가)
 -- DEPT_COPY 테이블에 LNAME VARCHAR2(30) 기본값 '한국' 컬럼 추가
+ALTER TABLE DEPT_COPY 
+ADD (LNAME VARCHAR2(30) DEFAULT '한국');
+--> 새로 추가된 컬럼 LNAME에 기본값 '한국'이 자동 삽입
 
+SELECT * FROM DEPT_COPY;
 
 -- (수정)
 -- DEPT_COPY 테이블의 DEPT_ID 컬럼의 데이터 타입을 CHAR(2) -> VARCHAR2(3)으로 변경
 -- ALTER TABLE 테이블명 MOIDFY 컬럼명 데이터타입;
-
+ALTER TABLE DEPT_COPY 
+MODIFY DEPT_ID VARCHAR2(3);
 
 -- (수정 에러 상황)
 -- DEPT_TITLE 컬럼의 데이터타입을 VARCHAR2(10)으로 변경
+ALTER TABLE DEPT_COPY 
+MODIFY DEPT_TITLE VARCHAR2(10);
+-- ORA-01441: 일부 값이 너무 커서 열 길이를 줄일 수 없음
+--> 이미 저장된 값이 수정하는 데이터 타입의 크기보다 크면 수정할 수 없음
+-- (한글을 1글자에 3바이트)
 
+SELECT * FROM DEPT_COPY;
 
 -- (기본값 수정)
 -- LNAME 기본값을 '한국' -> '대한민국' 으로 변경
 -- ALTER TABLE 테이블명 MOIDFY 컬럼명 DEFAULT '값'; 
+ALTER TABLE DEPT_COPY 
+MODIFY LNAME DEFAULT '대한민국';
 
+SELECT * FROM DEPT_COPY;
+
+-- DEPT_COPY의 LNAME 컬럼의 모든 값을 기본값으로 수정
+UPDATE DEPT_COPY 
+SET LNAME = DEFAULT;
+
+SELECT * FROM DEPT_COPY;
 
 -- (삭제)
 -- DEPT_COPY에 추가한 컬럼(CNAME, LNAME) 삭제
 -->  ALTER TABLE 테이블명 DROP(삭제할컬럼명);
+ALTER TABLE DEPT_COPY DROP (CNAME);
 
+SELECT * FROM DEPT_COPY;
 
 -->  ALTER TABLE 테이블명 DROP COLUMN 삭제할컬럼명;
+ALTER TABLE DEPT_COPY DROP COLUMN LNAME;
+
+SELECT * FROM DEPT_COPY;
+
+-- ** 컬럼 삭제의 문제점 **
+-- -> 테이블은 최소 1개 이상의 컬럼이 존재해야 한다.
+ALTER TABLE DEPT_COPY DROP COLUMN DEPT_TITLE;
+ALTER TABLE DEPT_COPY DROP COLUMN LOCATION_ID;
+SELECT * FROM DEPT_COPY;
+
+ALTER TABLE DEPT_COPY DROP COLUMN DEPT_ID;
+-- ORA-12983: 테이블에 모든 열들을 삭제할 수 없습니다
 
 
-
+/* DDL : 데이터 정의 언어(객체를 CREATE, ALTER, DROP)
+ * DML : 데이터 조작 언어(테이블에 값을 INSERT, UPDATE, DELETE)
+ * TCL : 트랜젝션 제어 언어(DML 수행 내용을 COMMIT, ROLLBACK, SAVEPOINT)
+ */
 
 -- * DDL / DML을 혼용해서 사용할 경우 발생하는 문제점
 -- DML을 수행하여 트랜잭션에 변경사항이 저장된 상태에서
--- COMMIT/ROLLBACK 없이 DDL 구문을 수행하게되면
+-- COMMIT/ROLLBACK 없이 DDL 구문을 수행하게 되면
 -- DDL 수행과 동시에 선행 DML이 자동으로 COMMIT 되어버림.
 
 --> 결론 : DML/DDL 혼용해서 사용하지 말자!!!
 
 INSERT INTO DEPT_COPY VALUES('D0'); -- 'D0' 삽입
 SELECT * FROM DEPT_COPY;
+
 ROLLBACK; -- 트랜잭션에서 'D0' INSERT 내용을 삭제
 SELECT * FROM DEPT_COPY;
 
@@ -115,8 +177,11 @@ INSERT INTO DEPT_COPY VALUES('D0'); -- 'D0' 삽입
 SELECT * FROM DEPT_COPY;
 
 ALTER TABLE DEPT_COPY MODIFY DEPT_ID VARCHAR2(4); -- DDL 수행
+
 ROLLBACK;
 SELECT * FROM DEPT_COPY; -- 'D0'가 사라지지 않음
+
+--> *결론* : DML과 DDL 혼용해서 작성하면 안됨!!!!!!!
 
 
 -------------------------------------------------------------------------------
@@ -179,26 +244,5 @@ ALTER TABLE DEPT_COPY RENAME CONSTRAINT PK_DCOPY TO DEPT_COPY_PK;
 ALTER TABLE DEPT_COPY RENAME TO DCOPY;
 SELECT * FROM DCOPY;
 SELECT * FROM DEPT_COPY; -- 이름이 변경되어 DEPT_COPY 테이블명으로 조회 불가
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
