@@ -21,6 +21,23 @@ public class Employee {
 		   
 	   }
 
+	public Employee(int empId, String empName, String phone, String departmentTitle, String jobName) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.phone = phone;
+		this.departmentTitle = departmentTitle;
+		this.jobName = jobName;
+	}
+
+	public Employee(int empId, String empName, String jobName, int salary) {
+		super();
+		this.empId = empId;
+		this.empName = empName;
+		this.jobName = jobName;
+		this.salary = salary;
+	}
+
 	public int getEmpId() {
 		return empId;
 	}

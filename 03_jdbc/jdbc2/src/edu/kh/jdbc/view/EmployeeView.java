@@ -1,8 +1,11 @@
 package edu.kh.jdbc.view;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
+import edu.kh.jdbc.model.dto.Employee;
 import edu.kh.jdbc.model.service.EmployeeService;
 
 // 값 입력 / 결과 출력용 클래스
@@ -11,7 +14,6 @@ public class EmployeeView {
 	private Scanner sc = new Scanner(System.in);
 	
 	private EmployeeService service = new EmployeeService();
-	
 	
 	public void displayMenu() {
 	
@@ -48,17 +50,15 @@ public class EmployeeView {
 				
 				System.out.println("0. 프로그램 종료");
 				
-				
 				System.out.print("메뉴 선택 >> ");
 				input = sc.nextInt();
 				sc.nextLine(); // 입력 버퍼 개행문자 제거
 				
-				
 				switch(input) {
-				case 1: break;
-				case 2: break;
-				case 3: break;
-				case 4: break;
+				case 1: selectAll(); break;
+				case 2: selectOne(); break;
+				case 3: selectName(); break;
+				case 4: selectSalary(); break;
 				case 5: break;
 				case 6: break;
 				case 7: break;
@@ -68,8 +68,6 @@ public class EmployeeView {
 				default: System.out.println("\n[메뉴에 존재하는 번호를 입력하세요.]\n");
 				}
 				
-				
-				
 			} catch (InputMismatchException e) {
 				System.out.println("\n[잘못된 입력입니다.]\n");
 				sc.nextLine(); // 입력 버퍼에 남아있는 문자열 제거 
@@ -77,6 +75,159 @@ public class EmployeeView {
 			}
 			
 		}while(input !=0);
-		
 	}
+
+
+	/**
+	 * 전체 사원 조회
+	 */
+	private void selectAll() {
+		// 사번, 이름, 부서명, 직급명, 전화번호
+		
+		System.out.println("\n----- 전체 사원 조회 -----\n");
+		
+		try {
+		
+			// DB에서 전체 사원 정보를 조회하는 service
+			// selectAll()을 호출하여 결과 반환 받기
+			List<Employee> empList = service.selectAll();
+			
+			if(empList.isEmpty()) { // 조회된 사원이 없을 경우
+				System.out.println("[사원이 존재하지 않습니다.]");
+				return;
+			}
+			
+			// 모든 사원 정보 출력
+			for(Employee emp : empList) {
+				System.out.printf("%d / %s / %s / %s / %s \n", 
+						emp.getEmpId(), 
+						emp.getEmpName(), 
+						emp.getDepartmentTitle(), 
+						emp.getJobName(), 
+						emp.getPhone());
+			}
+			
+		}catch (SQLException e) {
+			System.out.println("\n[사원 전체 정보 조회 중 예외 발생]\n");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
+	 * 사번으로 사원 조회 (1명)
+	 */
+	private void selectOne() {
+		System.out.println("\n----- 사번으로 사원 조회 -----\n");
+		
+		System.out.print("사번 입력 : ");
+		int input = sc.nextInt();
+		sc.nextLine();
+
+		try {
+			// Service 메서드에 사번을 전달해서
+			// 사번이 일치하는 사원 정보를 반환 받음
+			Employee emp = service.selectOne(input);
+			
+			if(emp == null) { // 조회 결과 없는 경우
+				System.out.println("[일치하는 사번의 사원이 존재하지 않습니다.]");
+				return;
+			}
+			
+			// 조회 결과가 있는 경우
+			System.out.printf("%d / %s / %s / %s / %s \n", 
+					emp.getEmpId(), 
+					emp.getEmpName(), 
+					emp.getDepartmentTitle(), 
+					emp.getJobName(), 
+					emp.getPhone());
+			
+		} catch (SQLException e) {
+			System.out.println("\n[사번으로 사원 조회 중 예외 발생]\n");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
+	 * 이름에 글자가 포함된 사원 조회
+	 */
+	private void selectName() {
+		System.out.println("\n----- 이름에 글자가 포함된 사원 조회 -----\n");
+		
+		System.out.print("입력 : ");
+		String input = sc.nextLine();
+		sc.nextLine();
+		
+		try {
+			List<Employee> empList = service.selectName(input);
+			
+			if(empList.isEmpty()) {
+				System.out.println("[일치하는 이름의 사원이 존재하지 않습니다.]");
+				return;
+			}
+			
+			for(Employee emp : empList) {
+				
+				System.out.printf("%d / %s / %s / %s / %s \n", 
+						emp.getEmpId(), 
+						emp.getEmpName(), 
+						emp.getDepartmentTitle(), 
+						emp.getJobName(), 
+						emp.getPhone());
+			}
+		
+		} catch (SQLException e) {
+			System.out.println("\n[이름으로 사원 조회 중 예외 발생]\n");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**
+	 * 범위 내 급여 수령 사원 정보 조회
+	 */
+	private void selectSalary() {
+		System.out.println("\n----- 급여 범위 내 사원 조회 -----\n");
+		
+		System.out.print("최소 금액 입력 : ");
+		int inputMin = sc.nextInt();
+		sc.nextLine();
+		
+		System.out.print("최대 금액 입력 : ");
+		int inputMax = sc.nextInt();
+		sc.nextLine();
+		
+		try {
+			List<Employee> empList = service.selectSalary(inputMin, inputMax);
+			
+			if(empList.isEmpty()) {
+				System.out.println("[범위 내 급여 수령 사원이 존재하지 않습니다.]");
+				return;
+			}
+			
+			for(Employee emp : empList) {
+				System.out.printf("%d / %s / %s / %d \n", 
+						emp.getEmpId(), 
+						emp.getEmpName(), 
+						emp.getJobName(), 
+						emp.getSalary());
+			}
+		
+		} catch(SQLException e) {
+			System.out.println("\n[범위 내 급여 사원 조회 중 예외 발생]\n");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
