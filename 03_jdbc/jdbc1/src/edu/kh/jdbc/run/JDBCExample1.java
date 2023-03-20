@@ -10,7 +10,7 @@ import java.sql.Statement;
 public class JDBCExample1 {
 	public static void main(String[] args) {
 		
-		// JDBC : Java에서 DB에 열결(접근)할 수 있게 해주는
+		// JDBC : Java에서 DB에 연결(접근)할 수 있게 해주는
 		//		  코드(class, interface)를 제공해주는 것
 		//		  --> Java Programming API
 		// 		  --> java.sql 패키지에서 제공
