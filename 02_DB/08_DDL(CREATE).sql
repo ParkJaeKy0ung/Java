@@ -68,7 +68,7 @@ CREATE TABLE MEMBER(
 -- DEFAULT(기본값) : INSERT/UPDATE 시 
 --				   해당 컬럼에 값을 작성하지 않거나
 -- 				   DEFAULT로 작성하면
---				   DEFAULT 오른쪽에 작성된 값에 컬럼에 반영됨.
+--				   DEFAULT 오른쪽에 작성된 값이 컬럼에 반영됨.
 
 -- 만든 테이블 확인
 SELECT * FROM MEMBER;
@@ -119,7 +119,7 @@ SELECT * FROM MEMBER;
 COMMIT; --> TCL
 		--> 트랜젝션에 저장된 DML 구문을 DM에 반영
 
-ROLLBACK; --> 마지막 COMMIT 상태로 돌아감 (트랜젝션에 저정된 DML 삭제)
+ROLLBACK; --> 마지막 COMMIT 상태로 돌아감 (트랜젝션에 저장된 DML 삭제)
 
 -------------------------------------------------
 -- 주민등록번호, 전화번호와 같은 숫자로만 이루어진 데이터를 --
@@ -597,7 +597,7 @@ SELECT * FROM USER_USED_FK3;
 -- 5. CHECK 제약조건 : 컬럼에 기록되는 값에 조건 설정을 할 수 있음
 -- CHECK (컬럼명 비교연산자 비교값)
 -- 주의 : 비교값은 리터럴만 사용할 수 있음, 변하는 값이나 함수 사용 못함
-  CREATE TABLE USER_USED_CHECK(
+CREATE TABLE USER_USED_CHECK(
   USER_NO NUMBER PRIMARY KEY,
   USER_ID VARCHAR2(20) UNIQUE,
   USER_PWD VARCHAR2(30) NOT NULL,
@@ -716,7 +716,7 @@ WHERE C1.TABLE_NAME = 'USER_TEST';
 
 ----------------------------------------------------------------------------------------------------------------
 
--- 8. SUBQUERY를 이용한 테이블 생성
+-- 6. SUBQUERY를 이용한 테이블 생성
 -- 컬럼명, 데이터 타입, 값이 복사되고, 제약조건은 NOT NULL 만 복사됨
 
 -- 1) 테이블 전체 복사
@@ -742,7 +742,7 @@ WHERE 1 = 0;
 SELECT * FROM DEPARTMENT_COPY;
 
 
--- 9. 제약조건 추가
+-- 7. 제약조건 추가
 -- ALTER TABLE 테이블명 ADD [CONSTRAINT 제약조건명] PRIMARY KEY(컬럼명)
 -- ALTER TABLE 테이블명 ADD [CONSTRAINT 제약조건명] 
 --  FOREIGN KEY(컬럼명) REFERENCES 참조 테이블명(참조컬럼명)

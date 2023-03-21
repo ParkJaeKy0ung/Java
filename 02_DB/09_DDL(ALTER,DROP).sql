@@ -17,10 +17,10 @@
 -- * 작성법 중 [] 대괄호 : 생략할 수 도, 안할 수 도 있다.
 
 -- 제약조건 추가 : ALTER TABLE 테이블명 
---                 ADD [CONSTRAINT 제약조건명] 제약조건(컬럼명) [REFERENCES 테이블명[(컬럼명)]];
+--             ADD [CONSTRAINT 제약조건명] 제약조건(컬럼명) [REFERENCES 테이블명[(컬럼명)]];
 
 -- 제약조건 삭제 : ALTER TABLE 테이블명
---                 DROP CONSTRAINT 제약조건명;
+--             DROP CONSTRAINT 제약조건명;
 
 
 -- 서브쿼리를 이용해서 DEPARTMENT 테이블 복사 --> NOT NULL 제약조건만 복사됨
