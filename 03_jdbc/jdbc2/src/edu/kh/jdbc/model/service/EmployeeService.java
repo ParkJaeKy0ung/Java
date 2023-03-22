@@ -178,7 +178,7 @@ public class EmployeeService {
 	}
 
 
-	/**
+	/** 사번 입력 받아 사원 퇴사 처리
 	 * @param input
 	 * @return
 	 * @throws SQLException
