@@ -226,7 +226,7 @@ public class EmployeeDAO {
 					+ "JOIN JOB USING (JOB_CODE)\r\n"
 					+ "WHERE SALARY BETWEEN ? AND ?\r\n"
 					+ "ORDER BY SALARY DESC";
-			// -> 값이 동적으로 추가되는 부분을 ?기호(placeholder)로 작성
+			// -> 값이 동적으로 추가되는 부분을 ?기호(==placeholder)로 작성
 			
 			// SQL을 수행하고 결과를 반환 받을 PreparedStatement 객체 생성
 			pstmt = conn.prepareStatement(sql);
