@@ -18,7 +18,7 @@ public class MemberService {
 
 	
 	/** 회원 목록 조회 서비스
-	 * @return
+	 * @return memberList
 	 * @throws Exception
 	 */
 	public List<Member> selectMemberList() throws Exception {
@@ -121,8 +121,4 @@ public class MemberService {
 	      
 	      return result;
 	   }
-	
-	
-	
-	
 }

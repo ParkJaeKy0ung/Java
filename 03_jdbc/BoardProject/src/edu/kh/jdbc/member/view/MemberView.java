@@ -279,39 +279,12 @@ public class MemberView {
 				System.out.println("\n*** 비밀번호가 일치하지 않습니다 ***\n");
 			}
 			
-			
 		}catch (Exception e) {
 			System.out.println("\n***** 회원 탈퇴 중 예외 발생 *****\n");
 			e.printStackTrace();
 		}
 		
-		
 		return false;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

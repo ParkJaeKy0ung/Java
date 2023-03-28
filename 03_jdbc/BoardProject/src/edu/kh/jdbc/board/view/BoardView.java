@@ -40,7 +40,7 @@ public class BoardView {
 	          case 3: insertBoard(); break; // 게시글 등록(삽입)
 	          // 제목, 내용(StringBuffer 이용) 입력
 	          // -> 게시글 삽입 서비스(제목, 내용, 로그인 회원 번호) 호출()
-//	          case 4: searchBoard(); break; // 게시글 검색
+	          case 4: searchBoard(); break; // 게시글 검색
 	          case 9: 
 	             System.out.println("\n===== 메인 메뉴로 돌아갑니다 =====\n");
 	             break;
@@ -307,11 +307,15 @@ public class BoardView {
 			System.out.println("\n***** 게시글 등록 중 예외 발생 *****\n");
 			e.printStackTrace();
 		}
-		
 	}
 	
 	
-	
+	/**
+	 * 게시글 검색
+	 */
+	public void searchBoard() {
+		System.out.println("\n===== 게시글 검색 =====\n");
+	}
 	
 	
 	

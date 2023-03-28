@@ -36,7 +36,7 @@ public class MemberDAO {
 
 	
 	/** 회원 목록 조회 SQL 수행
-	 * @return
+	 * @return memberList
 	 * @throws Exception
 	 */
 	public List<Member> selectMemberList(Connection conn) throws Exception{
@@ -163,30 +163,4 @@ public class MemberDAO {
       }
       return result;
    }
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
