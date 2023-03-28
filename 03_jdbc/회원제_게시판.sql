@@ -173,6 +173,49 @@ ORDER BY MEMBER_NO DESC;
 
 
 
+/*
+ * 조퇴 SQL
+ * 
+ * */
+
+
+
+
+
+
+
+
+-- 게시글 상세 조회
+SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NO, MEMBER_NM, READ_COUNT, CREATE_DT
+FROM "BOARD"
+JOIN "MEMBER" USING (MEMBER_NO)
+WHERE DELETE_FL = 'N'
+AND BOARD_NO = ?;
+
+
+-- 조회수 증가(BOARD 테이블 READ_COUNT 컬럼 값 수정)
+UPDATE "BOARD"
+SET READ_COUNT = READ_COUNT + 1  -- 이전 조회수 +1 값으로 수정
+WHERE BOARD_NO = 1;
+
+SELECT *  FROM "BOARD" WHERE BOARD_NO = 1;  -- (확인)
+
+ROLLBACK;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

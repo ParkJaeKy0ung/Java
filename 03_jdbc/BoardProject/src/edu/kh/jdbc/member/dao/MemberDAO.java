@@ -35,7 +35,7 @@ public class MemberDAO {
 	}
 
 	
-	/**
+	/** 회원 목록 조회 SQL 수행
 	 * @return
 	 * @throws Exception
 	 */
@@ -72,10 +72,98 @@ public class MemberDAO {
 	}
 	
 	
+	/** 회원 정보 수정 SQL 수행 
+	 * @param conn
+	 * @param memberName
+	 * @param memberGender
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateMember(Connection conn, String memberName,
+			String memberGender, int memberNo) throws Exception {
+		// 1. 결과 저자용 변수 선언
+		int result = 0;
+		
+		try{
+			// 2. SQL 작성, 수행
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberName);
+			pstmt.setString(2, memberGender);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			// 3. JDBC 객체 자원 반환
+			close(pstmt);
+		}
+		
+		// 4. 결과 반환
+		return result;
+	}
+
+	
+	/** 비밀번호 변경 SQL 수행
+	 * @param conn
+	 * @param current
+	 * @param newPw1
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception 
+	 */
+	public int updatePassword(Connection conn, String current, 
+				String newPw1, int memberNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updatePassword");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, newPw1);
+			pstmt.setString(2, current);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 	
 	
-	
-	
+	/** 회원 탈퇴 SQL 수행
+	    * @param conn
+	    * @param memberPw
+	    * @param memberNo
+	    * @return result
+	    * @throws Exception
+	    */
+   public int unRegisterMember(Connection conn, String memberPw, int memberNo) throws Exception{
+      int result = 0;
+      
+      try {
+         String sql = prop.getProperty("unRegisterMember");
+         
+         pstmt = conn.prepareStatement(sql);
+         
+         pstmt.setInt(1, memberNo);
+         pstmt.setString(2, memberPw);
+         
+         result = pstmt.executeUpdate();
+         
+      } finally {
+         close(pstmt);
+      }
+      return result;
+   }
+
 	
 	
 	
