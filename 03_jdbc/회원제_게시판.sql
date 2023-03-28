@@ -203,12 +203,24 @@ SELECT *  FROM "BOARD" WHERE BOARD_NO = 1;  -- (확인)
 ROLLBACK;
 
 
+-- 게시글 수정
+UPDATE "BOARD"
+SET BOARD_TITLE = ?,
+	BOARD_CONTENT = ?
+WHERE BOARD_NO = ?;
 
+-- 게시글 삭제(UPDATE)
+UPDATE "BOARD"
+SET DELETE_FL = 'Y'
+WHERE BOARD_NO = ?;
 
+-- 게시글 삽입 
+INSERT INTO "BOARD"
+VALUES(?, ?, ?, DEFAULT, DEFAULT, DEFAULT, ?);
+--> 성공 시 1 , 실패 시 0 반환
 
-
-
-
+-- 다음 시퀀스 번호 생성
+SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL;
 
 
 

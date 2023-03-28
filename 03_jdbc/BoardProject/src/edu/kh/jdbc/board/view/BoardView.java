@@ -37,7 +37,9 @@ public class BoardView {
 	          switch(input) {
 	          case 1: selectAllBoard(); break; // 게시글 목록 조회
 	          case 2: selectBoard(); break; // 게시글 상세 조회
-//	          case 3: insertBoard(); break; // 게시글 등록(삽입)
+	          case 3: insertBoard(); break; // 게시글 등록(삽입)
+	          // 제목, 내용(StringBuffer 이용) 입력
+	          // -> 게시글 삽입 서비스(제목, 내용, 로그인 회원 번호) 호출()
 //	          case 4: searchBoard(); break; // 게시글 검색
 	          case 9: 
 	             System.out.println("\n===== 메인 메뉴로 돌아갑니다 =====\n");
@@ -218,7 +220,7 @@ public class BoardView {
 		System.out.println("\n=== 게시글 삭제 ===\n");
 		
 		while(true) {
-			System.out.print("정말 삭제하시겠습니까? (Y/N)");
+			System.out.print("정말 삭제하시겠습니까?(Y/N) : ");
 			char check = sc.next().toUpperCase().charAt(0);
 			
 			if(check == 'N') {
@@ -246,8 +248,6 @@ public class BoardView {
 				System.out.println("\n*** 삭제 실패 ***\n");
 			}
 			
-			
-			
 		}catch(Exception e) {
 			System.out.println("\n***** 게시글 삭제 중 예외 발생 *****\n");
 			e.printStackTrace();
@@ -255,7 +255,60 @@ public class BoardView {
 	}
 	
 	
-	
+	/**
+	 * 게시글 등록(INSERT)
+	 */
+	private void insertBoard() {
+		System.out.println("\n===== 게시글 등록 =====\n");
+		
+		// 제목 입력
+		System.out.print("제목 입력 : ");
+		String boardTitle = sc.nextLine();
+		
+		// 내용 입력(StringBuffer)
+		StringBuffer sb = new StringBuffer();
+		
+		System.out.println("<!wq 입력 시 종료>");
+		
+		while(true) {
+			String str = sc.nextLine();
+			
+			if(str.equals("!wq")) break;
+			
+			sb.append(str);
+			sb.append("\n");
+		}
+		
+		try {
+			// 게시글 삽입 서비스 호출
+			int result = boardService.insertBoard(boardTitle, sb.toString(), Session.loginMember.getMemberNo());
+			
+			if(result > 0) { // 성공
+				System.out.println("\n=== 등록되었습니다 ===\n");
+				
+				// 등록된 게시글 상세 조회 서비스 호출
+				// -> 게시글 번호, 로그인 회원 번호(Session)
+				Board board = boardService.selectBoard(result, Session.loginMember.getMemberNo());
+													// 등록된 게시글 번호, 회원 번호
+				
+				System.out.println("--------------------------------------------------------");
+	            System.out.printf("글번호 : %d \n제목 : %s\n", board.getBoardNo(), board.getBoardTitle());
+	            System.out.printf("작성자 : %s | 작성일 : %s  \n조회수 : %d\n", 
+	                  board.getMemberName(), board.getCreateDate(), board.getReadCount());
+	            System.out.println("--------------------------------------------------------\n");
+	            System.out.println(board.getBoardContent());
+	            System.out.println("\n--------------------------------------------------------");
+	            
+			}else { // 실패
+				System.out.println("\n*** 게시글 등록 실패 ***\n");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("\n***** 게시글 등록 중 예외 발생 *****\n");
+			e.printStackTrace();
+		}
+		
+	}
 	
 	
 	
