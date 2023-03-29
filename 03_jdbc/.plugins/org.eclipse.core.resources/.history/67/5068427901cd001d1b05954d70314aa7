@@ -1,0 +1,30 @@
+package edu.kh.jdbc.board.model.service;
+
+import static edu.kh.jdbc.common.JDBCTemplate.*;
+
+import java.sql.Connection;
+import java.util.List;
+
+import edu.kh.jdbc.board.model.dao.BoardDAO;
+import edu.kh.jdbc.board.model.dto.Board;
+
+// 데이터 가공, 트랜잭션 처리
+public class BoardService {
+
+	private BoardDAO dao = new BoardDAO(); // 명시적 초기화
+
+	/**
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public List<Board> selectAllBoard() throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Board> boardList = dao.SelectAllBoard(conn);
+		
+		close(conn);
+		
+		return boardList;
+	}
+}

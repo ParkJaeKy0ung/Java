@@ -1,0 +1,9 @@
+package edu.kh.jdbc.board.model.service;
+
+import edu.kh.jdbc.board.model.dao.BoardDAO;
+
+// 데이터 가공, 트랜잭션 처리
+public class BoardService {
+
+	private BoardDAO dao = new BoardDAO(); // 명시적 초기화
+}

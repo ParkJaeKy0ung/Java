@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\workspace\03_jdbc\jdbc2"/>
+			<item value="C:\workspace\03_jdbc\jdbc1"/>
+			<item value="C:\workspace\01_Java\z001_stock_market"/>
+			<item value="C:\workspace\01_Java\stock_market"/>
+			<item value="C:\workspace\01_Java\home_study"/>
+			<item value="C:\workspace\01_Java\a012_IO"/>
+			<item value="C:\workspace\01_Java\a011_collection"/>
+			<item value="C:\workspace\01_Java\a010_java_api"/>
+			<item value="C:\workspace\01_Java\a009_exception"/>
+			<item value="C:\workspace\01_Java\a008_polymorphism"/>
+			<item value="C:\workspace\01_Java\a007_inheritance_review"/>
+			<item value="C:\workspace\01_Java\a007_inheritance"/>
+			<item value="C:\workspace\01_Java\a006_objectarray_review"/>
+			<item value="C:\workspace\01_Java\a006_objectarray"/>
+			<item value="C:\workspace\01_Java\a005_oop"/>
+			<item value="C:\workspace\01_Java\a004_array"/>
+			<item value="C:\workspace\01_Java\a003_control"/>
+			<item value="C:\workspace\01_Java\a002_operator"/>
+			<item value="C:\workspace\01_Java\a001_variable"/>
+			<item value="C:\workspace\01_Java\a01_test"/>
+			<item value="C:\workspace\01_Java\a001_collection_review"/>
+			<item value="C:\workspace\03_jdbc\BoardProject"/>
+			<item value="C:\workspace\EmployeeManagement"/>
+			<item value="C:\workspace\03_jdbc"/>
+			<item value="C:\workspace\02_DB"/>
+			<item value="C:\workspace\01_Java"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="654"/>
+		<item key="DIALOG_Y_ORIGIN" value="341"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+</section>
