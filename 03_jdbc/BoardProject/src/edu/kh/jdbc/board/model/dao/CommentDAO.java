@@ -99,7 +99,42 @@ public class CommentDAO {
 		
 		return result;
 	}
+	
 
+	/** 확인 SQL 수행
+	 * @param conn
+	 * @param commentNo
+	 * @param boardNo
+	 * @param memberNo
+	 * @return
+	 * @throws Exception
+	 */
+	public int checkCommentNo(Connection conn, int commentNo, int boardNo, int memberNo) throws Exception{
+		
+		int check = 0;
+		
+		try {
+			String sql = prop.getProperty("checkCommentNo");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, commentNo);
+			pstmt.setInt(2, memberNo);
+			pstmt.setInt(3, boardNo);
+			
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				check = rs.getInt(1);
+			}
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return 0;
+	}
+	
 
 	/** 댓글 수정 SQL 수행
 	 * @param conn
@@ -107,7 +142,7 @@ public class CommentDAO {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int updateComment(Connection conn, int boardNo) throws Exception{
+	public int updateComment(Connection conn, int commentNo, String commentContent) throws Exception{
 		
 		int result = 0;
 		
@@ -115,7 +150,8 @@ public class CommentDAO {
 			String sql = prop.getProperty("updateComment");
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
+			pstmt.setString(1, commentContent);
+			pstmt.setInt(2, commentNo);
 			
 			result = pstmt.executeUpdate();
 			
@@ -125,7 +161,7 @@ public class CommentDAO {
 		
 		return result;
 	}
-
+	
 
 	/** 댓글 삭제 SQL 수행
 	 * @param conn
@@ -133,7 +169,7 @@ public class CommentDAO {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int deleteCommit(Connection conn, int boardNo) throws Exception{
+	public int deleteCommit(Connection conn, int commentNo) throws Exception{
 		
 		int result = 0;
 		
@@ -141,7 +177,7 @@ public class CommentDAO {
 			String sql = prop.getProperty("deleteCommit");
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
+			pstmt.setInt(1, commentNo);
 			
 			result = pstmt.executeUpdate();
 			
@@ -151,4 +187,9 @@ public class CommentDAO {
 		
 		return result;
 	}
+
+
+
+
+
 }

@@ -101,21 +101,10 @@ public class CommentView {
 			int result = service.insertComment(sb.toString(), boardNo, Session.loginMember.getMemberNo());
 			
 			if(result > 0) {
-				System.out.println("\n=== 등록되었습니다 ===\n");
-				
-//				Board board = service.selectComment(result, Session.loginMember.getMemberNo());
-//				// 등록된 게시글 번호, 회원 번호
-//
-//				System.out.println("--------------------------------------------------------");
-//				System.out.printf("글번호 : %d \n제목 : %s\n", board.getBoardNo(), board.getBoardTitle());
-//				System.out.printf("작성자 : %s | 작성일 : %s  \n조회수 : %d\n", 
-//				board.getMemberName(), board.getCreateDate(), board.getReadCount());
-//				System.out.println("--------------------------------------------------------\n");
-//				System.out.println(board.getBoardContent());
-//				System.out.println("\n--------------------------------------------------------");
+				System.out.println("\n=== 댓글이 등록되었습니다 ===\n");
 				
 			}else {
-				System.out.println("\n*** 등록 실패 ***\n");
+				System.out.println("\n*** 댓글 등록 실패 ***\n");
 			}
 			
 		} catch (Exception e) {
@@ -138,40 +127,47 @@ public class CommentView {
         
         // 2-2) 맞으면 !wq가 입력될 때까지 내용 입력 후
         //      댓글번호, 내용을 이용해 댓글을 수정하는 서비스 호출
-		System.out.println("\n===== 댓글 수정 =====\n");
-		
-		System.out.print("수정할 댓글 번호 입력 : ");
-		int input = sc.nextInt();
-		
-		Comment comment = null;
-		
-		if(Session.loginMember.getMemberNo() == comment.getMemberNo()) {
-			
-			comment = service.checkId();
-			
-		}
-		System.out.println("\n*** 작성한 댓글만 수정할 수 있습니다 ***\n");
 		
 		try {
-			int result = service.updateComment(boardNo);
+			System.out.println("\n===== 댓글 수정 =====\n");
+			
+			// 댓글 번호를 입력 받아서
+			System.out.print("수정할 댓글 번호 입력 : ");
+			int commentNo = sc.nextInt();
+			sc.nextLine();
+			
+			// 해당 댓글 = 현재 게시글 댓글, 로그인한 회원이 쓴 댓글 확인 서비스 호출 
+			int check = service.checkCommentNo(commentNo, boardNo, Session.loginMember.getMemberNo());
+			
+			// 1번 결과가 맞지 않을 경우
+			if(check == 0) {
+				System.out.println("\n*** 작성한 댓글만 수정할 수 있습니다 ***\n");
+				return;
+			}
+			
+			// 맞을 경우
+			System.out.println("[댓글 수정 내용 입력] <!wq 입력 시 종료>");
+			
+			// 내용 입력 후
+			StringBuffer sb = new StringBuffer();
+			
+			while(true) {
+				String str = sc.nextLine();
+				
+				if(str.equals("!wq")) break;
+				
+				sb.append("str");
+				sb.append("\n");
+			}
+			
+			// 댓글 수정 서비스 호출
+			int result = service.updateComment(commentNo, sb.toString());
 			
 			if(result > 0) {
-				
-				StringBuffer sb = new StringBuffer();
-				
-				while(true) {
-					String str = sc.nextLine();
-					
-					if(str.equals("!wq")) break;
-					
-					sb.append("str");
-					sb.append("\n");
-				}
-				
-				System.out.println("=== 수정되었습니다. ===");
+				System.out.println("=== 댓글이 수정되었습니다. ===");
 				
 			}else {
-				System.out.println("*** 수정 실패 ***");
+				System.out.println("*** 댓글 수정 실패 ***");
 			}
 			
 		} catch (Exception e) {
@@ -195,30 +191,44 @@ public class CommentView {
         //      Y 입력 시 : 삭제 서비스 호출(댓글번호)
         // 		N 입력 시 : "취소되었습니다"
 		
-		System.out.println("\n===== 댓글 삭제 ======\n");
 		
-		System.out.print("삭제할 댓글 번호 입력 : ");
-		int input = sc.nextInt();
+		try {
 		
-		while(true) {
-			System.out.print("정말로 삭제하시겠습니까?(Y/N) : ");
-			char check = sc.next().toUpperCase().charAt(0);
+		
+			System.out.println("\n===== 댓글 삭제 ======\n");
 			
-			if(check == 'N') {
-				System.out.println("[삭제 취소]");
+			System.out.print("삭제할 댓글 번호 입력 : ");
+			int commentNo = sc.nextInt();
+			sc.nextLine();
+			
+			int check = service.checkCommentNo(commentNo, boardNo, Session.loginMember.getMemberNo());
+			
+			if(check == 0) {
+				System.out.println("\n*** 작성한 댓글만 수정할 수 있습니다. ***\n");
 				return;
 			}
 			
-			if(check != 'Y') {
-				System.out.println("잘못 입력하셨습니다.");
-				continue;
+			while(true) {
+				System.out.print("정말로 삭제하시겠습니까?(Y/N) : ");
+				char check2 = sc.next().toUpperCase().charAt(0);
+				
+				if(check2 == 'N') {
+					System.out.println("[삭제 취소]");
+					return;
+				}
+				
+				if(check2 != 'Y') {
+					System.out.println("잘못 입력하셨습니다.");
+					continue;
+				}
+				
+				break;
 			}
 			
-			break;
-		}
-		
-		try {
 			int result = service.deleteComment(boardNo);
+			
+			if(result > 0) System.out.println("\n=== 댓글이 삭제되었습니다. ===\n");
+			else System.out.println("\n*** 댓글 삭제 실패 ***\n");
 			
 		} catch (Exception e) {
 			System.out.println("\n*** 댓글 삭제 중 오류 발생 ***\n");

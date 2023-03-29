@@ -39,9 +39,15 @@ public class CommentService {
 	 * @param boardNo
 	 * @return
 	 */
-	public Comment checkId() {
-		// TODO Auto-generated method stub
-		return null;
+	public int checkCommentNo(int commentNo, int boardNo, int memberNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		int check = dao.checkCommentNo(conn, commentNo, boardNo, memberNo);
+		
+		close(conn);
+		
+		return check;
 	}
 
 	
@@ -50,11 +56,11 @@ public class CommentService {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int updateComment(int boardNo) throws Exception{
+	public int updateComment(int commentNo, String commentContent) throws Exception{
 		
 		Connection conn = getConnection();
 		
-		int result = dao.updateComment(conn, boardNo);
+		int result = dao.updateComment(conn, commentNo, commentContent);
 		
 		if(result > 0) commit(conn);
 		else rollback(conn);
@@ -70,11 +76,11 @@ public class CommentService {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int deleteComment(int boardNo) throws Exception {
+	public int deleteComment(int commentNo) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		int result = dao.deleteCommit(conn, boardNo);
+		int result = dao.deleteCommit(conn, commentNo);
 		
 		if(result > 0) commit(conn);
 		else rollback(conn);
@@ -83,6 +89,8 @@ public class CommentService {
 		
 		return result;
 	}
+
+
 
 
 
