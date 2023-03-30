@@ -188,8 +188,4 @@ public class CommentDAO {
 		return result;
 	}
 
-
-
-
-
 }

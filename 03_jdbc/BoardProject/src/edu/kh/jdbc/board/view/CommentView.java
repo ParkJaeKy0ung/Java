@@ -236,16 +236,4 @@ public class CommentView {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

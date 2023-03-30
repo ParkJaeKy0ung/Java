@@ -18,7 +18,7 @@
 	<!-- 댓글 삽입 -->
 	<entry key="insertComment">
 		INSERT INTO "COMMENT"
-		VALUES (SEQ_COMMENT_NO_NEXTVAL, ?, DEFAULT, DEFAULT, ?, ?)
+		VALUES (SEQ_COMMENT_NO.NEXTVAL, ?, DEFAULT, DEFAULT, ?, ?)
 	</entry>
 	
 	
@@ -26,7 +26,9 @@
 	<entry key="updateComment">
 		UPDATE "COMMENT"
 		SET COMMENT_CONTENT
-		WHERE BOARD_NO = ?
+		WHERE COMMENT_NO = ?
+		AND COMMENT_CONTENT = ?
+		
 	</entry>
 	
 	
@@ -34,7 +36,7 @@
 	<entry key="deleteComment">
 		UPDATE "COMMENT"
 		SET DELETE_FL = 'Y'
-		WHERE BOARD_NO = ?
+		WHERE COMMENT_NO = ?
 	</entry>
 
 	
