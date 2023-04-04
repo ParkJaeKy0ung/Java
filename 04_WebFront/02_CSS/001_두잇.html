@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001_두잇</title>
+</head>
+<body>
+
+    <style>
+        body{
+            font-size: 20px;
+            color: black;
+        }
+        h1{
+            font-family: 바탕;
+            font-size: 3em;
+            color: rgb(255, 119, 0);
+        }
+        .accent{
+            font-size: 150%;
+            font-weight: 800;
+            color: red;
+        }
+        .italic{
+            font-style: italic;
+        }
+    </style>
+
+    <h1>레드향</h1>
+    <pre>
+        껍질에 붉은 빛이 돌아 <span class="accent">레드향</span> 이라 불린다.
+        레드향은 한라봉과 귤을 교배한 것으로
+        <em>일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</em>
+    </pre>
+
+    <hr>
+
+    <style>
+        .color1{
+            background-color: black;
+            color: rgb(255, 255, 255);
+        }
+        .color2{
+            background-color: black;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .center{
+            text-align: center;
+        }
+        .justify{
+            text-align: justify;
+        }
+        
+        .small-line{line-height: 0.7;}
+        .big-line{line-height: 2.5;}
+
+        .heading{
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .shadow1{
+            color: red;
+            text-shadow: 2px 2px black;
+        }
+        .shadow2{
+            color: black;
+            text-shadow: 5px 5px orange;
+        }
+        .shadow3{
+            color: white;
+            text-shadow: 7px -7px 20px black;
+        }
+
+        .spacing1{
+            letter-spacing: 0.2em;
+        }
+        .spacing2{
+            letter-spacing: 0.5em;
+        }
+
+
+    </style>
+
+    <h1 class="color1 heading">HTML</h1>
+    <h1 class="color2">CSS</h1>
+
+    <hr>
+    
+    <p> 껍질에 붉은 빛이 돌아 레드향이라 불린다. 레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다. </p>
+    <p class="center small-line"> 껍질에 붉은 빛이 돌아 레드향이라 불린다.  레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</p>
+    <p class="justify big-line"> 껍질에 붉은 빛이 돌아 레드향이라 불린다.  레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</p>
+
+    <hr>
+
+    <h1 class="shadow1">HTML</h1>
+    <h1 class="shadow2">CSS</h1>
+    <h1 class="shadow3">자바스크립트</h1>
+
+    <hr>
+
+    <p>CSS</p>
+    <p class="spacing1">CSS</p>
+    <p class="spacing2">CSS</p>
+
+
+    <!-- 목록 스타일 -->
+    <style>
+        .book1{
+            list-style-type: none;
+        }
+        .book2{
+            list-style-type: upper-alpha;
+        }
+
+        .inside{list-style-position: inside;}
+    </style>
+
+    <h1>도서 시리즈</h1>
+    <ul class="book1">
+        <li>Do it! 시리즈</li>
+        <li>첫 코딩 시리즈</li>
+        <li>된다 시리즈</li>
+    </ul>
+    <ol class="book2">
+        <li>Do it! 시리즈</li>
+        <li>첫 코딩 시리즈</li>
+        <li>된다 시리즈</li>
+    </ol>
+    <ul class="inside">
+        <li>Do it! 시리즈</li>
+        <li>첫 코딩 시리즈</li>
+        <li>된다 시리즈</li>
+    </ul>
+
+    <hr>
+
+    <style>
+        nav{
+            width: 300px;
+            margin: 50px 30px;
+        }
+        ul{
+            list-style: none;
+        }
+        div{
+            border: 1px solid black;
+            padding: 20px 40px;
+            margin: 5px;
+        }
+    </style>
+
+    <pre>
+        <div>
+            안녕하세요
+            안녕하세요
+        </div>
+        <div>
+            HTML
+            CSS
+        </div>
+    </pre>
+
+
+    <hr>
+
+    <!-- 표 스타일 -->
+
+    <style>
+        table{
+            caption-side: bottom;
+            border: 1px solid black;
+        }
+
+        td, th{
+            border: 1px dotted black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+    <h2>상품 구성</h2>
+    <table>
+        <caption>선물용과 가정용 상품 구성</caption>
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+
+
+
+    
+</body>
+</html>
