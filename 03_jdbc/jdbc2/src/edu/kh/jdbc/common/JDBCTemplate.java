@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
+/* 얘는 커밋 뜨나 */
+
 public class JDBCTemplate { /* DB를 깔아야 오류 사라지는건가...? */
 
 	/* Template : 주형, 양식, 본뜨기 위한 틀
