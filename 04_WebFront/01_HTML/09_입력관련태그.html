@@ -21,7 +21,6 @@
         - maxlength : 입력 가능한 text의 최대길이 설정
         - placeholder : 입력 상자에 작성되어야 할 내용을 설명
         - value : 입력 상자에 기본적으로 작성되어 있는 값(내용) 설정
-
     </pre>
 
     <h4>input type="text"</h4>
@@ -32,7 +31,7 @@
             * 모든 input 태그는 inline 형식이다!
         </span>
     </pre>
-    <input type="text"> / <input>
+    <input type="text"> / <input> <!-- 아무것도 안 쓰여있으면 기본값 type="text" -->
 
     <!-- 웹 문서에서 제출되는 데이터는 모두 문자열(String)이다! -->
 
@@ -110,11 +109,11 @@
 
 
     <h4>input type="range"</h4>
-    <p>
+    <pre>
         - 슬라이드 바를 이용해서 숫자를 지정
         - 현재 지정된 숫자를 바로 확인하는게 불가능
             -> 제출되는 페이지/ Java 클래스 또는 Javascript를 이용해 확인
-    </p>
+    </pre>
     <input type="range" name="r" id="a" min="0" max="100" step="10" value="70">
 
 
@@ -168,7 +167,7 @@
         <button>제출</button>
     </form>
 
-    <label for="aTeam">A팀 누르기</label>
+    <label for="aTeam">A팀 누르기</label> <!-- for값과 id값은 같게 작성해야 함 -->
 
 
     <hr>
@@ -177,13 +176,13 @@
 
     <form>
         보유한 기술 <br>
-        <lable for="java">Java</lable>
+        <label for="java">Java</label>
         <input type="checkbox" name="skill" id="java" value="자바" checked><br>
 
-        <lable for="db">DB</lable>
+        <label for="db">DB</label>
         <input type="checkbox" name="skill" id="db" value="디비" checked><br>
 
-        <lable for="html">HTML</lable>
+        <label for="html">HTML</label>
         <input type="checkbox" name="skill" id="html" value="HTML5"><br>
 
         <button>제출</button>
