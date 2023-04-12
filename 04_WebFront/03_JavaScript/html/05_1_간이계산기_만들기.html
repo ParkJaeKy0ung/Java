@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_1_간이계산기_만들기</title>
+</head>
+<body>
+    두 수를 입력 받아 버튼에 작성된 연산을 수행하는 계산기 만들기
+    <!-- 
+        if, for, while, switch, break, continue 사용
+    -->
+
+    <hr>
+
+    첫 번째 값 : <input type="text" id="num1"> <br>
+    두 번째 값 : <input type="text" id="num2"> <br>
+
+    <button onclick="plus()">+</button>
+    <button onclick="minus()">-</button>
+    <button onclick="multi()">*</button>
+    <button onclick="div()">/</button>
+    <button onclick="mod()">%</button>
+
+<!--     <button id="plus" class="calculation" onclick="cal()">+</button>
+    <button id="minus" class="calculation" onclick="cal()">-</button>
+    <button id="multi" class="calculation" onclick="cal()">*</button>
+    <button id="div" class="calculation" onclick="cal()">/</button>
+    <button id="mod" class="calculation" onclick="cal()">%</button> -->
+
+    <br><br>
+    계산 결과 : <span id="result"><!-- 여기에 결과 출력 --></span>
+
+    <script>
+        // 작성된 HTML 요소에 원하는 속성(id, class, onclick)을 작성하고
+        // 필요한 JS 코드(function)를 이용하여 계산기 만들기
+
+        // 전역 변수에 각 요소 저장
+        /* (X) const num1 = Number(document.getElementById("num1").value); -> 0 !!!!! (X) */
+        const num1 = document.getElementById("num1");
+        const num2 = document.getElementById("num2");
+        const result = document.getElementById("result");
+
+
+        function plus(){ /* 버튼을 클릭했을 때 함수가 호출됨!!! 호출되는 시점에 값을 얻어옴!!! */
+            // const num1 = document.getElementById("num1");
+            //  num2 = document.getElementById("num2");
+            /* HTML에서 얻어오는 모든 것은 다 string(문자열) */
+            // const result = document.getElementById("result");
+
+            // console.log(num1.value);
+            // console.log(num2.value);
+            // result.innerText = "테스트";
+
+            result.innerText = Number(num1.value) + Number(num2.value);
+        }
+
+        function minus(){
+/*          const num1 = document.getElementById("num1");
+            const num2 = document.getElementById("num2");
+            const result = document.getElementById("result"); */
+            result.innerText = Number(num1.value) - Number(num2.value);
+        }
+
+        function multi(){
+/*          const num1 = document.getElementById("num1");
+            const num2 = document.getElementById("num2");
+            const result = document.getElementById("result"); */
+            result.innerText = Number(num1.value) * Number(num2.value);
+        }
+
+        function div(){
+/*          const num1 = document.getElementById("num1");
+            const num2 = document.getElementById("num2");
+            const result = document.getElementById("result"); */
+            result.innerText = Number(num1.value) / Number(num2.value);
+        }
+
+        function mod(){
+/*          const num1 = document.getElementById("num1");
+            const num2 = document.getElementById("num2");
+            const result = document.getElementById("result"); */
+            result.innerText = Number(num1.value) % Number(num2.value);
+        }
+
+
+
+        /*  function cal(){
+
+            var num1 = Number(document.getElementById("num1").value);
+            var num2 = Number(document.getElementById("num2").value);
+
+            var operation1 = document.getElementById("plus").innerText;
+            var operation2 = document.getElementById("minus").innerText;
+            var operation3 = document.getElementById("multiple").innerText;
+            var operation4 = document.getElementById("divide").innerText;
+            var operation5 = document.getElementById("remainder").innerText;
+
+            var result = 0;
+
+            if(operation1 == "+"){
+                result = num1 + num2;
+
+            }else if(operation2 == "-"){
+                result = num1 - num2;
+
+            }else if(operation3 == "*"){
+                result = num1 * num2;
+
+            }else if(operation4 == "/"){
+                result = num1 / num2;
+
+            }else if(operation5 == "%"){
+                result = num1 % num2;
+            }
+        } */
+    </script>
+    
+</body>
+</html>
