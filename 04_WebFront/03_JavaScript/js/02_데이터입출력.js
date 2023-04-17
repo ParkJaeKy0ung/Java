@@ -64,6 +64,7 @@ function add(){
 }
 
 
+
 // confirm() 함수
 function fnConfirm(){
     var check = confirm("배경을 분홍색으로 바꾸시겠습니까?");
