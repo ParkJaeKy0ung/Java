@@ -24,9 +24,15 @@
     <title>JSTL(Jsp Standard Tag Library)</title>
 </head>
 <body>
-    <a href="condition">JSTL을 이용한 조건문(if, choose, when, then)</a>
+    <a href="condition">JSTL을 이용한 조건문(if, choose, when, otherwise)</a>
 
-    <a href="#">JSTL을 이용한 반복문(forEach)</a>
+    <br>
+
+    <a href="loop">JSTL을 이용한 반복문(forEach)</a>
+
+    <br>
+
+    <h3> <a href="student/selectAll">workbook에서 학생 전체 조회하기</a> </h3>
 
 
 
@@ -148,6 +154,7 @@
 
     <br>
     html 태그 해석 O : ${temp}
+
 
 </body>
 </html>
