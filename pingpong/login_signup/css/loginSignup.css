@@ -120,7 +120,7 @@
 }
 
 .signupInputEmail{
-    margin-top: 89px;
+    margin-top: 64px;
 }
 
 .signupInputEmail>p,.signupInputPassword>p,.signupPasswordCheck>p{
@@ -130,7 +130,7 @@
 }
 
 .signupInputPassword{
-    margin-top: 68px;
+    margin-top: 45px;
     margin-bottom: 24px;
 }
 
@@ -246,6 +246,10 @@
     margin-top: 10px;
 }
 
+
+.termsbackground{
+    display: none;
+}
 
 
 
