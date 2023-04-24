@@ -2,7 +2,7 @@
 
 
 /* login */
-.loginContainer{
+.login-container{
     /* width: 1920px; height: 1080px; */
     width: 100vw; height: 100vh;
     background-color: #F0F0F0;
@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.loginBox{ 
+.login-box{ 
     width: 33vw; /* 640px */
     height: 83vh; /* 900px */
     background-color: #FFFFFF ;
@@ -22,30 +22,30 @@
     position: relative;
 }
 
-.loginBox>img{
+.login-box>img{
     width: 250px;
     margin-top: 64px;
 }
 
-.loginInputEmail{
+.login-input-email{
     margin-top: 98px;
     margin-bottom: 23px;
 }
 
-.loginBox>div>input{
+.login-box>div>input{
     width: 320px;
     height: 42px;
     border-radius: 5px;
     border: 1px solid #C5C5C5;
 }
 
-.loginBox>.loginInputEmail>p,.loginInputPassword>p{
+.login-box>.login-input-email>p,.login-input-password>p{
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-.loginContainer>.loginBox>button{
+.login-container>.login-box>button{
     width: 320px;
     height: 50px;
     border-radius: 5px;
@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-.loginCheck{
+.login-check{
     width: 320px;
     display: flex;
     justify-content: space-between;
@@ -65,23 +65,23 @@
     font-size: 14px;
 }
 
-.loginCheck>div{display: flex; justify-content: center;}
+.login-check>div{display: flex; justify-content: center;}
 
-.loginCheck>div>svg{
+.login-check>div>svg{
     margin-right: 8px;
 }
 
-.loginSignUp{
+.login-signUp{
     width: 320px;
     font-size: 14px;
     margin-top: 176px;
 }
 
-.loginSignUp>p{
+.login-signUp>p{
     float: left;
 }
 
-.loginSignUp>a{
+.login-signUp>a{
     float: right;
     font-weight: bold;
     text-decoration: underline;
@@ -92,7 +92,7 @@
 
 
 /* signup */
-.signupBox{ 
+.signup-box{ 
     width: 33vw; /* 640px */
     height: 83vh; /* 900px */
     background-color: #FFFFFF ;
@@ -102,39 +102,39 @@
     align-items: center;
 }
 
-.signupBox>img{
+.signup-box>img{
     width: 195px;
     margin-top: 62px;
 }
 
-.signupBox>div>input{
+.signup-box>div>input{
     width: 320px;
     height: 42px;
     border-radius: 5px;
     border: 1px solid #C5C5C5;
 }
 
-.signupBox>p{          /* 이메일 가입하기 */
+.signup-box>p{          /* 이메일 가입하기 */
     font-size: 24px;
     margin-top: 44px;
 }
 
-.signupInputEmail{
+.signup-input-email{
     margin-top: 64px;
 }
 
-.signupInputEmail>p,.signupInputPassword>p,.signupPasswordCheck>p{
+.signup-input-email>p,.signup-input-password>p,.signup-password-check>p{
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 8px;
 }
 
-.signupInputPassword{
+.signup-input-password{
     margin-top: 45px;
     margin-bottom: 24px;
 }
 
-.signupCheck{
+.signup-check{
     width: 320px;
     display: flex;
     justify-content: space-between;
@@ -143,18 +143,18 @@
     font-size: 14px;
 }
 
-.signupCheck>div{display: flex; justify-content: center;}
+.signup-check>div{display: flex; justify-content: center;}
 
-.signupCheck>div>p{   /* 핑퐁 가입 약관에 모두 동의 합니다. */
+.signup-check>div>p{   /* 핑퐁 가입 약관에 모두 동의 합니다. */
     font-size: 12px;
 }
 
-.signupCheck>a{   /* 확인하기 */
+.signup-check>a{   /* 확인하기 */
     font-size: 12px;
     text-decoration: underline;
 }
 
-.loginContainer>.signupBox>div>button:first-child{
+.login-container>.signup-box>div>button:first-child{
     width: 100px;
     height: 50px;
     border-radius: 5px;
@@ -165,11 +165,11 @@
     border: 1px solid #231F20;
     cursor: pointer;
 }
-.loginContainer>.signupBox>div>button:first-child>a{
+.login-container>.signup-box>div>button:first-child>a{
     display: block; 
 } /* a태그 inline -> block */
 
-.loginContainer>.signupBox>div>button:last-child{
+.login-container>.signup-box>div>button:last-child{
     width: 200px;
     height: 50px;
     border-radius: 5px;
@@ -180,7 +180,7 @@
     margin-left: 20px;
     cursor: pointer;
 }
-.loginContainer>.signupBox>div>button:last-child>a{
+.login-container>.signup-box>div>button:last-child>a{
     display: block;
     flex-direction: center;
     align-items: center;
@@ -213,7 +213,7 @@
     position: relative;
 }
 
-.termsbackground>div>.checkAll,div>.checkMust1,div>.checkMust2,div>.checkSelect{
+.termsbackground>div>.check-all,div>.check-must1,div>.check-must2,div>.check-select{
     display: flex;
     margin-bottom: 30px;
     float: left;
@@ -252,7 +252,7 @@
 
 
 /* signupInfo */
-.signupInfoBox{ 
+.signup-info-box{ 
     width: 33vw; /* 640px */
     height: 83vh; /* 900px */
     background-color: #FFFFFF ;
@@ -262,37 +262,37 @@
     align-items: center;
 }
 
-.signupInfoBox>img{
+.signup-info-box>img{
     width: 195px;
     margin-top: 56px;
 }
 
-.signupInfoBox>p{ 
+.signup-info-box>p{ 
     font-size: 24px;
     margin-top: 45px;
 }
 
-.signupInfoBox>div>p{
+.signup-info-box>div>p{
     font-size: 14px;
     font-weight: bold;
     margin-top: 40px;
     margin-bottom: 8px;
 }
 
-.signupInfoMemberName>input{
+.signup-info-member-name>input{
     width: 320px;
     height: 42px;
     border-radius: 5px;
     border: 1px solid #C5C5C5;
 }
 
-.signupInfoMemberURL>div>p{
+.signup-info-memberURL>div>p{
     margin-top: 9px;
     margin-left: 15px;
     font-size: 12px;
 }
 
-.signupInfoMemberURL>div>input{
+.signup-info-memberURL>div>input{
     width: 280px;
     height: 42px;
     border-radius: 5px;
@@ -301,14 +301,14 @@
     margin-left: 20px;
 }
 
-.signupInfoMemberURL>div{
+.signup-info-memberURL>div{
     width: 320px;
     height: 96px;
     border-radius: 5px;
     border: 1px solid #92B4EC;
 }
 
-.urlDoubleCheck{
+.url-double-check{
     background-color: #92B4EC;
     border-radius: 20px;
     width: 100px;
@@ -322,12 +322,12 @@
     cursor: pointer;
 }
 
-.jobCheckboxContainer>p{ 
+.job-checkbox-container>p{ 
     font-size: 14px;
     font-weight: bold;
 }
 
-.jobCheckboxContainer{
+.job-checkbox-container{
     width: 320px;
     display: flex;
     flex-direction: column;
@@ -336,18 +336,18 @@
     margin-bottom: 30px;
 }
 
-.jobCheckbox>div{
+.job-checkbox>div{
     width: 50%;
     float: left;
     display: flex;
     flex-direction: column;
 }
 
-.jobCheckbox>div>label>input{
+.job-checkbox>div>label>input{
     margin-bottom: 5px;
 }
 
-.signupInfoBox>button:last-child{
+.signup-info-box>button:last-child{
     width: 320px;
     height: 50px;
     border-radius: 5px;
@@ -358,6 +358,6 @@
     cursor: pointer;
     margin-top: 10px;
 }
-.signupInfoBox>button:last-child>a{
+.signup-info-box>button:last-child>a{
     color: #FFFFFF;
 }
