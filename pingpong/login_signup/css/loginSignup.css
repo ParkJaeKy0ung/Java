@@ -185,6 +185,9 @@
     width: 200px;
     height: 50px;
 }
+.loginContainer>.signupBox>div>button:last-child>a{
+    color: #FFFFFF;
+}
 
 
 
