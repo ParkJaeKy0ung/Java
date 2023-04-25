@@ -1,5 +1,5 @@
 /* 로그인 확인 */
-const loginButton = document.querySelector(".loginButton");
+const loginButton = document.querySelector(".login-button");
 
 loginButton.addEventListener("click", () => {
 
