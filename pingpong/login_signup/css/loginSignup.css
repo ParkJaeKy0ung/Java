@@ -37,6 +37,7 @@
     height: 42px;
     border-radius: 5px;
     border: 1px solid #C5C5C5;
+    padding: 3px;
 }
 
 .login-box>.login-input-email>p,.login-input-password>p{
@@ -112,6 +113,7 @@
     height: 42px;
     border-radius: 5px;
     border: 1px solid #C5C5C5;
+    padding: 3px;
 }
 
 .signup-box>p{          /* 이메일 가입하기 */
@@ -284,6 +286,7 @@
     height: 42px;
     border-radius: 5px;
     border: 1px solid #C5C5C5;
+    padding: 3px;
 }
 
 .signup-info-memberURL>div>p{
