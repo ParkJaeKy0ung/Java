@@ -20,6 +20,4 @@ public interface MemberService {
 	 * @return email, pw가 일치하는 회원 정보 또는 null
 	 */
 	Member login(Member inputMember);
-
-
 }

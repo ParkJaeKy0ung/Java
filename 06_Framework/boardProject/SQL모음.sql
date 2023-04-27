@@ -89,6 +89,15 @@ AND MEMBER_PW = 'pass01!';
 
 
 
+-- user01의 비밀번호 변경
+UPDATE "MEMBER" SET
+MEMBER_PW = '$2a$10$zumK6TsCyEdQKU34MZGqtu1uA8We8bWEColaR/GH.GR6yZYbXBWDO';
+
+COMMIT;
+
+
+
+
 
 
 
