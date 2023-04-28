@@ -1,7 +1,8 @@
 const messagebuttonx = document.querySelector(".recieve-message-x");
+const loginContainer = document.querySelector(".login-container");
+
 messagebuttonx.addEventListener("click", () => {
-    document.querySelector(".login-container").style.display = 'none';
+    loginContainer.style.display = 'none';
 });
 
-const messageboxconfirm = document.querySelector(".")
 
