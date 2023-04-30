@@ -15,34 +15,51 @@
 .monocolor4{background-color: #F0F0F0;}
 
 
+
+
+
+
 /* 회원 페이지 전체를 감싸고 있는 요소 */
 .myPage-content-container{
     display: flex;
-    width: 1000px;
+    width: 60%;
     min-height: 700px;
     margin: 150px auto;
 }
 
-/* 사이드메뉴 */
+
+
+
+/* ************* 사이드 메뉴 ************* */
+*{margin:0; padding:0;}
+.myPage-left-side-menu>ul{list-style:none;}
+
 .myPage-left-side-menu-group{
     width: 25%;
     height: 100%;
     border-right: 2px solid #C5C5C5;
+    padding:15px; letter-spacing:-0.5px;
 }
 
 .myPage-left-side-menu{
     width: 100%;
     list-style: none;
     padding-right: 20px;
+    position:relative;
 }
 
-.myPage-left-side-menu > li{
+.myPage-left-side-menu > ul{
+    overflow:hidden;
+}
+
+.myPage-left-side-menu > ul > li{
     height: 50px;
     font-size: 18px;
     margin-bottom: 15px;
+
 }
 
-.myPage-left-side-menu > li > a{
+.myPage-left-side-menu > ul > li > a{
     color:black;
     text-decoration: none;
     height: 100%;
@@ -50,198 +67,166 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    width: 100%;
 
 }
 
-.myPage-left-side-menu > li > a:hover{
+.myPage-left-side-menu > ul > li > a:hover{
     background-color: #FFE69A90;
+    cursor: pointer;
+}
+
+.myPage-left-side-menu>ul>li.is_on>a{
+    color:#231F20; 
+    background-color: #FFE69A;
+}
+
+.myPage-left-side-menu>ul>li.is_on>div{
+    display:block;
+}
+
+.myPage-left-side-menu>ul>li>div{
+    display:none; 
+    position:absolute; 
+    top:25px; left:0; 
+    color:#231F20; 
+    text-align:center; 
+    width:250px; height:100px; 
+    line-height:100px;
 }
 
 
 
-/* ********************************* */
-/* 마이페이지 공통 */
-.myPage-main{
+
+/* ************ myPage-content ************* */
+/* 내 정보 전체 */
+.myPage-content-main-area{ 
     width: 75%;
-    padding: 0 50px;
-}
-
-/* 마이페이지 제목 */
-.myPage-title{
-    margin-bottom: 10px;
-    font-size: 30px;
-}
-
-/* 마이페이지 부제 */
-.myPage-subject{
-    display: block;
-    margin-bottom: 30px;
-
-    font-size: 14px;
-    letter-spacing: -1px;
-}
-
-/* 마이페이지 행 단위 스타일 지정 */
-.myPage-row{
-    width: 500px;
-    height: 50px;
-    margin-top: 20px;
-
-    display: flex;
-    align-items: center;
-    border-bottom : 2px solid #ddd;
-}
-
-.myPage-row > * {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* 행 제목 */
-.myPage-row > label{
-    width: 30%;
-    color: #455ba8;
-}
-
-.myPage-row > span{
-    width: 70%;
-    color: #455ba8;
-}
-
-/* 행 내부 input 태그 */
-.myPage-row > input{
-    width: 100%;
     height: 100%;
-    border: none;
-    outline: none;
-    font-weight: normal;
+    padding: 0px 15px;
+    margin-left: 30px;
 }
 
-/* 제출 버튼 */
-.myPage-submit{
-    width: 100%;
-    padding: 10px;
-    margin: 50px 0;
-    
-    border: none;
-    font-size: 20px;
+/* 전체 내용 */
+.myPage-content-main{
+    width:100%; 
+    height:100%; 
+    color:#231F20; 
+    line-height: 50px;
+}
+.userName-change>input,.URL-change>input,.self-introduce-change>input,.interest-field-change>input{
+    width: 817px;
+    height: 52px;
+    border: 1px solid #C5C5C5;
+    border-radius: 5px;
+    padding: 8px;
+}
+.userName-change>p,.URL-change>p,.self-introduce-change>p,.interest-field-change>p{
+    margin-top: 25px;
     font-weight: bold;
-
-    background-color: #455ba8;
-    color: white;
-    cursor: pointer;
+    font-size: 16px;
 }
 
-/* form태그 */
-form[name='myPageFrm']{
+/* 프로필 사진 */
+.profile-change-area{
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
-
-/* 내부 input 요소 focus 시 */
-.myPage-row:focus-within{ 
-    border-bottom-color: #455ba8;
-}
-
-
-/* ******************************************* */
-/* 내 정보 페이지 전용 스타일 */
-
-.info-title{
-    border: none;
-}
-
-.info-address{
-    margin: 0;
-}
-
-.info-address > button{
-    width: 30%;
-    height: 70%;
-
-    font-size: 14px;
-    font-weight: normal;
-
-    background-color: white;
-    border : 1px solid gray;
-    cursor: pointer;
-}
-
-/* *********비밀번호 변경 화면*********** */
-.myPage-row > input[type='password']{
-    width: 70%;
-} 
-
-/* **********회원 탈퇴 약관********** */
-.secession-terms{
-    width: 500px;
-    height: 300px;
-    border: 1px solid black;
-    
-    overflow: auto;
-    /* 내용이 요소를 벗어나는 경우 방향에 맞춰서 자동으로 스크롤 추가 */
-
-    font-family: sans-serif; /* 돋움체 */
-    font-size: 14px;
-}
-
-/* ************* 프로필 화면 ************* */
-.profile-image-area{
-    width: 150px;
-    height: 150px;
-    border: 3px solid #ccc;
+.profile-change-area>span{ 
+    display: flex;
+    width: 100px;
+    height: 100px;
+    color: #231F20;
+    background-color: #F0F0F0;
     border-radius: 50%;
-
-    position: relative;
-
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-#profileImage{
-    height: 100%;
-}
-
-/* 삭제버튼 */
-form[name='myPage-frm']{position: relative;}
-
-#deleteImage{
-    position: absolute;
-    top: 0px;
-    right: 240px;
-    cursor: pointer;
-}
-
-/* 이미지 버튼 영역 */
-.profile-btn-area{
-    width: 230px;
-    margin: 20px 0;
-
-    display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+}
+.profile-change-area>span>svg{
+    width: 30px;
 }
 
-.profile-btn-area > *{
-    width: 110px;
-    height: 33px;
-    padding: 5px 10px;
+/* 관심분야 변경 */
+.job-checkbox-container{
+    width: 100%; display: flex;
+    flex-direction: column;
+    font-size: 14px; margin-bottom: 10px;
+}
+.job-checkbox>div{
+    width: 25%; float: left;
+    display: flex; flex-direction: column;
+}
+.job-checkbox>label{
+    margin: 4px;
+}
+.job-checkbox>div>label>input{
+    margin-bottom: 5px;
+}
 
-    border: 1px solid black;
-    background-color: white;
+/* 수정사항 저장 */
+.myPage-save-profile{
+    display: flex;
+    justify-content: center;
+}
+.myPage-save-profile>button{
+    width: 200px;
+    height: 50px;
+    background-color: #92B4EC;
+    border-radius: 50px;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+
+
+
+
+
+/* 비밀번호 수정 */
+.passwordReInput>p{
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.passwordReInput>div{
     font-size: 14px;
-    cursor: pointer;
-    text-align: center;
+}
+.passwordReInput>div>input{
+    width: 817px;
+    height: 52px;
+    border: 1px solid #C5C5C5;
+    border-radius: 5px;
+    padding: 8px;
 }
 
-#imageInput{ display: none;}
-
-.profile-btn-area > button{
-    background-color: #455ba8;
-    color : white;
-    margin-left: 2px;
+/* 수정사항 저장 */
+.myPage-save{
+    display: flex;
+    justify-content: center;
 }
+.myPage-save>button{
+    width: 200px;
+    height: 50px;
+    background-color: #92B4EC;
+    border-radius: 50px;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+/* 회원 탈퇴 */
+.secession{
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.secession>button{
+    width: 120px;
+    height: 24px;
+    border: 1px solid #5C5C5C;
+    border-radius: 5px;
+}
+
+
+
