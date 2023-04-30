@@ -1,7 +1,8 @@
 /* 탭 메뉴 */
 const tabList = document.querySelectorAll('.myPage-left-side-menu>ul>li');
-const contents = document.querySelectorAll('.myPage-content-main>div')
-let activeCont = ''; // 현재 활성화 된 컨텐츠 (기본:#tab1 활성화)
+const contents = document.querySelectorAll('.myPage-content-main-area>div')
+let activeCont = '#myPageModiTab1'; // 현재 활성화 된 컨텐츠 ?????????????????????
+
 
 for(var i = 0; i < tabList.length; i++){
   tabList[i].querySelector('.myPage-left-side-menu>ul>li>a').addEventListener('click', function(e){
@@ -24,7 +25,7 @@ for(var i = 0; i < tabList.length; i++){
 }
 
 
-/* 업로드된 이미지 바로 보여줌 */
+/* 업로드된 이미지 바로 보여줌 ....................*/
 // 파일 선택 대화 상자에서 파일을 선택할 때마다 이미지를 미리보기
 const inputElement = document.querySelector('input[type="file"]');
 const previewElement = document.querySelector('#profile-picture-preview');
@@ -40,6 +41,12 @@ inputElement.addEventListener('change', () => {
   reader.readAsDataURL(file);
 });
 
+
+/* 저장 알림 */
+const save = document.querySelector('.myPage-save');
+save.addEventListener("click", () => {
+  alert('저장되었습니다.')
+});
 
 
 /* 탈퇴 알링 */
