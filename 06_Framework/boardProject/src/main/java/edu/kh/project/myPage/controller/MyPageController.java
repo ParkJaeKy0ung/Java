@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -97,6 +98,78 @@ public class MyPageController {
 		
 		return "redirect:info"; // 상대 경로 (/myPage/info GET 방식)
 	}
+	
+	
+	// 비밀번호 변경
+	@PostMapping("/changePw")
+	public String changePw(/* @RequestParam("currentPw") */String currentPw, String newPw
+				, @SessionAttribute("loginMember") Member loginMember
+				, RedirectAttributes ra) {
+		
+		// 로그인한 회원 번호(DB에서 어떤 회원을 조회, 수정할지 알아야 되니까)
+		int memberNo = loginMember.getMemberNo();
+		
+		// 비밀번호 변경 서비스 호출
+		int result = service.changePw(currentPw, newPw, memberNo);
+		
+		String path = "redirect:";
+		String message = null;
+		
+		if(result > 0) { // 변경 성공
+			message = "비밀번호가 변경되었습니다.";
+			path += "info";
+		
+		}else { // 변경 실패
+			message = "현재 비밀번호가 일치하지 않습니다.";
+			path += "changePw";
+		}
+		
+		ra.addFlashAttribute("message", message);
+		
+		return path;
+	}
+	
+	
+	// 회원 탈퇴
+	@PostMapping("/secession")
+	public String secession(String memberPw
+				, @SessionAttribute("loginMember") Member loginMember) {
+		
+		// String memberPw : 입력한 비밀번호
+		
+		// 1. 로그인한 회원의 회원번호 얻어오기
+		int memberNo = loginMember.getMemberNo();
+		
+		// 2. 회원 탈퇴 서비스 호출
+		//	- 비밀번호가 일치하면 MEMBER_DEL_FL -> 'Y'로 바꾸고 1 반환
+		//	- 비밀번호가 일치하지 않으면 -> 0 반환
+		int result = service.secession(memberPw, memberNo);
+		
+		// 3. 탈퇴 성공 시
+		//	- 로그아웃
+		//	- message : 탈퇴되었습니다
+		//	- 메인 페이지로 리다이렉트
+		//	+ 쿠키 삭제
+		
+		// 4. 탈퇴 실패 시 
+		//	- message : 현재 비밀번호가 일치하지 않습니다
+		//	- 회원 탈퇴 페이지로 리다이렉트
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

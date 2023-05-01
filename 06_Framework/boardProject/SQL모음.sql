@@ -94,13 +94,11 @@ AND MEMBER_EMAIL = 'user01@kh.or.kr'
 AND MEMBER_PW = 'pass01!';
 
 
-
 -- user01의 비밀번호 변경
 UPDATE "MEMBER" SET
 MEMBER_PW = '$2a$10$zumK6TsCyEdQKU34MZGqtu1uA8We8bWEColaR/GH.GR6yZYbXBWDO';
 
 COMMIT;
-
 
 
 -- 회원 정보 수정
@@ -110,6 +108,25 @@ MEMBER_TEL = 값,
 MEMBER_ADDR = 값,
 WHERE MEMBER_NO = 값
 ;
+
+
+-- 회원번호가 일치하는 회원의 비밀번호 조회
+SELECT MEMBER_PW FROM "MEMBER" WHERE MEMBER_NO = 1
+;
+
+-- 회원번호가 일치하는 회원의 비밀번호 변경
+UPDATE "MEMBER" SET
+MEMBER_PW = #{memberPw}
+WHERE MEMBER_NO = #{memberNo}
+;
+
+
+-- 회원 탈퇴
+UPDATE "MEMBER" SET
+MEMBER_DEL_FL = 
+WHERE MEMBER_NO = #{memberNo}
+;
+
 
 
 

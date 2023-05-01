@@ -1,0 +1,179 @@
+/* 폰트 웹폰트 우선 사용 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400;700&display=swap');
+/* font-family: 'Noto Sans KR', sans-serif; 
+font-weight: 100 / 400 / 700; 사용가능
+*/
+
+/* 기본 세팅 */
+*{padding: 0; margin: 0; font-family: 'Noto Sans KR', sans-serif;
+box-sizing: border-box;}
+ul,ol{list-style: none;}
+a{color: #000; text-decoration: none;}
+button{border: none; user-select: none; cursor: pointer;}
+svg{cursor: pointer; background-color: rgba(0, 0, 0, 0);}
+
+/* 컬러 
+: 컬러는 태그에 웬만하면 직접 지정해주세요
+혹시 몰라서 클래스로 세팅 해놨습니다.*/
+.colormain1{background-color: #5286DC;}
+.colorsub1{background-color: #92B4EC;}
+.colormain2{background-color: #FFD24C;}
+.colorsub1{background-color: #FFE69A;}
+.colorgoob{background-color: #FF2F2F;}
+.colorwarning{background-color: red;} 
+
+/* 무채색 컬러 */
+.monocolor1{background-color: #231F20;}
+.monocolor2{background-color: #5C5C5C;}
+.monocolor3{background-color: #C5C5C5;}
+.monocolor4{background-color: #F0F0F0;}
+
+/* 폰트 사이즈
+: 폰트 사이즈는 피그마 보고 작업 해주세요. 
+통일성을 위해 정해진 폰트 사이즈 안에서만 수정 부탁드립니다. */
+.font0{font-size: 30px;} /* 너무 크니까 사용 지양 */
+.font1{font-size: 24px;}
+.font2{font-size: 16px;}
+.font3{font-size: 14px;}
+.font4{font-size: 13px;}
+.font5{font-size: 12px;}
+
+/* 헤더 영역 : 상단 아이콘 + 로고 */
+header, header .logo img{z-index: 100;} /* 헤더 z-index: 100;*/
+header{
+    width: 100%; height: 100px; box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex; justify-content: space-between; align-items: center;
+    position: fixed; background-color: #fff; top: 0;
+}
+header .logo{position: absolute; left: 50%; transform: translateX(-100px); user-select: none;}
+header .logo img{width: 200px; }
+header .menu_icon{margin-left: 50px;}
+header .alarm_search_box{margin-right: 50px;}
+header .alarm_icon{margin-right: 20px;}
+
+header .alarm_search_box{display: flex;}
+header .signBtn button{
+    width: 100px; height: 35px; border-radius: 20px;
+    color: #fff; font-size: 12px; font-weight: bold; background-color: #FFE69A;
+}
+header .signBtn .colormain2{margin-right: 20px; margin-left: 50px;}
+header .signBtn{display: flex; align-items: center;}
+.signBtn button:hover{background-color: #FFD24C;}
+
+/* 검색 아이콘 호버했을 때 늘어난 검색창*/
+.seachbox{
+    width: 400px; height: 50px; border-radius: 30px; border: 1px solid #231F20;
+    display: flex; justify-content: space-between; align-items: center; padding: 0 20px; 
+    display: none; z-index: 101; background-color: #fff;}
+.seachboxleft>svg{margin-right: 12px;}
+.seachbox .seachboxleft{display: flex; align-items: center;}
+.seachbox input{border: none;}
+.seachbox input:focus{outline: none;}
+
+/* 반응형 일 때 잠깐 해봄 */
+@media screen and (max-width : 1024px) {
+    header .logo img{width: 150px;}
+    header .alarm_icon,  header .search_icon{
+    display: none; transform: translateX(25px);}
+    header .signBtn button{display: none;}
+    .seachbox{width: 300px;}
+}
+@media screen and (max-width : 767px) {
+    .alarm_search_box{display: none;}
+}
+
+.space{
+    width: 150px; background-color: #FF2F2F;
+}
+
+/* 햄버거 아이콘 */
+.navlist, .mainnav-icon{z-index: 200;}
+.menu_icon, .navlist>ul>li, .navlist>ul>li>a{z-index: 201;}
+.grayBackground{
+    width: 100vw;/* 화면 너비 100% */ height: 100vh;/* 화면 높이 100% */
+    position: fixed; background-color: #231F2050;
+    top: 0;left: 0; z-index: 199;
+}
+
+/* 메뉴 정렬 css */
+.mainnav{display: none;}
+.mainnav>.menu_icon{position: fixed; top: 28px; left: 50px;}
+.mainnav .navlist{
+width: 600px; height: 100%; background-color: #fff; 
+position: fixed; top: 0;
+}
+.mainnav .navlist ul{height: 370px; margin-top: 190px; margin-left: 60px; 
+position: fixed;}
+.mainnav .navlist ul li{margin-bottom: 30px; user-select: none;}
+.mainnav .navlist ul li .nav_more{text-decoration: underline; font-size: 12px;}
+.mainnav .navlist ul li svg{margin-right: 20px;}
+.mainnav .navlist ul li a{
+    display: flex; height: 40px; line-height: 40px;
+}
+.mainnav .navlist ul li:last-child a{
+    display: flex; height: 40px; line-height: 40px; font-size: 12px;
+    text-decoration: underline;
+}
+.navlist .mainnav-under-btn{position: absolute; bottom: 30px; left: 30px;}
+.mainnav-icon{
+    margin-top: 800px;
+    position: fixed; left: 250px; bottom: 14%;
+}
+
+/* 더보기 버튼 클릭 했을 때 뜨는 더보기 메뉴 박스  */
+.navmore{
+width: 168px; height: 188px; background-color: #fff;
+border-radius: 20px; border: 1px solid #C5C5C5; 
+position: absolute; bottom: 70px; left: 70px;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+display: none; z-index: 202;
+}
+.navmore ul li{margin-top: 28px; margin-left: 30px;}
+.navmore ul a{display: block; width: 100%; height: 100%;}
+
+
+/* 더 많은 기능을 보실려면 로그인해주세요. */
+#logModContainer{
+    width : 420px; height : 420px;
+    border-radius: 20px; border: 1px solid black;
+    position: absolute; margin: auto;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: white; z-index: 300;
+    display: none;
+}
+
+#logModContainer>svg{
+    position : absolute; right : 8px; top : 8px;
+}
+
+#logModContainer>div{
+    display: flex; align-items: center; justify-content: center;
+}
+#logModContainer>div:first-of-type>svg{
+    margin-top : 40px; margin-bottom: 30px;
+}
+
+#logModContainer>h2{
+    text-align: center; margin: 10px;
+}
+
+#logModContainer>p{
+    display: block; text-align: center;
+    margin: 30px; font-size: 12px;
+}
+#logModContainer>div:nth-of-type(2)>button{    
+    width: 320px; height: 60px;
+    background-color: #231F20;
+    font-size: 16px; color : white; font-weight: bold;
+    border-radius: 8px; margin-bottom: 10px;
+}
+#logModContainer>div:last-of-type>div>p{
+    font-size: 14px; display: inline;
+}    
+#logModContainer>div:last-of-type>div{
+    width:320px; display: flex;
+    justify-content: space-between; margin: 10px;
+}
+#logModContainer>div:last-of-type>div>a{
+    color:#5286DC; text-decoration : underline; font-size: 14px;
+}
