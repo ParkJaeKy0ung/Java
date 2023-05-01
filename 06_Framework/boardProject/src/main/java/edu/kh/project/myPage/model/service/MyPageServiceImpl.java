@@ -34,7 +34,6 @@ public class MyPageServiceImpl implements MypageService{
 	public int changePw(String currentPw, String newPw, int memberNo) {
 		
 		// 1. 현재 비밀번호, DB에 저장된 비밀번호 비교
-		
 		// 1) 회원번호가 일치하는 MEMBER 테이블 행의 MEMBER_PW 조회
 		String encPw = dao.selectEncPw(memberNo);
 	
@@ -55,12 +54,18 @@ public class MyPageServiceImpl implements MypageService{
 	@Override
 	public int secession(String memberPw, int memberNo) {
 		
-		return dao.secession()
+		// 1. 회원 번호가 일치하는 회원의 비밀번호 조회
+		String encPw = dao.selectEncPw(memberNo);
 		
+		// 2. 비밀번호가 일치하면
+		if(bcrypt.matches(memberPw, encPw)) {			
+			// MEMBER_DEL_FL -> 'Y'로 바꾸고 1 반환
+			return dao.secession(memberNo);
+		}
+		
+		// 3. 비밀번호가 일치하지 않으면 -> 0 반환
 		return 0;
 	}
-	
-	
 	
 	
 }

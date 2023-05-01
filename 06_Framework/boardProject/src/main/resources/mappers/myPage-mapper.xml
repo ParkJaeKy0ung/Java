@@ -41,9 +41,9 @@
 	
 	
 	<!-- 회원 탈퇴 -->
-	<update id="secession" parameterType="string">
+	<update id="secession" parameterType="_int">
 		UPDATE "MEMBER" SET
-		MEMBER_DEL_FL = 
+		MEMBER_DEL_FL = 'Y'
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
 	

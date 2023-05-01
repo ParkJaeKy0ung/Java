@@ -1,5 +1,8 @@
 package edu.kh.project.myPage.controller;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.kh.project.member.model.dto.Member;
@@ -133,11 +137,18 @@ public class MyPageController {
 	// 회원 탈퇴
 	@PostMapping("/secession")
 	public String secession(String memberPw
-				, @SessionAttribute("loginMember") Member loginMember) {
+				, @SessionAttribute("loginMember") Member loginMember
+				, SessionStatus status
+				, HttpServletResponse resp
+				, RedirectAttributes ra) {
 		
 		// String memberPw : 입력한 비밀번호
+		// SessionStatus status : 세션 관리 객체 (로그아웃에 필요)
+		// HttpServletResponse resp : 서버 -> 클라이언트 응답하는 방법 제공 객체
+		// RedirectAttributes ra : 리다이렉트 시 request로 값 전달하는 객체
 		
 		// 1. 로그인한 회원의 회원번호 얻어오기
+		// @SessionAttribute("loginMember") Member loginMember
 		int memberNo = loginMember.getMemberNo();
 		
 		// 2. 회원 탈퇴 서비스 호출
@@ -145,17 +156,39 @@ public class MyPageController {
 		//	- 비밀번호가 일치하지 않으면 -> 0 반환
 		int result = service.secession(memberPw, memberNo);
 		
+		String path = "redirect:";
+		String message = null;
+		
 		// 3. 탈퇴 성공 시
-		//	- 로그아웃
-		//	- message : 탈퇴되었습니다
-		//	- 메인 페이지로 리다이렉트
-		//	+ 쿠키 삭제
+		if(result > 0) {
+			//	- message : 탈퇴되었습니다
+			//	- 메인 페이지로 리다이렉트
+			message = "탈퇴되었습니다";
+			path += "/";
+			
+			//	- 로그아웃 (==MemberController에 로그아웃 하는 코드 참고)
+			status.setComplete();
+			
+			//	+ 쿠키 삭제
+			Cookie cookie = new Cookie("saveId", "");
+			// 같은 쿠키가 이미 존재하면 덮어쓰기 됨
+			
+			cookie.setMaxAge(0); // 0초 생존 -> 삭제
+			cookie.setPath("/"); // 요청 시 쿠키가 첨부되는 경로
+			resp.addCookie(cookie); // 요청 객체를 통해서 클라이언트에게 전달
+									// -> 클라이언트 컴퓨터에 파일로 생성
 		
 		// 4. 탈퇴 실패 시 
-		//	- message : 현재 비밀번호가 일치하지 않습니다
-		//	- 회원 탈퇴 페이지로 리다이렉트
+		}else {
+			//	- message : 현재 비밀번호가 일치하지 않습니다
+			//	- 회원 탈퇴 페이지로 리다이렉트
+			message = "현재 비밀번호가 일치하지 않습니다";
+			path += "secession"; // 상대경로
+		}
 		
-		return null;
+		ra.addFlashAttribute("message", message);		
+		
+		return path;
 	}
 	
 	

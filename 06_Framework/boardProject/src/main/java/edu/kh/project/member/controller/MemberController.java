@@ -268,7 +268,6 @@ public class MemberController {
 	}
 	
 	
-	
 	// 로그아웃
 	@GetMapping("/logout")
 	public String logout(SessionStatus status, HttpSession session) {
@@ -291,15 +290,12 @@ public class MemberController {
 	}
 	
 	
-	
-	
 	// 로그인 전용 화면 이동
 	@GetMapping("/login")
 	public String login() {
 		
 		return "member/login";
 	}
-	
 	
 	
 	// 회원가입 페이지 이동
@@ -405,17 +401,4 @@ public class MemberController {
 		// -> View Resolver의 prefix, suffix를 붙여 JSP 경로로 만듦
 		return "common/error";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

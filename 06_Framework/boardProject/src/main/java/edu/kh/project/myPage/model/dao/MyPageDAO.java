@@ -51,12 +51,14 @@ public class MyPageDAO {
 	}
 
 
-	/** 회원 탈퇴 
+	/** 회원 탈퇴 DAO
+	 * @param memberNo
 	 * @return
 	 */
-	public int secession() {
-		
-		return 0;
+	public int secession(int memberNo) {
+		// sqlSessionTemplate : 마이바티스 + DBCP + close자동 + 트랜잭션처리
+		return sqlSession.update("myPageMapper.secession", memberNo);
+		//						myPage-mapper의 namespace.id
 	}
 
 	
