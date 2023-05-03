@@ -60,20 +60,6 @@ public class MyPageDAO {
 		return sqlSession.update("myPageMapper.secession", memberNo);
 		//						myPage-mapper의 namespace.id
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

@@ -32,11 +32,11 @@ import edu.kh.project.member.model.service.MemberService;
 // @RequestMapping(value="요청 주소", method=RequestMethod.GET/POST)
 // -> GET / POST 방식을 구분 (좀 더 세부화 되어 있음)
 
+
 @Controller // 요청/응답 클래스 + bean 등록(Spring이 관리하는 객체)
 @RequestMapping("/member") // 공통된 주소 앞부분 작성
 						   // member로 시작하는 요청은 해당 컨트롤러에서 처리
 @SessionAttributes({"loginMember"}) // Model의 이름(key)를 적으면 session으로 추가됨
-
 public class MemberController {
 	
 	// 등록된 Bean 중에서 필드와 타입이 일치하는 Bean을 주입
@@ -44,13 +44,12 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
-	// 로그인   : /member/login
+	// 로그인  : /member/login
 	// 로그아웃 : /member/logout
 	
 	// 로그인 (/member/login), POST 방식 처리
 	// Class에 작성한 /member를 제외한 나머지 부분을 주소로 작성
 	// @RequestMapping(value="/login", method=RequestMethod.POST)
-	/* public String login(HttpServletRequest req) { */
 	public String login(HttpServletRequest req) {
 
 		// 파라미터 전달 방법 1 : HttpServletRequest를 이용하는 방법

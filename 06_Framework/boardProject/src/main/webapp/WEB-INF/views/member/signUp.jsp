@@ -149,7 +149,7 @@
             }
         }).open();
     }
-</script>
+    </script>
 
 
 <script src="/resources/js/member/signUp.js"></script>
