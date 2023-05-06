@@ -72,6 +72,15 @@ display: flex; flex-direction: column; align-items: center;
 .posttab_menu .postlist li.is_on .btn{font-weight:bold; color:black;}
 .posttab_menu .postcont_area .postcont{display:none;} 
 
+
+
+/* 프로필 편집 버튼 */
+.profile-edit-button>a>svg{
+    width: 20px;
+
+}
+
+
 /* 홈 게시글 그리드  */
 
 
