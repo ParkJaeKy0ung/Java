@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PingPong</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/myInfoModi.css">
+    <link rel="stylesheet" href="css/TabOnly_2.css">
 </head>
 <body>
     <!-- 메인 헤더 영역 -->
@@ -142,124 +142,89 @@
     </nav>
 
 
-    <!-- 프로필 사진, 닉네임, 자기소개, 관심분야, 웹사이트, 비밀번호, 탈퇴 -->
+    <!-- 관리자 페이지 Tab Menu -->
 
-    <div class="myPage-content-container">
+    <div class="admin-content-container">
 
-        <div class="myPage-left-side-menu-group"> <!-- wrap -->
-            <div class="myPage-left-side-menu">   <!-- tab_menu -->
-                <ul>                              <!-- list -->
-                    <li class="is_on">            <!-- is_on -->
-                        <a href="#myPageModiTab1">프로필 정보</a> <!-- btn -->
+        <div class="admin-left-side-menu-group"> 
+            <div class="admin-left-side-menu">   
+                <ul>
+                    <li>
+                        <a href="#">회원 관리</a> <!-- XXXXX..? -->
+                    </li>  
+
+                    <li class="admin_is_on">        
+                        <a href="#adminModiTab1">가입 회원</a> 
                     </li>
-                    <li>                          <!--  -->
-                        <a href="#myPageModiTab2">개인 정보</a>   <!-- btn -->
+
+                    <li>                          
+                        <a href="#adminModiTab2">탈퇴 회원</a>  
+                    </li>
+                    
+                    <li>
+                        <a href="#"">게시글 관리</a> <!-- XXXXX..? -->
+                    </li>
+
+                    <li>                          
+                        <a href="#adminModiTab3">게시글 관리</a>  
+                    </li>
+
+                    <li>                          
+                        <a href="#adminModiTab4">댓글 관리</a>  
+                    </li>
+
+                    <li>
+                        <a href="#adminModiTab5">1:1 문의</a> 
                     </li>
                 </ul>
             </div>
         </div>
 
-        <div class="myPage-content-main-area"> <!-- cont_area -->
-            <div id="myPageModiTab1" class="myPage-content-main"> <!-- cont -->
-                <div class="profile-change-area"> <!-- 프로필 사진 -->
-                    <span>
-                        <svg width="51" height="51" viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M25.3636 23.405C27.0118 23.405 28.6229 22.9162 29.9934 22.0005C31.3638 21.0849 32.4319 19.7834 33.0626 18.2606C33.6933 16.7379 33.8584 15.0624 33.5368 13.4459C33.2153 11.8294 32.4216 10.3445 31.2562 9.17906C30.0907 8.01362 28.6059 7.21995 26.9894 6.89841C25.3729 6.57686 23.6973 6.74189 22.1746 7.37262C20.6519 8.00335 19.3504 9.07146 18.4347 10.4419C17.519 11.8123 17.0303 13.4234 17.0303 15.0716C17.0303 17.2818 17.9082 19.4014 19.471 20.9642C21.0339 22.527 23.1535 23.405 25.3636 23.405ZM25.3636 10.905C26.1877 10.905 26.9933 11.1493 27.6785 11.6072C28.3637 12.065 28.8977 12.7157 29.2131 13.4771C29.5285 14.2385 29.611 15.0762 29.4502 15.8845C29.2894 16.6927 28.8926 17.4352 28.3099 18.0179C27.7272 18.6006 26.9847 18.9975 26.1765 19.1582C25.3682 19.319 24.5305 19.2365 23.7691 18.9211C23.0077 18.6058 22.357 18.0717 21.8992 17.3865C21.4413 16.7013 21.1969 15.8957 21.1969 15.0716C21.1969 13.9665 21.6359 12.9067 22.4173 12.1253C23.1987 11.3439 24.2585 10.905 25.3636 10.905Z" fill="#231F20"/>
-                            <path d="M25.3636 27.5723C21.4959 27.5723 17.7865 29.1087 15.0516 31.8436C12.3167 34.5785 10.7803 38.2879 10.7803 42.1556C10.7803 42.7081 10.9998 43.238 11.3905 43.6287C11.7812 44.0194 12.3111 44.2389 12.8636 44.2389C13.4161 44.2389 13.946 44.0194 14.3367 43.6287C14.7274 43.238 14.9469 42.7081 14.9469 42.1556C14.9469 39.3929 16.0444 36.7434 17.9979 34.7899C19.9514 32.8364 22.6009 31.7389 25.3636 31.7389C28.1263 31.7389 30.7758 32.8364 32.7293 34.7899C34.6828 36.7434 35.7803 39.3929 35.7803 42.1556C35.7803 42.7081 35.9998 43.238 36.3905 43.6287C36.7812 44.0194 37.3111 44.2389 37.8636 44.2389C38.4161 44.2389 38.946 44.0194 39.3367 43.6287C39.7274 43.238 39.9469 42.7081 39.9469 42.1556C39.9469 38.2879 38.4105 34.5785 35.6756 31.8436C32.9407 29.1087 29.2313 27.5723 25.3636 27.5723Z" fill="#231F20"/>
-                        </svg>
-                    </span>
-                    <form action="/upload" method="post" enctype="multipart/form-data">
-                        <div>
-                            <div class="profile-change-button"></div>
-                            <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
-                        </div>
-                    </form>
-                    <img src="" id="profile-picture-preview"> <!-- 업로드된 이미지 바로 보여줌 -->
-                </div>
-                <div class="userName-change"> <!-- 사용자 닉네임 -->
-                    <p>사용자 닉네임*</p>
-                    <input type="text" maxlength="20">
-                </div>
-                <div class="URL-change"> <!-- URL -->
-                    <p>pingpong URL*</p>
-                    <input type="text" value="pingpong.net/">
-                </div>
-                <div class="self-introduce-change"> <!-- 자기소개 -->
-                    <p>자기소개</p>
-                    <input type="text" maxlength="20" placeholder="띄어쓰기 포함 20자 이내로 입력해주세요.">
-                </div>
-                <div class="interest-field-change"> <!-- 관심분야 -->
-                    <p>관심분야</p>
-                    <div class="job-checkbox-container">
-                        <div class="job-checkbox">
-                            <div>
-                                <label for=""><input type="checkbox"> AI/로봇</label>
-                                <label for=""><input type="checkbox"> IT/SW</label> 
-                                <label for=""><input type="checkbox"> 게임</label> 
-                            </div>
-                            <div>
-                                <label for=""><input type="checkbox"> 공학</label>
-                                <label for=""><input type="checkbox"> 교육</label> 
-                                <label for=""><input type="checkbox"> 마케팅</label> 
-                            </div>
-                            <div>
-                                <label for=""><input type="checkbox"> 금융</label> 
-                                <label for=""><input type="checkbox"> 동물</label>
-                                <label for=""><input type="checkbox"> 디자인</label> 
-                            </div> 
-                            <div>
-                                <label for=""><input type="checkbox"> 미용/패션</label> 
-                                <label for=""><input type="checkbox"> 방송</label> 
-                                <label for=""><input type="checkbox"> 법/수사</label> 
-                            </div>
-                            <div>
-                                <label for=""><input type="checkbox"> 사회복지</label> 
-                                <label for=""><input type="checkbox"> 스포츠</label> 
-                                <label for=""><input type="checkbox"> 여행</label> 
-                            </div>
-                            <div>
-                                <label for=""><input type="checkbox"> 책/영화/드라마</label> 
-                                <label for=""><input type="checkbox"> 우주/항공</label> 
-                                <label for=""><input type="checkbox"> 음식</label> 
-                            </div>
-                            <div>
-                                <label for=""><input type="checkbox"> 음악</label> 
-                                <label for=""><input type="checkbox"> 의료/바이오</label> 
-                                <label for=""><input type="checkbox"> 환경/생태</label> 
-                            </div>
-                        </div>
+        <div class="admin-content-main-area"> 
+            <div id="adminModiTab1" class="admin-content-main">
+                <form name="" action="" method="">
+                    <div class="admin-left-side-menu">
+                        가입 회원 화면 구현
                     </div>
-                </div>
-                <div class="myPage-save">
-                    <button type="button">저장</button>
-                </div>
+                </form>
             </div>   
 
-            <div id="myPageModiTab2" class="myPage-content-main"> <!-- cont -->
-                <div>
-                    <div class="passwordReInput">
-                        <p>비밀번호 수정</p>
-                        <div>
-                            새 비밀번호<input type="password">
-                        </div>
-                        <div>
-                            새 비밀번호 확인<input type="password">
-                        </div>
+            <div id="adminModiTab2" class="admin-content-main">
+                <form name="" action="" method="">
+                    <div class="admin-left-side-menu">
+                        탈퇴 회원 화면 구현
                     </div>
-                    <div class="myPage-save">
-                        <button type="button">저장</button>
-                    </div>
-                    <div class="secession">
-                        회원 탈퇴 <br>
-                        <button type="button">탈퇴하시겠습니까?</button>
-                    </div>
-                </div>
+                </form>
             </div>   
+
+            <div id="adminModiTab3" class="admin-content-main">
+                <form name="" action="" method="">
+                    <div class="admin-left-side-menu">
+                        게시글 관리 화면 구현
+                    </div>
+                </form>
+            </div> 
+
+            <div id="adminModiTab4" class="admin-content-main">
+                <form name="" action="" method="">
+                    <div class="admin-left-side-menu">
+                        댓글 관리 화면 구현
+                    </div>
+                </form>
+            </div> 
+
+            <div id="adminModiTab5" class="admin-content-main">
+                <form name="" action="" method="">
+                    <div class="admin-left-side-menu">
+                        1:1 문의 화면 구현
+                    </div>
+                </form>
+            </div> 
         </div>
     </div>
 
 
     <script src="js/script.js"></script>
-    <script src="js/myInfoModi.js"></script>
+    <script src="js/TabOnly_2.js"></script>
 </body>
 </html>
