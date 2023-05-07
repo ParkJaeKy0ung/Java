@@ -59,12 +59,11 @@
 /* ************* Main Area ************* */
 .myPage-content-main-area{
     width: 1100px;
-    height: 780px;
-    padding: 57px 275px; 
+    height: 100%;
+    padding: 48px 275px; 
     border: 1px solid #231F20;
     border-radius: 5px;
 }
-
 
 .myPage-content-main-area > div{
     display:none; 
@@ -75,9 +74,10 @@
 
 
 
-
-
 /* ************* myPage-content ************** */
+
+
+/* *** [내 정보 편집] *** */
 
 /* input / p 태그 설정 */
 .userName-change>input,.URL-change>div>input,.interest-field>input{
@@ -86,6 +86,7 @@
     border: 1px solid #C5C5C5;
     border-radius: 5px;
     padding: 8px;
+    margin-bottom: 20px;
 }
 .userName-change>p,.URL-change>p,.interest-field-container>p{
     margin-top: 25px;
@@ -117,6 +118,10 @@
     font-weight: bold;
     font-size: 14px;
 }
+#chooseFile{
+    display: flex;
+    align-items: flex-end;
+}
 
 
 
@@ -146,16 +151,16 @@
 
 
 /* 관심분야 변경 */
+.interest-field-container{
+    width: 100%; display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
 .interest-field-container>p{ 
     font-size: 14px; font-weight: bold;
 }
 
-.interest-field-container{
-    width: 320px; display: flex;
-    flex-direction: column;
-    /* float: left; */
-    font-size: 12px; margin-bottom: 30px;
-}
 .interest-field-container input[type="checkbox"]{
     margin-right: 4px;
 }
@@ -171,19 +176,111 @@
 
 
 
+
+
+/* *** [프로필 편집] *** */
+
+/* input / p 태그 설정 */
+.introduce-change>input,.career-change>input,.certificate-change>input,.tech-field>input,.SNS-field>div>input{
+    width: 100%;
+    height: 42px;
+    border: 1px solid #C5C5C5;
+    border-radius: 5px;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+.introduce-change>p,.career-change>p,.certificate-change>p,.tech-field-container>p,.SNS-container>p{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+
+/* 지식 / 기술, SNS */
+.tech-field,.SNS-field{
+    width: 100%;
+    border: 1px solid #C5C5C5;
+    border-radius: 5px;
+    padding: 16px;
+    align-items: center;
+}
+
+
+/* 자격증, SNS */
+.tech-field-container{
+    width: 100%; display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+.SNS-container{
+    font-size: 12px;
+}
+
+.tech-field-container>p,.SNS-container>p{ 
+    font-size: 14px; font-weight: bold;
+}
+
+.tech-field-container input[type="checkbox"],.SNS-field-container input[type="checkbox"]{
+    margin-right: 4px;
+}
+
+.tech-field{
+    margin-bottom: 10px;
+}
+
+.tech-field>div{
+    width: 25%; float: left;
+    display: flex; flex-direction: column;
+}
+
+.tech-field>label{margin: 4px;}
+
+.tech-field>div>label>input,.SNS-field>div>label>input{
+    margin-bottom: 10px;
+}
+
+
+/* SNS */
+.SNS-field>div>input{
+    width: 300px; height: 24px;
+    padding: 8px;
+    border: 1px solid #C5C5C5;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #5C5C5C;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* 수정사항 저장 */
 .myPage-save{
     display: flex;
     justify-content: center;
 }
 .myPage-save>button{
-    width: 200px;
-    height: 50px;
-    background-color: #92B4EC;
+    width: 100px;
+    height: 35px;
     border-radius: 50px;
-    font-size: 16px;
-    margin-top: 50px;
+    font-size: 12px;
+    margin-top: 25px;
 }
+.myPage-save>button:first-child{
+    background-color: #FFD24C;
+    margin-right: 20px;
+}
+.myPage-save>button:last-child{
+    background-color: #FFE69A;
+}
+
 
 
 

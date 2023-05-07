@@ -26,7 +26,7 @@ for(var i = 0; i < tabList.length; i++){
 
 
 
-/* 업로드된 이미지 바로 보여줌 ....................*/
+/* 업로드된 이미지 바로 보여줌*/
 // 파일 선택 대화 상자에서 파일을 선택할 때마다 이미지를 미리보기
 const inputElement = document.querySelector('input[type="file"]');
 const previewElement = document.querySelector('#profile-picture-preview');
@@ -44,7 +44,7 @@ inputElement.addEventListener('change', () => {
 
 
 /* 저장 알림 */
-const save = document.querySelector('.myPage-save');
+const save = document.querySelector('.myPage-save>button:first-child');
 save.addEventListener("click", () => {
   alert('저장되었습니다.')
 });
