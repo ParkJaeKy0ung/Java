@@ -20,7 +20,7 @@ import edu.kh.project.myPage.model.service.MypageService;
 @SessionAttributes({"loginMember"}) 
 // 1) Model에 세팅된 값의 key와 {}작성된 값이 일치하면 session scope로 이동
 // 2) Session으로 올려둔 값을 해당 클래스에서 얻어와 사용 가능하게 함
-//	  -> @SessionAttribyte(key)로 사용
+//	  -> @SessionAttribute(key)로 사용
 
 @RequestMapping("/myPage") //  /myPage로 시작하는 요청을 모두 받음
 @Controller // 요청/응답 제어 클래스 + Bean 등록
