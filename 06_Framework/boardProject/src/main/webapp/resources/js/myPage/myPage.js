@@ -147,5 +147,6 @@ if(secessionFrm != null){ // 탈퇴 페이지인 경우
             return;
         }
     });
-
 }
+
+

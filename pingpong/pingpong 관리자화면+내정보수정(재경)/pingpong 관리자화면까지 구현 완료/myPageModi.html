@@ -253,11 +253,10 @@
                             <div>프로필 사진 편집</div>
                             <form action="/upload" method="post" enctype="multipart/form-data">
                                 <div>
-                                    <div class="profile-change-button"></div>
-                                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                                    <button class="profile-change-button"></button>
+                                    <input type="file" class="profileUpload" accept="image/*" required multiple>
                                 </div>
                             </form>
-                            <img src="" id="profile-picture-preview"> <!-- 업로드된 이미지 바로 보여줌 -->
                         </div>
 
                         <!-- 사용자 이름 -->
