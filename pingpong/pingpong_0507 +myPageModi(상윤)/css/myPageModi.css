@@ -59,8 +59,8 @@
 /* ************* Main Area ************* */
 .myPage-content-main-area{
     width: 1100px;
-    height: 100%;
-    padding: 48px 275px; 
+    height: 780px;
+    padding: 57px 275px; 
     border: 1px solid #231F20;
     border-radius: 5px;
 }
@@ -118,15 +118,11 @@
     font-weight: bold;
     font-size: 14px;
 }
-.chooseFile{
+#chooseFile{
     display: flex;
     align-items: flex-end;
 }
-.profile-change-area>img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
+
 
 
 /* url */
@@ -185,7 +181,7 @@
 /* *** [프로필 편집] *** */
 
 /* input / p 태그 설정 */
-.introduce-change>input,.career-change>input,.certificate-change>input,.tech-field>input,.SNS-field>div>input{
+.introduce-change>input,.career-change>input,.certificate-change>input,.tech-field>input{
     width: 100%;
     height: 42px;
     border: 1px solid #C5C5C5;
@@ -193,21 +189,11 @@
     padding: 8px;
     margin-bottom: 10px;
 }
-.introduce-change>p,.career-change>p,.certificate-change>p,.tech-field-container>p,.SNS-container>p{
-    margin-top: 10px;
+.introduce-change>p,.career-change>p,.certificate-change>p,.tech-field-container>p{
+    margin-top: 25px;
     font-weight: bold;
     font-size: 14px;
     margin-bottom: 5px;
-}
-
-
-/* 지식 / 기술, SNS */
-.tech-field,.SNS-field{
-    width: 100%;
-    border: 1px solid #C5C5C5;
-    border-radius: 5px;
-    padding: 16px;
-    align-items: center;
 }
 
 
@@ -229,12 +215,8 @@
     margin-right: 4px;
 }
 
-.tech-field{
-    margin-bottom: 10px;
-}
-
 .tech-field>div{
-    width: 25%; float: left;
+    width: 33%; float: left;
     display: flex; flex-direction: column;
 }
 
@@ -245,19 +227,16 @@
 }
 
 
-/* SNS */
-.SNS-field>div>input{
-    width: 300px; height: 24px;
-    padding: 8px;
-    border: 1px solid #C5C5C5;
-    border-radius: 5px;
-    font-size: 12px;
-    color: #5C5C5C;
-}
 
 
 
-/* ** 수정사항 저장 ** */
+
+
+
+
+
+
+/* 수정사항 저장 */
 .myPage-save{
     display: flex;
     justify-content: center;
@@ -277,56 +256,56 @@
     background-color: #FFE69A;
 }
 
-
-
-
-
-/* *** [비밀번호 변경 화면 구현 & 회원 탈퇴] *** */
-
-/* input / p 태그 설정 */
-.password-modi-secession>p{
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
+/* 비밀번호 변경 */
+.pwModi-text{
     text-align: center;
+    font-weight: bold; font-size: 16px;
 }
-.password-modi-secession>p:last-child{
-    margin-top: 50px;
+.pwModi-content{
+    display: flex;
+    margin-top: 25px;
+    flex-direction: column;
 }
-.current-password>input,.new-password>input,.new-password-check>input,.password-for-secession>input{
-    width: 100%;
-    height: 42px;
-    border: 1px solid #C5C5C5;
-    border-radius: 5px;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-.current-password>p,.new-password>p,.new-password-check>p,.password-for-secession>p,.terms-for-secession>p{
-    margin-top: 10px;
-    font-weight: bold;
+.pwModi-content>span{
     font-size: 14px;
-    margin-bottom: 5px;
+    font-weight: bold;
 }
-
-
-.terms-for-secession>textarea{
-    width: 100%;
-    height: 120px;
-    border: 1px solid #C5C5C5;
+.nowPw{
+    width: 500px;height: 42px;
     border-radius: 5px;
-    padding: 8px;
-    color: #5C5C5C;
+    border : 1px solid #C5C5C5;
+    margin-top: 8px;
 }
-
-
-
-
-/* 확인 버튼 */
-.password-change,.password-change{
-    background-color: #92B4EC; border-radius: 20px;
-    width: 100px; height: 34px;
-    color: #FFFFFF; float: right;
-    margin-top: 10px; margin-bottom: 5px;
-    font-size: 12px; font-weight: bold; cursor: pointer;
+.pwModiBtn{
+    margin-top: 25px;
+    float: right;
+    width: 100px; height: 35px;
+    color: white;
+    background-color: #92B4EC;
+    border-radius: 20px;
 }
-
+.pwModi-container{
+    display: flex;
+}
+.secessionContainer{
+    display: flex;
+    justify-content: center;
+}
+.secessionTitle{
+    text-align: center;
+    font-weight: bold; font-size: 16px;
+    margin-top: 24px;
+}
+.terms{
+    font-size: 14px; font-weight: bold;
+    margin-top: 8px;
+}
+.termsBox{
+    margin-top: 8px;
+    width: 500px; height: 120px;
+    color: #C5C5C5;
+    font-size: 14px;
+    padding-left: 16px; padding-top: 12px; padding-right: 95px;
+    border-radius: 5px;
+    border : 1px solid #C5C5C5
+}
