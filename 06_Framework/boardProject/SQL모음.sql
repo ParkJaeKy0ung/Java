@@ -630,10 +630,18 @@ AND MEMBER_NO = 1 -- 로그인 회원 번호
 ;
 
 
+-- 좋아요 테이블 삽입
+INSERT INTO "BOARD_LIKE"
+VALUES (1999, 3)
+;
 
+-- 좋아요 테이블 삭제
+DELETE FROM "BOARD_LIKE"
+WHERE BOARD_NO = 1999
+AND MEMBER_NO = 3
+;
 
-
-
+COMMIT;
 
 
 

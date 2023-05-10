@@ -321,7 +321,7 @@ footer span{
 #memberProfile{
     width: 64px;
     height: 64px;
-    boarder-radius: 50%
+    border-radius: 50%
 }
 
 /* 프로필 이미지를 감싸고 있는 a태그 */
