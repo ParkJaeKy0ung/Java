@@ -100,6 +100,7 @@ public class BoardServiceImpl implements BoardService{
 	public int updateReadCount(int boardNo) {
 		return dao.updateReadCount(boardNo);
 	}
+
 	
 	
 	

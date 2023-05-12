@@ -25,4 +25,5 @@ public interface BoardService {
 	// 조회 수 증가 서비스
 	int updateReadCount(int boardNo);
 
+
 }

@@ -11,6 +11,14 @@ import org.springframework.stereotype.Repository;
 import edu.kh.project.board.model.dto.Board;
 import edu.kh.project.board.model.dto.Pagination;
 
+/**
+ * @author user1
+ *
+ */
+/**
+ * @author user1
+ *
+ */
 @Repository
 public class BoardDAO {
 
