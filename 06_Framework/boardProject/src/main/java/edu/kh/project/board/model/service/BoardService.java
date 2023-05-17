@@ -25,5 +25,10 @@ public interface BoardService {
 	// 조회 수 증가 서비스
 	int updateReadCount(int boardNo);
 
+	// 게시글 목록 조회 (검색)
+	Map<String, Object> selectBoardList(Map<String, Object> paramMap, int cp);
+
+	// 헤더 검색
+	List<Map<String, Object>> headerSearch(String query);
 
 }
