@@ -178,10 +178,10 @@ if(imageInput != null){ // 화면에 imageInput이 있을 경우
     // 회원 프로필 화면 진입 시
     // 현재 회원의 프로필 이미지 상태를 확인
     if(profileImage.getAttribute("src") == "/resources/images/user.png"){
-        initCheck = false;
+        initCheck = false; // 기본 이미지
     }
     else{
-        initCheck = true;
+        initCheck = true; // 이전 업로드 이미지
     }
 
 

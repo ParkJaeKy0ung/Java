@@ -31,4 +31,7 @@ public interface BoardService {
 	// 헤더 검색
 	List<Map<String, Object>> headerSearch(String query);
 
+	// DB 이미지(파일) 목록 조회
+	List<String> selectImageList();
+
 }
