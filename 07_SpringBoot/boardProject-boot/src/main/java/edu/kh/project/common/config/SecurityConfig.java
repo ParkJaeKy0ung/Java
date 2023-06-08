@@ -9,7 +9,7 @@ public class SecurityConfig {
 
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-		
 		return new BCryptPasswordEncoder();
+		// spring한테 돌려줌. spring이 관리!
 	}
 }

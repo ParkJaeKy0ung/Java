@@ -197,7 +197,7 @@ btn3.addEventListener("click", () => {
 
 
 
-
+/* 
 // --------------------------------------------------------
 // 웹소켓 테스트
 // 1. SockJS 라이브러리 추가
@@ -230,6 +230,46 @@ testSock.onmessage = e => {
 
     console.log(`보낸 사람 : ${obj.name} / ${obj.str}`);
 }
+ */
 
+
+
+// 자바스크립트로 쿠키 얻어오기
+function getCookie(key){
+    const cookies = document.cookie;
+
+    // console.log(cookies); // saveId=user01@kh.or.kr; test=가나다; aaa=123;
+
+    // 배열.map() : 배열의 모든 요소를 순차 접근하여 함수 수행 후
+    //              수행 결과를 이용해서 새로운 배열을 만드는 함수
+    // [1,2,3].map(num => num*2) == [2,4,6]
+    const cookieList = cookies.split("; ").map(cookie => cookie.split("="));
+    //                  [a=1, b=2, c=3]     [[a,1], [b,2], [c,3]]
+
+    // console.log(cookieList); --> getCookie("saveId")
+
+    const obj = {}; // 비어있는 객체 생성
+    
+    for(let i=0; i<cookieList.length; i++){
+        obj[cookieList[i][0]] = cookieList[i][1];
+        //      == a(key)         == 1(value)
+    }
+
+    return obj[key];
+}
+
+
+// 쿠키에 saveId가 있을 경우
+if(document.querySelector("input[name='memberEmail']") != null){
+    // 화면에 memberEmail 입력 박스가 있을 경우 
+
+    const saveId = getCookie("saveId"); // 있으면 이메일, 없으면 undefined
+
+    if(saveId != undefined){ // 쿠키에 저장된 이메일이 있을 때
+        document.querySelector("input[name='memberEmail']").value = saveId;
+
+        document.querySelector("input[name='saveId']").checked = true;
+    }
+}
 
 
