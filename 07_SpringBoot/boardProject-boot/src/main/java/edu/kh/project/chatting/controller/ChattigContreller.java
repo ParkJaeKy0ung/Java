@@ -43,6 +43,9 @@ public class ChattigContreller {
     	Map<String, Object> map = new HashMap<>();
     	map.put("memberNo", loginMember.getMemberNo());
     	map.put("query", query);
+    	
+    	System.out.println("채팅 검색" + map);
+    	
     	return service.selectTarget(map);
     }
     
