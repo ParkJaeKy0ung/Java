@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>[[${name}]]님의 구매 목록</h1>
+
+    <h4>검은 펜 [[${blackPen}]]개: [[${totalBlack}]]원</h4>
+    <h4>빨간 펜 [[${redPen}]]개: [[${totalRed}]]원</h4>
+    <h4>파란 펜 [[${bluePen}]]개: [[${totalBlue}]]원</h4>
+    <h4>화이트 펜 [[${white}]]개: [[${totalWhite}]]원</h4>
+	<hr>
+    <h4>총합 [[${total}]]원을 결제하셨습니다.</h4>
+</body>
+</html>
